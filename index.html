@@ -82,156 +82,46 @@
         nav ul li a:hover {
             color: var(--accent-color);
         }
-        .hero {
+         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdn-uploads.huggingface.co/production/uploads/noauth/mx00DQbJ7NLY4uno57UO-.webp') no-repeat center center/cover;
             height: 100vh;
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
             color: var(--white);
             text-align: center;
             position: relative;
             overflow: hidden;
         }
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: linear-gradient(to top, var(--bg-color), transparent);
-        }
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            background-color: rgba(0, 0, 0, 0.6);
-            border-radius: 10px;
-            transform: translateY(-50px);
-            opacity: 0;
-            transition: all 0.5s ease;
-        }
-        .hero-content.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        .hero-content h1 {
+        
+        .hero h1 {
             font-family: 'Playfair Display', serif;
             font-size: 4rem;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-        .hero-content p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--white);
-            padding: 1rem 2.5rem;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .btn:hover {
-            background-color: #ff8c00;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        .section-heading {
-            font-family: 'Playfair Display', serif;
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            color: var(--primary-color);
-            position: relative;
-            padding-bottom: 1rem;
-        }
-        .section-heading::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background-color: var(--accent-color);
-        }
-        .services, .about, .testimonials, .contact {
-            padding: 8rem 0;
-        }
+        
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
+        
         .service-card {
             background-color: var(--white);
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
-            position: relative;
         }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
+        
         .service-image {
             height: 200px;
             background-size: cover;
             background-position: center;
-            position: relative;
         }
-        .service-image::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: linear-gradient(to top, var(--white), transparent);
-        }
-        .service-content {
-            padding: 1.5rem;
-        }
-        .service-content h3 {
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-        }
-        .about-text {
-            flex: 1;
-        }
-        .about-image {
-            flex: 1;
-            position: relative;
-        }
-        .about-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        .about-image::after {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: -20px;
-            bottom: -20px;
-            border: 5px solid var(--accent-color);
-            border-radius: 10px;
-            z-index: -1;
-        }
+        
         .testimonial {
             background-color: var(--white);
             padding: 2rem;
@@ -239,10 +129,6 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             margin-bottom: 2rem;
-        }
-        .testimonial:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         .contact-form {
             max-width: 600px;
@@ -337,9 +223,9 @@
         </div>
     </header>
 
-    <section id="home" class="hero">
+  <section id="home" class="hero">
+        <h1>Luxury Plumbing Solutions</h1>
         <div class="container hero-content">
-            <h1>Luxury Plumbing Solutions</h1>
             <p>Experience unparalleled craftsmanship and service with DR H2O, Sydney's premier plumbing experts.</p>
             <a href="#contact" class="btn">Request a Consultation</a>
         </div>
@@ -409,7 +295,7 @@
         </div>
     </section>
 
-    <section id="testimonials" class="testimonials">
+     <section id="testimonials" class="testimonials">
         <div class="container">
             <h2 class="section-heading">Client Testimonials</h2>
             <div class="testimonial">
