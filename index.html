@@ -7,9 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #1c3d5a;
-            --secondary-color: #0077be;
-            --accent-color: #ffd700;
+            --primary-color: #0077be;
+            --secondary-color: #005a8c;
             --text-color: #333;
             --bg-color: #f8f9fa;
             --white: #ffffff;
@@ -31,12 +30,14 @@
             padding: 0 2rem;
         }
         header {
-            background-color: var(--primary-color);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             z-index: 1000;
             transition: all 0.3s ease;
+        }
+        header.scrolled {
+            background-color: var(--primary-color);
         }
         .header-content {
             display: flex;
@@ -47,8 +48,12 @@
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--white);
+            color: var(--primary-color);
             text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        header.scrolled .logo {
+            color: var(--white);
         }
         nav ul {
             display: flex;
@@ -58,16 +63,22 @@
             margin-left: 2rem;
         }
         nav ul li a {
-            color: var(--white);
+            color: var(--primary-color);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
         }
-        nav ul li a:hover {
-            color: var(--accent-color);
+        header.scrolled nav ul li a {
+            color: var(--white);
         }
-    .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdn-uploads.huggingface.co/production/uploads/noauth/mx00DQbJ7NLY4uno57UO-.webp') no-repeat center center/cover;
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        header.scrolled nav ul li a:hover {
+            color: var(--bg-color);
+        }
+        .hero {
+            background: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/mx00DQbJ7NLY4uno57UO-.webp') no-repeat center center/cover;
             height: 100vh;
             display: flex;
             align-items: center;
@@ -75,28 +86,18 @@
             color: var(--white);
             position: relative;
         }
-
         .hero::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            height: 100px; /* Adjust this value to increase or decrease the gradient height */
+            height: 100px;
             background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
         }
-
         .hero-content {
             position: relative;
-            z-index: 1; /* Ensure the content stays above the gradient */
-        }       
-          .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdn-uploads.huggingface.co/production/uploads/noauth/mx00DQbJ7NLY4uno57UO-.webp') no-repeat center center/cover;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: var(--white);
+            z-index: 1;
         }
         .hero-content h1 {
             font-family: 'Playfair Display', serif;
@@ -235,7 +236,7 @@
                 grid-template-columns: 1fr;
             }
         }
-    </style>
+ </style>
 </head>
 <body>
     <header>
@@ -260,6 +261,7 @@
             <a href="#contact" class="btn">Request a Consultation</a>
         </div>
     </section>
+
 
     <section id="services" class="services">
         <div class="container">
@@ -386,8 +388,8 @@
             <p>Serving Sydney's Eastern Suburbs with pride</p>
         </div>
     </footer>
-
-     <script>
+   
+<script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
