@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="https://www.drh2o.com.au/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DR H2O - Luxury Plumbing Services in Sydney's Eastern Suburbs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #1c3d5a;
+            --secondary-color: #0077be;
+            --accent-color: #ffd700;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --white: #ffffff;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        header {
+            background-color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        header.scrolled {
+            background-color: var(--primary-color);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        header.scrolled .logo {
+            color: var(--white);
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 2rem;
+        }
+        nav ul li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            font-size: 1.1rem;
+        }
+        header.scrolled nav ul li a {
+            color: var(--white);
+        }
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: rgba(28, 61, 90, 0.8);
+            border-radius: 10px;
+            transform: translateY(-50px);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+        .hero-content.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+        }
+        .btn:hover {
+            background-color: #e6c200;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .services {
+            padding: 10rem 0;
+            background-color: var(--white);
+        }
+        .section-heading {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        .service-card {
+            background-color: var(--bg-color);
+            border-radius: 10px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease;
+            z-index: 0;
+        }
+        .service-card:hover::before {
+            top: 0;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        .service-card i {
+            font-size: 4rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .service-card:hover i,
+        .service-card:hover h3,
+        .service-card:hover p {
+            color: var(--white);
+        }
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .service-card h3,
+        .service-card p {
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .about {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, var(--white), transparent);
+        }
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 6rem;
+        }
+        .about-text {
+            flex: 1;
+        }
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 5px solid var(--accent-color);
+            border-radius: 10px;
+            z-index: -1;
+        }
+        .testimonials {
+            padding: 10rem 0;
+            background-color: var(--bg-color);
+        }
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .testimonial {
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .testimonial img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+        .testimonial p:first-of-type {
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .testimonial p:last-of-type {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        .contact {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 10rem 0;
+            position: relative;
+        }
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, var(--bg-color), transparent);
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 4rem;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(0, 119, 190, 0.2);
+        }
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 0;
+        }
+        .social-icons {
+            margin-top: 1rem;
+        }
+        .social-icons a {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+            .about-image::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#home" class="logo">DR H2O</a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="container hero-content">
+            <h1>Luxury Plumbing Solutions</h1>
+            <p>Experience unparalleled craftsmanship and service with DR H2O, Sydney's premier plumbing experts.</p>
+            <a href="#contact" class="btn">Request a Consultation</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-heading">Our Premium Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-wrench"></i>
+                    <h3>Emergency Plumbing</h3>
+                    <p>24/7 rapid response for all your urgent plumbing needs, ensuring minimal disruption to your life.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tint-slash"></i>
+                    <h3>Advanced Leak Detection</h3>
+                    <p>State-of-the-art technology to pinpoint and resolve leaks with surgical precision.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shower"></i>
+                    <h3>Luxury Bathroom Design</h3>
+<p>Transform your bathroom into a spa-like retreat with our bespoke renovation services.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-fire"></i>
+                    <h3>Expert Gas Fitting</h3>
+                    <p>Professional gas fitting services ensuring safety and efficiency for your home or business.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Whole Home Repiping</h3>
+                    <p>Comprehensive repiping solutions using premium materials for long-lasting performance.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-water"></i>
+                    <h3>Water Filtration Systems</h3>
+                    <p>Custom water filtration solutions for the purest, healthiest water throughout your home.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container about-content">
+            <div class="about-text">
+                <h2 class="section-heading">The DR H2O Difference</h2>
+                <p>With over two decades of experience in high-end residential and commercial plumbing, DR H2O has established itself as the premier plumbing service in Sydney's Eastern Suburbs. Our team of master plumbers brings unparalleled expertise and a commitment to excellence to every project.</p>
+                <p>Based in the heart of Randwick, we've built our reputation on reliability, precision, and an unwavering dedication to client satisfaction. When you choose DR H2O, you're not just getting a plumber - you're investing in peace of mind and the highest quality workmanship available.</p>
+                <p>Our innovative approaches, use of cutting-edge technology, and partnerships with premium fixture brands ensure that we deliver solutions that are not only functional but also enhance the aesthetic and value of your property.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80" alt="DR H2O expert at work" width="600" height="400">
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-heading">Client Testimonials</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <img src="/api/placeholder/100/100" alt="Sarah J.">
+                    <p>"DR H2O's expertise saved us from a potential disaster. Their emergency response was swift, and the quality of work was exceptional. They've earned our trust and highest recommendation."</p>
+                    <p>Sarah J., Vaucluse</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-heading">Schedule Your Consultation</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Service of Interest</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a Service</option>
+                        <option value="emergency">Emergency Plumbing</option>
+                        <option value="leak">Leak Detection</option>
+                        <option value="bathroom">Bathroom Renovation</option>
+                        <option value="gas">Gas Fitting</option>
+                        <option value="repiping">Whole Home Repiping</option>
+                        <option value="filtration">Water Filtration</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Request</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 DR H2O. All rights reserved. | License No: PL12345</p>
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // GSAP animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero content animation
+        gsap.to('.hero-content', {
+            scrollTrigger: {
+                trigger: '.hero',
+                start: 'top center',
+                end: 'bottom center',
+                toggleClass: 'show'
+            }
+        });
+
+        // Service cards animation
+        gsap.from('.service-card', {
+            scrollTrigger: {
+                trigger: '.services',
+                start: 'top center'
+            },
+            opacity: 0,
+            y: 50,
+            stagger: 0.2,
+            duration: 1
+        });
+
+        // About section animation
+        gsap.from('.about-content', {
+            scrollTrigger: {
+                trigger: '.about',
+                start: 'top center'
+            },
+            opacity: 0,
+            x: -100,
+            duration: 1
+        });
+
+        // Testimonial animation
+        gsap.from('.testimonial', {
+            scrollTrigger: {
+                trigger: '.testimonials',
+                start: 'top center'
+            },
+            opacity: 0,
+            scale: 0.8,
+            duration: 1
+        });
+
+        // Contact form animation
+        gsap.from('.contact-form', {
+            scrollTrigger: {
+                trigger: '.contact',
+                start: 'top center'
+            },
+            opacity: 0,
+            y: 50,
+            duration: 1
+        });
+
+        // Section heading animations
+        gsap.from('.section-heading', {
+            scrollTrigger: {
+                trigger: '.section-heading',
+                start: 'top 80%'
+            },
+            opacity: 0,
+            y: 30,
+            duration: 0.8
+        });
+
+        // Three.js animated background
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('hero-canvas'), alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        const geometry = new THREE.SphereGeometry(0.5, 32, 32);
+        const material = new THREE.MeshBasicMaterial({ color: 0x0077be, transparent: true, opacity: 0.6 });
+        const particles = [];
+
+        for (let i = 0; i < 200; i++) {
+            const particle = new THREE.Mesh(geometry, material);
+            particle.position.set(
+                Math.random() * 20 - 10,
+                Math.random() * 20 - 10,
+                Math.random() * 20 - 10
+            );
+            particle.scale.set(Math.random(), Math.random(), Math.random());
+            scene.add(particle);
+            particles.push(particle);
+        }
+
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            particles.forEach(particle => {
+                particle.position.y -= 0.01;
+                if (particle.position.y < -10) particle.position.y = 10;
+            });
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest. Our team will contact you shortly to schedule your consultation.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
