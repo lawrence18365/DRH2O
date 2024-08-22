@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DR H2O - Luxury Plumbing Services in Sydney's Eastern Suburbs</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary-color: #1c3d5a;
@@ -111,26 +110,40 @@
         }
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
         .service-card {
             background-color: var(--white);
-            padding: 2rem;
             border-radius: 10px;
+            overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
         .service-card:hover {
             transform: translateY(-10px);
         }
-        .service-card i {
-            font-size: 3rem;
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
+        .service-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
         }
-        .service-card h3 {
+        .service-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, var(--white), transparent);
+        }
+        .service-content {
+            padding: 1.5rem;
+        }
+        .service-content h3 {
             margin-bottom: 1rem;
+            color: var(--primary-color);
         }
         .about-content {
             display: flex;
@@ -166,7 +179,8 @@
             margin-bottom: 0.5rem;
         }
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 0.8rem;
             border: 1px solid #ddd;
@@ -185,8 +199,16 @@
             .hero-content p {
                 font-size: 1.2rem;
             }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
             .about-content {
                 flex-direction: column;
+            }
+        }
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -220,34 +242,46 @@
             <h2 class="section-heading">Our Premium Services</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <i class="fas fa-wrench"></i>
-                    <h3>Emergency Plumbing</h3>
-                    <p>24/7 rapid response for all your urgent plumbing needs, ensuring minimal disruption to your life.</p>
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');"></div>
+                    <div class="service-content">
+                        <h3>Emergency Plumbing</h3>
+                        <p>24/7 rapid response for all your urgent plumbing needs, ensuring minimal disruption to your life.</p>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-tint-slash"></i>
-                    <h3>Advanced Leak Detection</h3>
-                    <p>State-of-the-art technology to pinpoint and resolve leaks with surgical precision.</p>
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="service-content">
+                        <h3>Advanced Leak Detection</h3>
+                        <p>State-of-the-art technology to pinpoint and resolve leaks with surgical precision.</p>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-shower"></i>
-                    <h3>Luxury Bathroom Design</h3>
-                    <p>Transform your bathroom into a spa-like retreat with our bespoke renovation services.</p>
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1604709177225-055f99402ea3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');"></div>
+                    <div class="service-content">
+                        <h3>Luxury Bathroom Design</h3>
+                        <p>Transform your bathroom into a spa-like retreat with our bespoke renovation services.</p>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-fire"></i>
-                    <h3>Expert Gas Fitting</h3>
-                    <p>Professional gas fitting services ensuring safety and efficiency for your home or business.</p>
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1585202900225-6d3ac20a6962?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80');"></div>
+                    <div class="service-content">
+                        <h3>Expert Gas Fitting</h3>
+                        <p>Professional gas fitting services ensuring safety and efficiency for your home or business.</p>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-home"></i>
-                    <h3>Whole Home Repiping</h3>
-                    <p>Comprehensive repiping solutions using premium materials for long-lasting performance.</p>
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');"></div>
+                    <div class="service-content">
+                        <h3>Whole Home Repiping</h3>
+                        <p>Comprehensive repiping solutions using premium materials for long-lasting performance.</p>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-water"></i>
-                    <h3>Water Filtration Systems</h3>
-                    <p>Custom water filtration solutions for the purest, healthiest water throughout your home.</p>
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1585351923007-bf6a01cb19de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80');"></div>
+                    <div class="service-content">
+                        <h3>Water Filtration Systems</h3>
+                        <p>Custom water filtration solutions for the purest, healthiest water throughout your home.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -329,7 +363,7 @@
         </div>
     </footer>
 
-    <script>
+     <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -349,5 +383,3 @@
     </script>
 </body>
 </html>
-</antArt
-</ifact>
