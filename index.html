@@ -1,211 +1,407 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DR H2O - Luxury Plumbing Services in Sydney's Eastern Suburbs</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
-    <style>
-        :root {
-            --primary-color: #0077be;
-            --secondary-color: #005a8c;
-            --accent-color: #ffa500;
-            --text-color: #333;
-            --bg-color: #f8f9fa;
-            --white: #ffffff;
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        header {
-            background-color: var(--white);
-            color: var(--primary-color);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        header.scrolled {
-            background-color: var(--primary-color);
-            color: var(--white);
-        }
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-family: 'Playfair Display', serif;
+<html><head><base href="https://www.drh2o.com.au/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DR H2O - Premier Plumbing Services in Sydney's Eastern Suburbs</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+<style>
+    :root {
+        --primary-color: #0077be;
+        --secondary-color: #005a8c;
+        --accent-color: #ffa500;
+        --text-color: #333;
+        --bg-color: #f0f8ff;
+        --white: #ffffff;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    header {
+        background-color: var(--white);
+        color: var(--primary-color);
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    header.scrolled {
+        background-color: var(--primary-color);
+        color: var(--white);
+    }
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    header.scrolled .logo {
+        color: var(--white);
+    }
+    nav ul {
+        display: flex;
+        list-style: none;
+    }
+    nav ul li {
+        margin-left: 2rem;
+    }
+    nav ul li a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+    header.scrolled nav ul li a {
+        color: var(--white);
+    }
+    nav ul li a:hover {
+        color: var(--accent-color);
+    }
+    .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        color: var(--white);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .hero::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background: linear-gradient(to top, var(--bg-color), transparent);
+    }
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+        transform: translateY(-50px);
+        opacity: 0;
+        transition: all 0.5s ease;
+    }
+    .hero-content.show {
+        transform: translateY(0);
+        opacity: 1;
+    }
+   <style>
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.btn {
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #ff8c00;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+    .services {
+        padding: 8rem 0;
+        background-color: var(--white);
+    }
+    .section-heading {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        color: var(--primary-color);
+        position: relative;
+        padding-bottom: 1rem;
+    }
+    .section-heading::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background-color: var(--accent-color);
+    }
+   <style>
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.service-card p {
+    margin-bottom: 1rem;
+}
+
+.service-card ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.service-card ul li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.service-card ul li::before {
+    content: '\2022';
+    color: var(--accent-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+    .about {
+        background-color: var(--primary-color);
+        color: var(--white);
+        padding: 8rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+    .about::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background: linear-gradient(to bottom, var(--white), transparent);
+    }
+    .about-content {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+    }
+    .about-text {
+        flex: 1;
+    }
+    .about-image {
+        flex: 1;
+        position: relative;
+    }
+    .about-image img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .about-image::after {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        right: -20px;
+        bottom: -20px;
+        border: 5px solid var(--accent-color);
+        border-radius: 10px;
+        z-index: -1;
+    }
+    .testimonials {
+        padding: 8rem 0;
+        background-color: var(--bg-color);
+    }
+    .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-content {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
+.testimonial-content p {
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.testimonial-author h4 {
+    font-weight: 600;
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.testimonial-author p {
+    margin: 0;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+    .contact {
+        background-color: var(--secondary-color);
+        color: var(--white);
+        padding: 8rem 0;
+        position: relative;
+    }
+    .contact::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background: linear-gradient(to bottom, var(--bg-color), transparent);
+    }
+    .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: var(--white);
+        padding: 3rem;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+    }
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 2px rgba(0, 119, 190, 0.2);
+    }
+    footer {
+        background-color: var(--text-color);
+        color: var(--white);
+        text-align: center;
+        padding: 2rem 0;
+    }
+    .water-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+    }
+    .water-drop {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: rgba(0, 119, 190, 0.3);
+        border-radius: 50%;
+    }
+    
+    @media (max-width: 768px) {
+        .hero-content h1 {
             font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
         }
-        header.scrolled .logo {
-            color: var(--white);
+        .hero-content p {
+            font-size: 1rem;
         }
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        nav ul li {
-            margin-left: 2rem;
-        }
-        nav ul li a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-        header.scrolled nav ul li a {
-            color: var(--white);
-        }
-        nav ul li a:hover {
-            color: var(--accent-color);
-        }
-         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdn-uploads.huggingface.co/production/uploads/noauth/mx00DQbJ7NLY4uno57UO-.webp') no-repeat center center/cover;
-            height: 100vh;
-            display: flex;
+        .about-content {
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: var(--white);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
         }
-        
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        .about-image::after {
+            display: none;
         }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-        
-        .service-card {
-            background-color: var(--white);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .service-image {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .testimonial {
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            margin-bottom: 2rem;
-        }
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: var(--white);
-            padding: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(0, 119, 190, 0.2);
-        }
-        footer {
-            background-color: var(--primary-color);
-            color: var(--white);
-            text-align: center;
-            padding: 2rem 0;
-        }
-        .water-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        .water-drop {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: rgba(0, 119, 190, 0.3);
-            border-radius: 50%;
-        }
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-            .hero-content p {
-                font-size: 1.2rem;
-            }
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .about-content {
-                flex-direction: column;
-            }
-            .about-image::after {
-                display: none;
-            }
-        }
-        @media (max-width: 480px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
     <header>
@@ -223,137 +419,146 @@
         </div>
     </header>
 
-  <section id="home" class="hero">
-        <h1>Luxury Plumbing Solutions</h1>
-        <div class="container hero-content">
-            <p>Experience unparalleled craftsmanship and service with DR H2O, Sydney's premier plumbing experts.</p>
-            <a href="#contact" class="btn">Request a Consultation</a>
-        </div>
-    </section>
+<section id="home" class="hero">
+    <div class="container hero-content">
+        <h1>DR H2O: Expert Plumbing Solutions</h1>
+        <p>Your trusted plumbing partner in Sydney's Eastern Suburbs</p>
+        <a href="#contact" class="btn">Get a Free Quote</a>
+    </div>
+</section>
 
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-heading">Our Premium Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');"></div>
-                    <div class="service-content">
-                        <h3>Emergency Plumbing</h3>
-                        <p>24/7 rapid response for all your urgent plumbing needs, ensuring minimal disruption to your life.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
-                    <div class="service-content">
-                        <h3>Advanced Leak Detection</h3>
-                        <p>State-of-the-art technology to pinpoint and resolve leaks with surgical precision.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1604709177225-055f99402ea3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');"></div>
-                    <div class="service-content">
-                        <h3>Luxury Bathroom Design</h3>
-                        <p>Transform your bathroom into a spa-like retreat with our bespoke renovation services.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                 <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1585202900225-6d3ac20a6962?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80');"></div>
-                    <div class="service-content">
-                        <h3>Expert Gas Fitting</h3>
-                        <p>Professional gas fitting services ensuring safety and efficiency for your home or business.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');"></div>
-                    <div class="service-content">
-                        <h3>Whole Home Repiping</h3>
-                        <p>Comprehensive repiping solutions using premium materials for long-lasting performance.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1585351923007-bf6a01cb19de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80');"></div>
-                    <div class="service-content">
-                        <h3>Water Filtration Systems</h3>
-                        <p>Custom water filtration solutions for the purest, healthiest water throughout your home.</p>
-                    </div>
-                </div>
+   <section id="services" class="services">
+    <div class="container">
+        <h2 class="section-heading">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-wrench"></i>
+                <h3>Emergency Plumbing</h3>
+                <p>24/7 emergency service for all your urgent plumbing needs. We respond quickly to minimize damage and restore your peace of mind.</p>
+                <ul>
+                    <li>Burst pipes</li>
+                    <li>Blocked drains</li>
+                    <li>Water heater failures</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-tint-slash"></i>
+                <h3>Leak Detection</h3>
+                <p>State-of-the-art technology to detect and repair leaks quickly. We use non-invasive methods to locate and fix leaks with minimal disruption.</p>
+                <ul>
+                    <li>Hidden pipe leaks</li>
+                    <li>Slab leak detection</li>
+                    <li>Water meter leak tests</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-shower"></i>
+                <h3>Bathroom Renovations</h3>
+                <p>Transform your bathroom with our expert renovation services. We handle everything from design to installation for a hassle-free experience.</p>
+                <ul>
+                    <li>Custom designs</li>
+                    <li>Fixture upgrades</li>
+                    <li>Waterproofing</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-fire"></i>
+                <h3>Gas Fitting</h3>
+                <p>Professional gas fitting services for your home or business. We ensure safe and efficient gas installations and repairs.</p>
+                <ul>
+                    <li>Gas appliance installation</li>
+                    <li>Gas leak detection</li>
+                    <li>Gas line repairs</li>
+                </ul>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
     <section id="about" class="about">
         <div class="container about-content">
             <div class="about-text">
-                <h2 class="section-heading">The DR H2O Difference</h2>
-                <p>With over two decades of experience in high-end residential and commercial plumbing, DR H2O has established itself as the premier plumbing service in Sydney's Eastern Suburbs. Our team of master plumbers brings unparalleled expertise and a commitment to excellence to every project.</p>
-                <p>Based in the heart of Randwick, we've built our reputation on reliability, precision, and an unwavering dedication to client satisfaction. When you choose DR H2O, you're not just getting a plumber - you're investing in peace of mind and the highest quality workmanship available.</p>
-                <p>Our innovative approaches, use of cutting-edge technology, and partnerships with premium fixture brands ensure that we deliver solutions that are not only functional but also enhance the aesthetic and value of your property.</p>
+                <h2 class="section-heading">About DR H2O</h2>
+                <p>With over a decade of experience in domestic and strata maintenance, DR H2O has become the go-to plumbing service in Sydney's Eastern Suburbs. Our team of fully licensed professionals is committed to delivering top-quality solutions for all your plumbing needs.</p>
+                <p>Based in Randwick, NSW 2031, we pride ourselves on our reliability, expertise, and customer-first approach. When you choose DR H2O, you're choosing peace of mind.</p>
             </div>
             <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80" alt="DR H2O expert at work">
+                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1469&amp;q=80" alt="Plumber at work" width="600" height="400">
             </div>
         </div>
     </section>
 
-     <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2 class="section-heading">Client Testimonials</h2>
+   <section id="testimonials" class="testimonials">
+    <div class="container">
+        <h2 class="section-heading">What Our Customers Say</h2>
+        <div class="testimonial-grid">
             <div class="testimonial">
-                <p>"DR H2O's expertise saved us from a potential disaster. Their emergency response was swift, and the quality of work was exceptional. They've earned our trust and highest recommendation."</p>
-                <p><strong>- Sarah J., Vaucluse</strong></p>
+                <div class="testimonial-content">
+                    <p>"DR H2O saved the day when we had a major leak. Their response was quick, and the work was top-notch. The team was professional, courteous, and cleaned up thoroughly after the job. Highly recommended!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="/api/placeholder/80/80" alt="Sarah J." />
+                    <div>
+                        <h4>Sarah J.</h4>
+                        <p>Randwick</p>
+                    </div>
+                </div>
             </div>
             <div class="testimonial">
-                <p>"Professional, courteous, and efficient. DR H2O has been our go-to plumber for years, and they never disappoint. Their attention to detail and commitment to quality is unmatched."</p>
-                <p><strong>- Michael T., Bondi</strong></p>
+                <div class="testimonial-content">
+                    <p>"Professional, courteous, and efficient. DR H2O has been our go-to plumber for years, and they never disappoint. They always explain the issue clearly and provide cost-effective solutions. A trustworthy service!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="/api/placeholder/80/80" alt="Michael T." />
+                    <div>
+                        <h4>Michael T.</h4>
+                        <p>Bondi</p>
+                    </div>
+                </div>
             </div>
             <div class="testimonial">
-                <p>"The team at DR H2O did an amazing job with our bathroom renovation. Their design expertise and craftsmanship transformed our outdated bathroom into a luxurious spa. Couldn't be happier with the results!"</p>
-                <p><strong>- Emma L., Coogee</strong></p>
+                <div class="testimonial-content">
+                    <p>"The team at DR H2O did an amazing job with our bathroom renovation. They were punctual, respectful of our home, and delivered beyond our expectations. The attention to detail was impressive. Couldn't be happier with the results!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="/api/placeholder/80/80" alt="Emma L." />
+                    <div>
+                        <h4>Emma L.</h4>
+                        <p>Coogee</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-heading">Schedule Your Consultation</h2>
+            <h2 class="section-heading">Contact Us</h2>
             <form class="contact-form">
                 <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required="">
                 </div>
                 <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required="">
                 </div>
                 <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="service">Service of Interest</label>
-                    <select id="service" name="service" required>
-                        <option value="">Select a Service</option>
-                        <option value="emergency">Emergency Plumbing</option>
-                        <option value="leak">Leak Detection</option>
-                        <option value="bathroom">Bathroom Renovation</option>
-                        <option value="gas">Gas Fitting</option>
-                        <option value="repiping">Whole Home Repiping</option>
-                        <option value="filtration">Water Filtration</option>
-                    </select>
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" required="">
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <textarea id="message" name="message" rows="5" required=""></textarea>
                 </div>
-                <button type="submit" class="btn">Send Request</button>
+                <button type="submit" class="btn">Send Message</button>
             </form>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 DR H2O. All rights reserved. | License No: PL12345</p>
-            <p>Serving Sydney's Eastern Suburbs with pride</p>
+            <p>© 2023 DR H2O. All rights reserved. | License No: PL12345</p>
         </div>
     </footer>
 
@@ -477,9 +682,9 @@
         // Form submission
         document.querySelector('.contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your interest. Our team will contact you shortly to schedule your consultation.');
+            alert('Thank you for your message. We will get back to you soon!');
             this.reset();
         });
     </script>
-</body>
-</html>
+
+</body></html>
