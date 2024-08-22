@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="https://www.drh2o.com.au/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DR H2O - Luxury Plumbing Services in Sydney's Eastern Suburbs</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
         :root {
             --primary-color: #1c3d5a;
@@ -31,21 +27,17 @@
             background-color: var(--bg-color);
         }
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
         header {
-            background-color: var(--white);
+            background-color: var(--primary-color);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             z-index: 1000;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        header.scrolled {
-            background-color: var(--primary-color);
         }
         .header-content {
             display: flex;
@@ -56,12 +48,8 @@
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        header.scrolled .logo {
             color: var(--white);
+            text-decoration: none;
         }
         nav ul {
             display: flex;
@@ -71,59 +59,30 @@
             margin-left: 2rem;
         }
         nav ul li a {
-            color: var(--primary-color);
+            color: var(--white);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
-            font-size: 1.1rem;
-        }
-        header.scrolled nav ul li a {
-            color: var(--white);
         }
         nav ul li a:hover {
             color: var(--accent-color);
         }
         .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
             height: 100vh;
             display: flex;
             align-items: center;
-            color: var(--white);
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        #hero-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            background-color: rgba(28, 61, 90, 0.8);
-            border-radius: 10px;
-            transform: translateY(-50px);
-            opacity: 0;
-            transition: all 0.5s ease;
-        }
-        .hero-content.show {
-            transform: translateY(0);
-            opacity: 1;
+            color: var(--white);
         }
         .hero-content h1 {
             font-family: 'Playfair Display', serif;
             font-size: 4rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         .hero-content p {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
         .btn {
             display: inline-block;
@@ -135,246 +94,99 @@
             transition: all 0.3s ease;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 1.1rem;
         }
         .btn:hover {
             background-color: #e6c200;
             transform: translateY(-3px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        .services {
-            padding: 10rem 0;
-            background-color: var(--white);
         }
         .section-heading {
             font-family: 'Playfair Display', serif;
             text-align: center;
             font-size: 3rem;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             color: var(--primary-color);
-            position: relative;
-            padding-bottom: 1rem;
         }
-        .section-heading::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background-color: var(--accent-color);
+        .services, .about, .testimonials, .contact {
+            padding: 5rem 0;
         }
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
         }
         .service-card {
-            background-color: var(--bg-color);
+            background-color: var(--white);
+            padding: 2rem;
             border-radius: 10px;
-            padding: 3rem;
-            text-align: center;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: -100%;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--primary-color);
-            transition: all 0.3s ease;
-            z-index: 0;
-        }
-        .service-card:hover::before {
-            top: 0;
         }
         .service-card:hover {
             transform: translateY(-10px);
         }
         .service-card i {
-            font-size: 4rem;
+            font-size: 3rem;
             color: var(--secondary-color);
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-            transition: all 0.3s ease;
-        }
-        .service-card:hover i,
-        .service-card:hover h3,
-        .service-card:hover p {
-            color: var(--white);
-        }
-        .service-card h3 {
-            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
-        .service-card h3,
-        .service-card p {
-            position: relative;
-            z-index: 1;
-            transition: all 0.3s ease;
-        }
-        .about {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 10rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-        .about::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: linear-gradient(to bottom, var(--white), transparent);
+        .service-card h3 {
+            margin-bottom: 1rem;
         }
         .about-content {
             display: flex;
             align-items: center;
-            gap: 6rem;
+            gap: 4rem;
         }
         .about-text {
             flex: 1;
         }
         .about-image {
             flex: 1;
-            position: relative;
         }
         .about-image img {
             width: 100%;
             border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-        .about-image::after {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: -20px;
-            bottom: -20px;
-            border: 5px solid var(--accent-color);
-            border-radius: 10px;
-            z-index: -1;
-        }
-        .testimonials {
-            padding: 10rem 0;
-            background-color: var(--bg-color);
-        }
-        .testimonial-slider {
-            max-width: 800px;
-            margin: 0 auto;
-            overflow: hidden;
         }
         .testimonial {
             background-color: var(--white);
-            padding: 3rem;
+            padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-        .testimonial img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 1rem;
-        }
-        .testimonial p:first-of-type {
-            font-style: italic;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-        .testimonial p:last-of-type {
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-        .contact {
-            background-color: var(--secondary-color);
-            color: var(--white);
-            padding: 10rem 0;
-            position: relative;
-        }
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: linear-gradient(to bottom, var(--bg-color), transparent);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
         }
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
-            background-color: var(--white);
-            padding: 4rem;
-            border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
         .form-group {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: var(--text-color);
-            font-weight: 600;
         }
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 1rem;
+            padding: 0.8rem;
             border: 1px solid #ddd;
             border-radius: 5px;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--secondary-color);
-            box-shadow: 0 0 0 2px rgba(0, 119, 190, 0.2);
         }
         footer {
             background-color: var(--primary-color);
             color: var(--white);
             text-align: center;
-            padding: 3rem 0;
+            padding: 2rem 0;
         }
-        .social-icons {
-            margin-top: 1rem;
-        }
-        .social-icons a {
-            color: var(--white);
-            font-size: 1.5rem;
-            margin: 0 0.5rem;
-            transition: color 0.3s ease;
-        }
-        .social-icons a:hover {
-            color: var(--accent-color);
-        }
-        
         @media (max-width: 768px) {
             .hero-content h1 {
                 font-size: 3rem;
             }
             .hero-content p {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
             .about-content {
                 flex-direction: column;
-            }
-            .about-image::after {
-                display: none;
             }
         }
     </style>
@@ -396,7 +208,6 @@
     </header>
 
     <section id="home" class="hero">
-        <canvas id="hero-canvas"></canvas>
         <div class="container hero-content">
             <h1>Luxury Plumbing Solutions</h1>
             <p>Experience unparalleled craftsmanship and service with DR H2O, Sydney's premier plumbing experts.</p>
@@ -421,7 +232,7 @@
                 <div class="service-card">
                     <i class="fas fa-shower"></i>
                     <h3>Luxury Bathroom Design</h3>
-<p>Transform your bathroom into a spa-like retreat with our bespoke renovation services.</p>
+                    <p>Transform your bathroom into a spa-like retreat with our bespoke renovation services.</p>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-fire"></i>
@@ -451,7 +262,7 @@
                 <p>Our innovative approaches, use of cutting-edge technology, and partnerships with premium fixture brands ensure that we deliver solutions that are not only functional but also enhance the aesthetic and value of your property.</p>
             </div>
             <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80" alt="DR H2O expert at work" width="600" height="400">
+                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80" alt="DR H2O expert at work">
             </div>
         </div>
     </section>
@@ -459,12 +270,17 @@
     <section id="testimonials" class="testimonials">
         <div class="container">
             <h2 class="section-heading">Client Testimonials</h2>
-            <div class="testimonial-slider">
-                <div class="testimonial">
-                    <img src="/api/placeholder/100/100" alt="Sarah J.">
-                    <p>"DR H2O's expertise saved us from a potential disaster. Their emergency response was swift, and the quality of work was exceptional. They've earned our trust and highest recommendation."</p>
-                    <p>Sarah J., Vaucluse</p>
-                </div>
+            <div class="testimonial">
+                <p>"DR H2O's expertise saved us from a potential disaster. Their emergency response was swift, and the quality of work was exceptional. They've earned our trust and highest recommendation."</p>
+                <p><strong>- Sarah J., Vaucluse</strong></p>
+            </div>
+            <div class="testimonial">
+                <p>"Professional, courteous, and efficient. DR H2O has been our go-to plumber for years, and they never disappoint. Their attention to detail and commitment to quality is unmatched."</p>
+                <p><strong>- Michael T., Bondi</strong></p>
+            </div>
+            <div class="testimonial">
+                <p>"The team at DR H2O did an amazing job with our bathroom renovation. Their design expertise and craftsmanship transformed our outdated bathroom into a luxurious spa. Couldn't be happier with the results!"</p>
+                <p><strong>- Emma L., Coogee</strong></p>
             </div>
         </div>
     </section>
@@ -508,26 +324,12 @@
 
     <footer>
         <div class="container">
-            <p>© 2023 DR H2O. All rights reserved. | License No: PL12345</p>
-            <div class="social-icons">
-                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-            </div>
+            <p>&copy; 2023 DR H2O. All rights reserved. | License No: PL12345</p>
+            <p>Serving Sydney's Eastern Suburbs with pride</p>
         </div>
     </footer>
 
     <script>
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -536,118 +338,6 @@
                     behavior: 'smooth'
                 });
             });
-        });
-
-        // GSAP animations
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Hero content animation
-        gsap.to('.hero-content', {
-            scrollTrigger: {
-                trigger: '.hero',
-                start: 'top center',
-                end: 'bottom center',
-                toggleClass: 'show'
-            }
-        });
-
-        // Service cards animation
-        gsap.from('.service-card', {
-            scrollTrigger: {
-                trigger: '.services',
-                start: 'top center'
-            },
-            opacity: 0,
-            y: 50,
-            stagger: 0.2,
-            duration: 1
-        });
-
-        // About section animation
-        gsap.from('.about-content', {
-            scrollTrigger: {
-                trigger: '.about',
-                start: 'top center'
-            },
-            opacity: 0,
-            x: -100,
-            duration: 1
-        });
-
-        // Testimonial animation
-        gsap.from('.testimonial', {
-            scrollTrigger: {
-                trigger: '.testimonials',
-                start: 'top center'
-            },
-            opacity: 0,
-            scale: 0.8,
-            duration: 1
-        });
-
-        // Contact form animation
-        gsap.from('.contact-form', {
-            scrollTrigger: {
-                trigger: '.contact',
-                start: 'top center'
-            },
-            opacity: 0,
-            y: 50,
-            duration: 1
-        });
-
-        // Section heading animations
-        gsap.from('.section-heading', {
-            scrollTrigger: {
-                trigger: '.section-heading',
-                start: 'top 80%'
-            },
-            opacity: 0,
-            y: 30,
-            duration: 0.8
-        });
-
-        // Three.js animated background
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('hero-canvas'), alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-
-        const geometry = new THREE.SphereGeometry(0.5, 32, 32);
-        const material = new THREE.MeshBasicMaterial({ color: 0x0077be, transparent: true, opacity: 0.6 });
-        const particles = [];
-
-        for (let i = 0; i < 200; i++) {
-            const particle = new THREE.Mesh(geometry, material);
-            particle.position.set(
-                Math.random() * 20 - 10,
-                Math.random() * 20 - 10,
-                Math.random() * 20 - 10
-            );
-            particle.scale.set(Math.random(), Math.random(), Math.random());
-            scene.add(particle);
-            particles.push(particle);
-        }
-
-        camera.position.z = 5;
-
-        function animate() {
-            requestAnimationFrame(animate);
-
-            particles.forEach(particle => {
-                particle.position.y -= 0.01;
-                if (particle.position.y < -10) particle.position.y = 10;
-            });
-
-            renderer.render(scene, camera);
-        }
-
-        animate();
-
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
         });
 
         // Form submission
@@ -659,3 +349,5 @@
     </script>
 </body>
 </html>
+</antArt
+</ifact>
