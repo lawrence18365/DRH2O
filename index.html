@@ -82,16 +82,19 @@
         nav ul li a:hover {
             color: var(--accent-color);
         }
-        .hero {
-            url('https://cdn-uploads.huggingface.co/production/uploads/noauth/mx00DQbJ7NLY4uno57UO-.webp') no-repeat center center/cover;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            color: var(--white);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+       .hero {
+    background-image: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/mx00DQbJ7NLY4uno57UO-.webp');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
         .hero::after {
             content: '';
             position: absolute;
