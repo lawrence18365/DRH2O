@@ -48,7 +48,7 @@
             background-color: var(--primary-color);
             color: var(--white);
         }
-        .header-content {
+       .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,11 +57,16 @@
 
 .logo {
     display: block;
+    text-decoration: none;
 }
 
 .logo img {
-    max-height: 50px; /* Adjust this value as needed */
+    height: 60px; /* Increase this value as needed */
     width: auto;
+    border-radius: 10px; /* Adds rounded corners */
+    padding: 5px; /* Adds some space around the logo */
+    background-color: white; /* Ensures visibility against any background */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow */
 }
 
 nav ul {
@@ -84,6 +89,16 @@ nav ul li a {
 
 nav ul li a:hover {
     color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .logo img {
+        height: 50px; /* Slightly smaller on mobile devices */
+    }
+    
+    nav ul li {
+        margin-left: 1rem;
+    }
 }
        .hero {
     background-image: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/mx00DQbJ7NLY4uno57UO-.webp');
@@ -406,7 +421,7 @@ nav ul li a:hover {
 <header>
     <div class="container header-content">
         <a href="#home" class="logo">
-            <img src="https://i.ibb.co/Z18Fft5/upscale-1.png" alt="DR H2O Logo">
+            <img src="https://i.ibb.co/Z18Fft5/upscale-1.png" alt="DR H2O - For when your plumbing is under the weather">
         </a>
         <nav>
             <ul>
