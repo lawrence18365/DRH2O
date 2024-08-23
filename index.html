@@ -34,9 +34,11 @@
             margin: 0 auto;
             padding: 0 2rem;
         }
-       header {
-    position: sticky;
+   header {
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     background-color: white; /* Or any color that matches your design */
     z-index: 1000; /* Ensures the header stays on top of other content */
@@ -86,6 +88,11 @@ nav ul li a:hover {
     color: var(--accent-color);
 }
 
+/* Add padding to the body to prevent content from hiding behind the fixed header */
+body {
+    padding-top: 100px; /* Adjust this value based on your header's height */
+}
+
 @media (max-width: 768px) {
     .logo img {
         height: 60px;
@@ -93,6 +100,10 @@ nav ul li a:hover {
     
     nav ul li {
         margin-left: 1rem;
+    }
+    
+    body {
+        padding-top: 80px; /* Adjust for smaller header on mobile */
     }
 }
        .hero {
