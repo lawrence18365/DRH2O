@@ -34,15 +34,15 @@
             margin: 0 auto;
             padding: 0 2rem;
         }
-   header {
+ header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
-    background-color: white; /* Or any color that matches your design */
-    z-index: 1000; /* Ensures the header stays on top of other content */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow for depth */
+    background-color: var(--white);
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .header-content {
@@ -52,13 +52,8 @@
     padding: 1rem 0;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-}
-
 .logo img {
-    height: 100px;
+    height: 60px;
     width: auto;
     max-width: none;
     border-radius: 5px;
@@ -74,7 +69,7 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 2rem;
+    margin-left: 1.5rem;
 }
 
 nav ul li a {
@@ -90,20 +85,20 @@ nav ul li a:hover {
 
 /* Add padding to the body to prevent content from hiding behind the fixed header */
 body {
-    padding-top: 100px; /* Adjust this value based on your header's height */
+    padding-top: 80px; /* Adjust this value based on your header's height */
 }
 
 @media (max-width: 768px) {
     .logo img {
-        height: 60px;
+        height: 50px;
     }
-    
+
     nav ul li {
         margin-left: 1rem;
     }
-    
+
     body {
-        padding-top: 80px; /* Adjust for smaller header on mobile */
+        padding-top: 70px; /* Adjust for smaller header on mobile */
     }
 }
        .hero {
