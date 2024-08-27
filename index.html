@@ -233,6 +233,7 @@
         .about-text {
             flex: 1;
             padding: 3rem;
+            text-align: center; /* Center-align the text */
         }
         .about-image {
             flex: 1;
@@ -242,6 +243,14 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            .about-text, .about-image {
+                width: 100%;
+            }
         }
         .about-text h2 {
             color: var(--primary-color);
@@ -485,7 +494,7 @@
         </div>
     </section>
 
-     <section id="about" class="about">
+    <section id="about" class="about">
         <div class="container">
             <h2 class="section-heading">About Us</h2>
             <div class="about-content">
@@ -496,7 +505,7 @@
                     <p>Based in Randwick, NSW 2031, we pride ourselves on our reliability, expertise, and customer-first approach. When you choose DR H2O, you're choosing peace of mind.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://cdn-uploads.huggingface.co/production/uploads/noauth/LYLhHNWQ7k0SwDPzF4lKW.webp" alt="DR H2O Plumber at work" width="1024" height="1024">
+                    <img src="https://cdn-uploads.huggingface.co/production/uploads/noauth/LYLhHNWQ7k0SwDPzF4lKW.webp" alt="DR H2O Plumber at work">
                 </div>
             </div>
         </div>
