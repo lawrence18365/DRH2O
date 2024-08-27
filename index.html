@@ -224,65 +224,54 @@ body {
             height: 4px;
             background-color: var(--accent-color);
         }
-       services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-    }
-
-    .service-card {
-        background-color: var(--bg-color);
-        border-radius: 10px;
-        padding: 2rem;
-        text-align: center;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-    }
-
-    .service-card i {
-        font-size: 3rem;
-        color: var(--primary-color);
-        margin-bottom: 1rem;
-    }
-
-    .service-card h3 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        color: var(--primary-color);
-        min-height: 3.6em; /* Ensures two lines for all headings */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .service-card p {
-        margin-bottom: 1rem;
-        min-height: 4.8em; /* Ensures three lines for all descriptions */
-    }
-
-    .service-card ul {
-        list-style-type: none;
-        padding-left: 0;
-        text-align: left;
-    }
-
-    .service-card ul li {
-        margin-bottom: 0.5rem;
-        position: relative;
-        padding-left: 1.5rem;
-    }
-
-    .service-card ul li::before {
-        content: '\2022';
-        color: var(--accent-color);
-        font-weight: bold;
-        position: absolute;
-        left: 0;
-    }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            background-color: var(--bg-color);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: left;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        .service-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        .service-card p {
+            margin-bottom: 1rem;
+        }
+        .service-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .service-card ul li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .service-card ul li::before {
+            content: '\2022';
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
         .about {
             background-color: var(--primary-color);
             color: var(--white);
@@ -487,52 +476,52 @@ body {
     </section>
 
     <section id="services" class="services">
-    <div class="container">
-        <h2 class="section-heading">Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <i class="fas fa-wrench"></i>
-                <h3>Emergency<br>Plumbing</h3>
-                <p>24/7 service for urgent plumbing needs. Quick response to minimize damage and restore your peace of mind.</p>
-                <ul>
-                    <li>Burst pipes</li>
-                    <li>Blocked drains</li>
-                    <li>Water heater issues</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-tint-slash"></i>
-                <h3>Blocked Drain<br>Solutions</h3>
-                <p>Advanced technology for quick diagnosis and clearing of blocked drains. Efficient and long-lasting results.</p>
-                <ul>
-                    <li>CCTV inspection</li>
-                    <li>High-pressure jetting</li>
-                    <li>Drain maintenance</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-shower"></i>
-                <h3>Bathroom<br>Renovations</h3>
-                <p>Expert renovation services from design to installation. Transform your bathroom with our skilled team.</p>
-                <ul>
-                    <li>Custom designs</li>
-                    <li>Fixture upgrades</li>
-                    <li>Waterproofing</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-fire"></i>
-                <h3>Gas Fitting<br>Services</h3>
-                <p>Professional gas services ensuring safe and efficient installations. Expert solutions for all gas-related needs.</p>
-                <ul>
-                    <li>Appliance installation</li>
-                    <li>Leak detection</li>
-                    <li>Gas line repairs</li>
-                </ul>
+        <div class="container">
+            <h2 class="section-heading">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-wrench"></i>
+                    <h3>Emergency Plumbing</h3>
+                    <p>24/7 emergency service for all your urgent plumbing needs. We respond quickly to minimize damage and restore your peace of mind.</p>
+                    <ul>
+                        <li>Burst pipes</li>
+                        <li>Blocked drains</li>
+                        <li>Water heater failures</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tint-slash"></i>
+                    <h3>Blocked<br>Drains</h3>
+                    <p>State-of-the-art technology, Hi Pressure Jetting with CCTV for quick diagnosis and clearing.</p>
+                    <ul>
+                        <li>Hidden pipe leaks</li>
+                        <li>CCTV Drain Inspection</li>
+                        <li>Drain Cleaning and Maintenance</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shower"></i>
+                    <h3>Bathroom Renovations</h3>
+                    <p>Transform your bathroom with our expert renovation services. We handle everything from design to installation for a hassle-free experience.</p>
+                    <ul>
+                        <li>Custom designs</li>
+                        <li>Fixture upgrades</li>
+                        <li>Waterproofing</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-fire"></i>
+                    <h3>Gas<br>Fitting</h3>
+                    <p>Professional gas fitting services for your home or business. We ensure safe and efficient gas installations and repairs.</p>
+                    <ul>
+                        <li>Gas appliance installation</li>
+                        <li>Gas leak detection</li>
+                        <li>Gas line repairs</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <section id="about" class="about">
         <div class="container about-content">
@@ -542,7 +531,7 @@ body {
                 <p>Based in Randwick, NSW 2031, we pride ourselves on our reliability, expertise, and customer-first approach. When you choose DR H2O, you're choosing peace of mind.</p>
             </div>
             <div class="about-image">
-                <img src="https://cdn-uploads.huggingface.co/production/uploads/noauth/M30N5kHRZxJmtyIqodn5j.webp" alt="Plumber at work" width="600" height="400">
+                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80" alt="Plumber at work" width="600" height="400">
             </div>
         </div>
     </section>
