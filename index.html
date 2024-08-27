@@ -215,28 +215,23 @@
             left: 0;
         }
         .about {
-            background-color: var(--primary-color);
-            color: var(--white);
+            background-color: var(--bg-color);
+            color: var(--text-color);
             padding: 8rem 0;
             position: relative;
-            overflow: hidden;
-        }
-        .about::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: linear-gradient(to bottom, var(--white), transparent);
         }
         .about-content {
             display: flex;
             align-items: center;
             gap: 4rem;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
         .about-text {
             flex: 1;
+            padding: 3rem;
         }
         .about-image {
             flex: 1;
@@ -244,23 +239,26 @@
         }
         .about-image img {
             width: 100%;
-            height: auto;
-            max-width: 1024px;
-            max-height: 1024px;
+            height: 100%;
             object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        .about-image::after {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: -20px;
-            bottom: -20px;
-            border: 5px solid var(--accent-color);
-            border-radius: 10px;
-            z-index: -1;
+        .about-text h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            .about-image {
+                order: -1;
+            }
+            .about-image img {
+                height: 300px;
+            }
         }
         .testimonials {
             padding: 8rem 0;
@@ -471,15 +469,19 @@
         </div>
     </section>
 
-    <section id="about" class="about">
-        <div class="container about-content">
-            <div class="about-text">
-                <h2 class="section-heading">About DR H2O</h2>
-                <p>With over a decade of experience in domestic and strata maintenance, DR H2O has become the go-to plumbing service in Sydney's Eastern Suburbs. Our team of fully licensed professionals is committed to delivering top-quality solutions for all your plumbing needs.</p>
-                <p>Based in Randwick, NSW 2031, we pride ourselves on our reliability, expertise, and customer-first approach. When you choose DR H2O, you're choosing peace of mind.</p>
-            </div>
-            <div class="about-image">
-                <img src="https://cdn-uploads.huggingface.co/production/uploads/noauth/LYLhHNWQ7k0SwDPzF4lKW.webp" alt="Plumber at work" width="1024" height="1024">
+     <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-heading">About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>DR H2O: Your Trusted Plumbing Partner</h2>
+                    <p>With over a decade of experience in domestic and strata maintenance, DR H2O has become the go-to plumbing service in Sydney's Eastern Suburbs.</p>
+                    <p>Our team of fully licensed professionals is committed to delivering top-quality solutions for all your plumbing needs.</p>
+                    <p>Based in Randwick, NSW 2031, we pride ourselves on our reliability, expertise, and customer-first approach. When you choose DR H2O, you're choosing peace of mind.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://cdn-uploads.huggingface.co/production/uploads/noauth/LYLhHNWQ7k0SwDPzF4lKW.webp" alt="DR H2O Plumber at work" width="1024" height="1024">
+                </div>
             </div>
         </div>
     </section>
