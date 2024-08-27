@@ -28,124 +28,68 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--bg-color);
+            padding-top: 97px;
         }
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
- header {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    background-color: var(--white);
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-.fixed-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    background-color: var(--white);
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Add padding to the body to prevent content from hiding behind the fixed header */
-body {
-    padding-top: 97px; /* Adjust this value based on your header's height */
-}
-
-@media (max-width: 768px) {
-    body {
-        padding-top: 80px; /* Adjust for smaller header on mobile */
-    }
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 0;
-}
-
-.logo img {
-    height: 90px; /* Increased from 60px to 90px */
-    width: auto;
-    max-width: none;
-    border-radius: 5px;
-    padding: 5px;
-    background-color: white;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    margin-left: 1.5rem;
-}
-
-nav ul li a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: var(--accent-color);
-}
-
-/* Add padding to the body to prevent content from hiding behind the fixed header */
-body {
-    padding-top: 100px; /* Adjusted to account for larger header */
-}
-
-@media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .logo img {
-        height: 70px; /* Slightly reduced for mobile, but still readable */
-        margin-bottom: 10px;
-    }
-
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    nav ul li {
-        margin: 5px 10px;
-    }
-
-    body {
-        padding-top: 130px; /* Adjusted for the taller mobile header */
-    }
-}
-       .hero {
-    background-image: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/mx00DQbJ7NLY4uno57UO-.webp');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    color: var(--white);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
+        header {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background-color: var(--white);
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+        .logo img {
+            height: 90px;
+            width: auto;
+            max-width: none;
+            border-radius: 5px;
+            padding: 5px;
+            background-color: white;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        nav ul li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        .hero {
+            background-image: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/mx00DQbJ7NLY4uno57UO-.webp');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
         .hero::after {
             content: '';
             position: absolute;
@@ -156,52 +100,50 @@ body {
             background: linear-gradient(to top, var(--bg-color), transparent);
         }
         .hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    /* Remove these lines:
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-    */
-    transform: translateY(-50px);
-    opacity: 0;
-    transition: all 0.5s ease;
-    position: relative;
-    z-index: 2;
-}
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            transform: translateY(-50px);
+            opacity: 0;
+            transition: all 0.5s ease;
+            position: relative;
+            z-index: 2;
+        }
         .hero-content.show {
             transform: translateY(0);
             opacity: 1;
         }
         .hero-content h1,
-.hero-content p {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
+        .hero-content p {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
         .hero-content p {
             font-size: 1.4rem;
             margin-bottom: 2.5rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
-      .btn {
-    background-color: var(--accent-color);
-    color: var(--white);
-    padding: 1rem 2.5rem;
-    font-size: 1.2rem;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    display: inline-block;
-}
-
-.btn:hover {
-    background-color: #ff8c00;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
+        .btn {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn:hover {
+            background-color: #ff8c00;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
         .services {
             padding: 8rem 0;
             background-color: var(--white);
@@ -272,46 +214,40 @@ body {
             position: absolute;
             left: 0;
         }
+        .about {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, var(--white), transparent);
+        }
         .about-content {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-}
-
-.about-text {
-    flex: 1;
-}
-
-.about-image {
-    flex: 1;
-    position: relative;
-    max-width: 1024px;
-    max-height: 1024px;
-    overflow: hidden;
-}
-
-.about-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-@media (max-width: 1200px) {
-    .about-content {
-        flex-direction: column;
-    }
-
-    .about-image {
-        width: 100%;
-        max-width: 600px;
-        height: auto;
-        aspect-ratio: 1 / 1;
-        margin: 0 auto;
-    }
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        .about-text {
+            flex: 1;
+        }
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
         .about-image img {
             width: 100%;
+            height: auto;
+            max-width: 1024px;
+            max-height: 1024px;
+            object-fit: cover;
             border-radius: 10px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
@@ -427,24 +363,25 @@ body {
             text-align: center;
             padding: 2rem 0;
         }
-        .water-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        .water-drop {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: rgba(0, 119, 190, 0.3);
-            border-radius: 50%;
-        }
-        
         @media (max-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .logo img {
+                height: 70px;
+                margin-bottom: 10px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                margin: 5px 10px;
+            }
             .hero-content h1 {
                 font-size: 2.5rem;
             }
@@ -461,24 +398,25 @@ body {
     </style>
 </head>
 <body>
-<header class="fixed-header">
-    <div class="container header-content">
-        <a href="#home" class="logo">
-            <img src="https://i.ibb.co/Z18Fft5/upscale-1.png" alt="DR H2O - For when your plumbing is under the weather">
-        </a>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    <header class="fixed-header">
+        <div class="container header-content">
+            <a href="#home" class="logo">
+                <img src="https://i.ibb.co/Z18Fft5/upscale-1.png" alt="DR H2O - For when your plumbing is under the weather">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
     <section id="home" class="hero">
-<div class="container hero-content">
+        <div class="container hero-content">
             <h1>Expert Plumbing Solutions</h1>
             <p>Your trusted plumbing partner in Sydney's Eastern Suburbs</p>
             <a href="#contact" class="btn">Get a Free Quote</a>
@@ -534,17 +472,17 @@ body {
     </section>
 
     <section id="about" class="about">
-    <div class="container about-content">
-        <div class="about-text">
-            <h2 class="section-heading">About DR H2O</h2>
-            <p>With over a decade of experience in domestic and strata maintenance, DR H2O has become the go-to plumbing service in Sydney's Eastern Suburbs. Our team of fully licensed professionals is committed to delivering top-quality solutions for all your plumbing needs.</p>
-            <p>Based in Randwick, NSW 2031, we pride ourselves on our reliability, expertise, and customer-first approach. When you choose DR H2O, you're choosing peace of mind.</p>
+        <div class="container about-content">
+            <div class="about-text">
+                <h2 class="section-heading">About DR H2O</h2>
+                <p>With over a decade of experience in domestic and strata maintenance, DR H2O has become the go-to plumbing service in Sydney's Eastern Suburbs. Our team of fully licensed professionals is committed to delivering top-quality solutions for all your plumbing needs.</p>
+                <p>Based in Randwick, NSW 2031, we pride ourselves on our reliability, expertise, and customer-first approach. When you choose DR H2O, you're choosing peace of mind.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://cdn-uploads.huggingface.co/production/uploads/noauth/LYLhHNWQ7k0SwDPzF4lKW.webp" alt="Plumber at work" width="1024" height="1024">
+            </div>
         </div>
-        <div class="about-image">
-            <img src="https://cdn-uploads.huggingface.co/production/uploads/noauth/LYLhHNWQ7k0SwDPzF4lKW.webp" alt="Plumber at work" width="1024" height="1024">
-        </div>
-    </div>
-</section>
+    </section>
 
     <section id="testimonials" class="testimonials">
         <div class="container">
