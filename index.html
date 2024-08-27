@@ -44,6 +44,27 @@
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: var(--white);
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Add padding to the body to prevent content from hiding behind the fixed header */
+body {
+    padding-top: 97px; /* Adjust this value based on your header's height */
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 80px; /* Adjust for smaller header on mobile */
+    }
+}
 
 .header-content {
     display: flex;
