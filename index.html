@@ -224,7 +224,7 @@ body {
             height: 4px;
             background-color: var(--accent-color);
         }
-        .services-grid {
+       services-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2rem;
@@ -253,10 +253,15 @@ body {
         font-size: 1.5rem;
         margin-bottom: 1rem;
         color: var(--primary-color);
+        min-height: 3.6em; /* Ensures two lines for all headings */
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .service-card p {
         margin-bottom: 1rem;
+        min-height: 4.8em; /* Ensures three lines for all descriptions */
     }
 
     .service-card ul {
@@ -487,8 +492,8 @@ body {
         <div class="services-grid">
             <div class="service-card">
                 <i class="fas fa-wrench"></i>
-                <h3>Emergency Plumbing</h3>
-                <p>24/7 service for urgent plumbing needs. Quick response to minimize damage.</p>
+                <h3>Emergency<br>Plumbing</h3>
+                <p>24/7 service for urgent plumbing needs. Quick response to minimize damage and restore your peace of mind.</p>
                 <ul>
                     <li>Burst pipes</li>
                     <li>Blocked drains</li>
@@ -497,8 +502,8 @@ body {
             </div>
             <div class="service-card">
                 <i class="fas fa-tint-slash"></i>
-                <h3>Blocked Drains</h3>
-                <p>Advanced technology for quick diagnosis and clearing of blocked drains.</p>
+                <h3>Blocked Drain<br>Solutions</h3>
+                <p>Advanced technology for quick diagnosis and clearing of blocked drains. Efficient and long-lasting results.</p>
                 <ul>
                     <li>CCTV inspection</li>
                     <li>High-pressure jetting</li>
@@ -507,8 +512,8 @@ body {
             </div>
             <div class="service-card">
                 <i class="fas fa-shower"></i>
-                <h3>Bathroom Renovations</h3>
-                <p>Expert renovation services from design to installation.</p>
+                <h3>Bathroom<br>Renovations</h3>
+                <p>Expert renovation services from design to installation. Transform your bathroom with our skilled team.</p>
                 <ul>
                     <li>Custom designs</li>
                     <li>Fixture upgrades</li>
@@ -517,8 +522,8 @@ body {
             </div>
             <div class="service-card">
                 <i class="fas fa-fire"></i>
-                <h3>Gas Fitting</h3>
-                <p>Professional gas services ensuring safe and efficient installations.</p>
+                <h3>Gas Fitting<br>Services</h3>
+                <p>Professional gas services ensuring safe and efficient installations. Expert solutions for all gas-related needs.</p>
                 <ul>
                     <li>Appliance installation</li>
                     <li>Leak detection</li>
