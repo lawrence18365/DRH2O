@@ -399,10 +399,20 @@
                 display: none;
             }
         }
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav {
+                display: none; /* Hide the entire navigation on mobile */
+            }
+        }
     </style>
 </head>
 <body>
-    <header class="fixed-header">
+     <header class="fixed-header">
         <div class="container header-content">
             <a href="#home" class="logo">
                 <img src="https://i.ibb.co/Z18Fft5/upscale-1.png" alt="DR H2O - For when your plumbing is under the weather">
