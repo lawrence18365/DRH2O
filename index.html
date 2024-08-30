@@ -71,7 +71,7 @@ header .container {
        margin-right: auto; /* This pushes the logo to the left */
 
     }
-    .menu-toggle {
+   .menu-toggle {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,21 +80,16 @@ header .container {
     font-size: 24px;
     color: var(--primary-color); /* Blue color for the icon */
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    background-color: var(--white); /* White background */
     border: none;
     border-radius: 8px; /* Rounded edges */
     margin-left: auto; /* Push to the right */
-    position: relative;
-    z-index: 1000; /* Ensure it's above other elements */
-}
-/* Style for when header is scrolled */
-header.scrolled .menu-toggle {
-    background-color: transparent; /* Remove background when scrolled */
-}
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow */
+} 
 
 /* Ensure the icon stays blue even when scrolled */
-header.scrolled .menu-toggle i {
-    color: var(--primary-color);
+header.scrolled .menu-toggle {
+    background-color: var(--white);
 }
 
 .nav-links {
@@ -672,6 +667,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('header');
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
+    const heroContent = document.querySelector('.hero-content');
 
     function toggleMenu() {
         navLinks.classList.toggle('active');
@@ -690,28 +686,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', updateHeaderStyle);
     updateHeaderStyle(); // Call this initially to set the correct state
-}
-    }
 
     // Reveal hero content
     setTimeout(() => {
         heroContent.classList.add('show');
     }, 500);
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                navLinks.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
 
     // Form submission handling
     const form = document.querySelector('form');
