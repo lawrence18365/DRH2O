@@ -81,18 +81,22 @@
         color: var(--accent-color);
     }
     .hero {
-        background-image: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/mx00DQbJ7NLY4uno57UO-.webp');
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-        height: 50vh;
-        display: flex;
-        align-items: center;
-        color: var(--white);
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
+    background-image: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/mx00DQbJ7NLY4uno57UO-.webp');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 100vh; /* Set to full viewport height */
+    width: 100%; /* Ensure it spans the full width of the viewport */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content horizontally */
+    color: var(--white);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+}
     .hero::after {
         content: '';
         position: absolute;
