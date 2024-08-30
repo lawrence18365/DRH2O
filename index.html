@@ -280,13 +280,14 @@ header.scrolled .menu-toggle {
         padding-left: 1.5rem;
     }
     .service-card ul li::before {
-        content: '\2022';
-        color: #00b4d8;
-        font-size: 1.5rem;
-        font-weight: bold;
-        position: absolute;
-        left: 0;
-    }
+    content: '\2022';
+    color: #00b4d8;
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: absolute;
+    left: -1.5rem; /* <--- updated */
+    top: 0; /* optional: add this to vertically center the bullet point */
+}
     .about {
         background-color: var(--bg-color);
         color: var(--text-color);
