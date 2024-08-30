@@ -49,16 +49,17 @@
         transition: background-color 0.3s ease;
         background-color: transparent;
     }
-    .header-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.5rem 2rem;
-    }
 
     header.scrolled {
         background-color: var(--white);
     }
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
 
     .logo img {
         height: 70px;
@@ -67,84 +68,67 @@
         border-radius: 5px;
         padding: 0px;
         background-color: white;
-    }
-    .hamburger-menu {
-        cursor: pointer;
-        z-index: 1000;
-        display: block;
-    }
+       margin-right: auto; /* This pushes the logo to the left */
 
-    .hamburger-icon {
-        width: 30px;
-        height: 20px;
-        position: relative;
     }
+    .menu-toggle {
+    display: block;
+    font-size: 24px;
+    color: var(--white);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: auto; /* This pushes the hamburger to the right */
+}
+.nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0; /* Changed from right: 20px to align with the right edge */
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start; /* Changed from flex-end to flex-start */
+    border-radius: 5px;
+    width: 200px; /* Added a fixed width for consistency */
+}
+.nav-links.active {
+    display: flex;
+}
 
-    .hamburger-icon span {
-        display: block;
-        position: absolute;
-        height: 3px;
-        width: 100%;
-        background: var(--primary-color);
-        border-radius: 3px;
-        opacity: 1;
-        left: 0;
-        transform: rotate(0deg);
-        transition: .25s ease-in-out;
-    }
+.nav-links li {
+    list-style: none;
+    margin: 10px 0;
+    width: 100%; /* Make list items full width */
+}
 
-    .hamburger-icon span:nth-child(1) { top: 0px; }
-    .hamburger-icon span:nth-child(2) { top: 8px; }
-    .hamburger-icon span:nth-child(3) { top: 16px; }
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease; /* Changed from opacity to all for more effects */
+    display: block; /* Make the entire area clickable */
+    padding: 10px 15px; /* Add some padding for better touch targets */
+    border-left: 3px solid transparent; /* Prepare for hover effect */
+}
 
-    .hamburger-menu.open span:nth-child(1) {
-        top: 8px;
-        transform: rotate(135deg);
-    }
+.nav-links a:hover {
+    opacity: 1; /* Keep full opacity on hover */
+    background-color: rgba(255, 255, 255, 0.1); /* Slight highlight on hover */
+    border-left: 3px solid var(--white); /* Left border on hover */
+}
 
-    .hamburger-menu.open span:nth-child(2) {
-        opacity: 0;
-        left: -60px;
-    }
 
-    .hamburger-menu.open span:nth-child(3) {
-        top: 8px;
-        transform: rotate(-135deg);
-    }
-
-    #mobile-nav {
-        display: none;
-        position: fixed;
-        top: 97px;
-        left: 0;
-        right: 0;
-        background-color: var(--white);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        z-index: 999;
-    }
-
-    #mobile-nav.active {
-        display: block;
-    }
-
-    #mobile-nav ul {
-        list-style-type: none;
-        padding: 0;
-    }
-    #mobile-nav ul li {
-        padding: 10px 0;
-        text-align: center;
-    }
-    #mobile-nav ul li a {
-        color: var(--primary-color);
-        text-decoration: none;
-        font-weight: 600;
-        transition: color 0.3s ease;
-    }
-    #mobile-nav ul li a:hover {
-        color: var(--accent-color);
-    }
+.menu-toggle {
+    display: block;
+    font-size: 24px;
+    color: var(--white);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
     .hero {
         background-image: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/mx00DQbJ7NLY4uno57UO-.webp');
         background-repeat: no-repeat;
@@ -470,30 +454,24 @@
 </style>
 </head>
 <body>
-   <header>
-        <div class="container header-content">
-            <a href="#home" class="logo">
+      <header>
+    <div class="container">
+            <a href="#" class="logo">
                 <img src="https://i.ibb.co/Z18Fft5/upscale-1.png" alt="DR H₂O - For when your plumbing is under the weather">
-            </a>
-            <div class="hamburger-menu">
-                <div class="hamburger-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </div>
-    </header>
-
-      <nav id="mobile-nav">
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+            </a>    
+        <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="./about-us.html">About</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="./faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
     <section id="home" class="hero">
         <div class="container hero-content">
@@ -673,8 +651,7 @@
             <p>© 2023 DR H₂O. All rights reserved. | License No: PL12345</p>
         </div>
     </footer>
-
-    <script>
+ <script>
         document.addEventListener('DOMContentLoaded', function() {
             const header = document.querySelector('header');
             const menuToggle = document.querySelector('.menu-toggle');
