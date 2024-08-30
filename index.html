@@ -39,14 +39,14 @@
     padding: 2rem;
 }
     header {
-        position: fixed !important;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        background-color: transparent;
-        z-index: 1000;
-    }
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: absolute; /* Make sure the header is positioned at the top */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it stays on top of the hero section */
+}
     .header-content {
         display: flex;
         justify-content: space-between;
@@ -83,22 +83,26 @@
     nav ul li a:hover {
         color: var(--accent-color);
     }
-    .hero {
+   .hero {
     background-image: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/mx00DQbJ7NLY4uno57UO-.webp');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    height: 100vh; /* Set to full viewport height */
-    width: 100%; /* Ensure it spans the full width of the viewport */
+    height: 100vh; /* Full viewport height */
     display: flex;
     align-items: center;
-    justify-content: center; /* Center content horizontally */
+    justify-content: center;
     color: var(--white);
     text-align: center;
     position: relative;
     overflow: hidden;
     margin: 0; /* Remove any default margin */
     padding: 0; /* Remove any default padding */
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
     .hero::after {
         content: '';
