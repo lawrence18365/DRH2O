@@ -443,14 +443,25 @@ header.scrolled .menu-toggle {
     body {
         padding-top: 60px; /* Reduced from 80px */
     }
-.about-us {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+    flex-direction: column-reverse;
   }
 
-  .about-us img, .about-us p {
-    margin-bottom: 20px;
+  .about-image {
+    margin-bottom: 2rem;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .about-text {
+    padding: 1rem;
   }
 }
     header {
