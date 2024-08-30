@@ -72,21 +72,31 @@ header .container {
 
     }
     .menu-toggle {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
     font-size: 24px;
-    color: var(--primary-color); /* Change to blue */
+    color: var(--primary-color); /* Blue color for the icon */
     cursor: pointer;
-    background: var(--white); /* Add white background */
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
     border: none;
-    padding: 8px; /* Add padding for the square shape */
-    margin-left: auto;
-    border-radius: 4px; /* Optional: add rounded corners */
+    border-radius: 8px; /* Rounded edges */
+    margin-left: auto; /* Push to the right */
+    position: relative;
+    z-index: 1000; /* Ensure it's above other elements */
+}
+/* Style for when header is scrolled */
+header.scrolled .menu-toggle {
+    background-color: transparent; /* Remove background when scrolled */
 }
 
-/* Ensure the icon color changes when the header is scrolled */
-header.scrolled .menu-toggle {
+/* Ensure the icon stays blue even when scrolled */
+header.scrolled .menu-toggle i {
     color: var(--primary-color);
 }
+
 .nav-links {
     display: none;
     position: absolute;
@@ -662,7 +672,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('header');
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-    const heroContent = document.querySelector('.hero-content');
 
     function toggleMenu() {
         navLinks.classList.toggle('active');
@@ -671,20 +680,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     menuToggle.addEventListener('click', toggleMenu);
 
-    window.addEventListener('scroll', function() {
+    function updateHeaderStyle() {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
-    });
+    }
 
-    document.addEventListener('click', function(e) {
-        if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-            navLinks.classList.remove('active');
-            menuToggle.setAttribute('aria-expanded', 'false');
-        }
-    });
+    window.addEventListener('scroll', updateHeaderStyle);
+    updateHeaderStyle(); // Call this initially to set the correct state
+}
+    }
 
     // Reveal hero content
     setTimeout(() => {
