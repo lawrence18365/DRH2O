@@ -426,41 +426,43 @@ header.scrolled .menu-toggle {
     #contact .section-heading {
         color: var(--white);
     }
-    @media (max-width: 768px) {
-        body {
-            padding-top: 80px;
-        }
-        .header-content {
-            padding: 0.5rem 1rem;
-        }
-        .logo img {
-            height: 60px;
-        }
-        .hero-content h1 {
-            font-size: 2.5rem;
-        }
-        .hero-content p {
-            font-size: 1rem;
-        }
-        .about-content {
-            flex-direction: column;
-        }
-        .service-card {
-            padding: 1.5rem;
-        }
-        .service-icon {
-            font-size: 3rem;
-        }
-        .service-card h3 {
-            font-size: 1.5rem;
-        }
-        .service-card p {
-            font-size: 0.9rem;
-        }
-        .service-card ul li {
-            font-size: 0.9rem;
-        }
+ @media (max-width: 768px) {
+    body {
+        padding-top: 60px; /* Reduced from 80px */
     }
+    header {
+        height: 60px; /* Set a fixed height for the header on mobile */
+    }
+    .header-content {
+        padding: 0.5rem 1rem;
+    }
+    .logo img {
+        height: 50px; /* Reduced from 60px */
+    }
+    .nav-links {
+        top: 60px; /* Align with the new header height */
+        width: 100%; /* Full width on mobile */
+        right: 0;
+    }
+    .menu-toggle {
+        display: flex;
+        font-size: 20px; /* Slightly smaller icon */
+    }
+}
+header {
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+header.scrolled {
+    background-color: var(--white);
+}
+
+/* Adjust hero section to start from the top */
+.hero {
+    margin-top: -60px; /* Negative margin to offset the header height */
+    padding-top: 60px; /* Add padding to push content down */
+}
 </style>
 </head>
 <body>
