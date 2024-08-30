@@ -27,22 +27,24 @@
     body {
         font-family: 'Poppins', sans-serif;
         line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
         color: var(--text-color);
-        background-color: var(--bg-color);
         padding-top: 97px;
     }
     .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-    }
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
     header {
         position: fixed !important;
         top: 0;
         left: 0;
         right: 0;
         width: 100%;
-        background-color: var(--white);
+        background-color: transparent;
         z-index: 1000;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
@@ -146,85 +148,94 @@
         transform: translateY(-3px);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
-    .services {
-        padding: 4rem 0;
-        background-color: var(--white);
-    }
     .section-heading {
-        text-align: center;
-        font-size: 2.5rem;
-        margin-bottom: 3rem;
-        color: var(--primary-color);
-        position: relative;
-        padding-bottom: 1rem;
-    }
-    .section-heading::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100px;
-        height: 4px;
-        background-color: var(--white);
-    }
-    .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-    }
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.service-icon {
+    font-size: 4rem;
+    color: #00b4d8;
+    margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.service-card p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #666;
+}
+
+.service-card ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.service-card ul li {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    color: #333;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.service-card ul li::before {
+    content: '\2022';
+    color: #00b4d8;
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+@media (max-width: 768px) {
     .service-card {
-        background-color: var(--bg-color);
-        border-radius: 10px;
-        padding: 2rem;
-        text-align: left;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
+        padding: 1.5rem;
     }
-    .service-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    }
-    .service-card i {
+    .service-icon {
         font-size: 3rem;
-        color: var(--primary-color);
-        margin-bottom: 1rem;
     }
     .service-card h3 {
         font-size: 1.5rem;
-        margin-bottom: 1rem;
-        color: var(--primary-color);
     }
     .service-card p {
-        margin-bottom: 1rem;
-    }
-    .service-card ul {
-        list-style-type: none;
-        padding-left: 0;
+        font-size: 0.9rem;
     }
     .service-card ul li {
-        margin-bottom: 0.5rem;
-        position: relative;
-        padding-left: 1.5rem;
+        font-size: 0.9rem;
     }
-    .service-card ul li::before {
-        content: '\2022';
-        color: var(--accent-color);
-        font-weight: bold;
-        position: absolute;
-        left: 0;
-    }
-.pyramid-text {
-    text-align: center;
-    line-height: 1.5;
-}
-
-.pyramid-list {
-    text-align: center;
-    list-style: none;
-    padding: 0;
 }
     .about {
         background-color: var(--bg-color);
@@ -445,75 +456,61 @@
         </div>
     </section>
 
-   <section id="services" class="services">
+  <section id="services" class="services">
     <div class="container">
         <h2 class="section-heading">Our Services</h2>
         <div class="services-grid">
             <div class="service-card">
-                <i class="fas fa-exclamation-triangle"></i>
-                <h3>Emergency<br>Plumbing</h3>
-                <p class="pyramid-text">
-                    24/7 emergency<br>
-                    service for all your<br>
-                    urgent plumbing needs.<br>
-                    We respond quickly to<br>
-                    minimize damage and<br>
-                    restore your peace<br>
-                    of mind.
+                <div class="service-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h3>Emergency Plumbing</h3>
+                <p>
+                    24/7 emergency service for all your urgent plumbing needs. We respond quickly to minimize damage and restore your peace of mind.
                 </p>
-                <ul class="pyramid-list">
+                <ul>
                     <li>Burst pipes</li>
                     <li>Blocked drains</li>
                     <li>Water heater failures</li>
                 </ul>
             </div>
             <div class="service-card">
-                <i class="fas fa-water"></i>
-                <h3>Blocked<br>Drains</h3>
-                <p class="pyramid-text">
-                    Using state-of-the-art<br>
-                    technology, including<br>
-                    Hi Pressure Jetting and<br>
-                    CCTV drain inspections,<br>
-                    we identify and clear<br>
-                    blockages efficiently.
+                <div class="service-icon">
+                    <i class="fas fa-water"></i>
+                </div>
+                <h3>Blocked Drains</h3>
+                <p>
+                    Using state-of-the-art technology, including Hi Pressure Jetting and CCTV drain inspections, we identify and clear blockages efficiently.
                 </p>
-                <ul class="pyramid-list">
+                <ul>
                     <li>Hidden pipe leaks</li>
                     <li>CCTV Drain Inspection</li>
                     <li>Drain Cleaning and Maintenance</li>
                 </ul>
             </div>
             <div class="service-card">
-                <i class="fas fa-bath"></i>
-                <h3>Bathroom<br>Renovations</h3>
-                <p class="pyramid-text">
-                    Transform your bathroom<br>
-                    with our expert renovation<br>
-                    services. We handle<br>
-                    everything from design to<br>
-                    installation for a<br>
-                    hassle-free experience.
+                <div class="service-icon">
+                    <i class="fas fa-bath"></i>
+                </div>
+                <h3>Bathroom Renovations</h3>
+                <p>
+                    Transform your bathroom with our expert renovation services. We handle everything from design to installation for a hassle-free experience.
                 </p>
-                <ul class="pyramid-list">
+                <ul>
                     <li>Custom designs</li>
                     <li>Fixture upgrades</li>
                     <li>Waterproofing</li>
                 </ul>
             </div>
             <div class="service-card">
-                <i class="fas fa-burn"></i>
-                <h3>Gas<br>Fitting</h3>
-                <p class="pyramid-text">
-                    Trust our skilled<br>
-                    professionals for all<br>
-                    your gas fitting needs,<br>
-                    from installations to<br>
-                    repairs. We prioritize<br>
-                    safety and efficiency<br>
-                    in every job.
+                <div class="service-icon">
+                    <i class="fas fa-burn"></i>
+                </div>
+                <h3>Gas Fitting</h3>
+                <p>
+                    Trust our skilled professionals for all your gas fitting needs, from installations to repairs. We prioritize safety and efficiency in every job.
                 </p>
-                <ul class="pyramid-list">
+                <ul>
                     <li>Gas appliance installation</li>
                     <li>Gas leak detection</li>
                     <li>Gas line repairs</li>
@@ -640,6 +637,17 @@
                 });
             });
         });
+document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
+        card.style.transform = 'translateY(-10px)';
+        card.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+    });
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+        card.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.1)';
+    });
+});
 
         // Show hero content on page load
         window.addEventListener('load', () => {
