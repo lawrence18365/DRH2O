@@ -74,12 +74,18 @@ header .container {
     .menu-toggle {
     display: block;
     font-size: 24px;
-    color: var(--white);
+    color: var(--primary-color); /* Change to blue */
     cursor: pointer;
-    background: none;
+    background: var(--white); /* Add white background */
     border: none;
-    padding: 0;
-    margin-left: auto; /* This pushes the hamburger to the right */
+    padding: 8px; /* Add padding for the square shape */
+    margin-left: auto;
+    border-radius: 4px; /* Optional: add rounded corners */
+}
+
+/* Ensure the icon color changes when the header is scrolled */
+header.scrolled .menu-toggle {
+    color: var(--primary-color);
 }
 .nav-links {
     display: none;
@@ -652,34 +658,38 @@ header .container {
         </div>
     </footer>
  <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const header = document.querySelector('header');
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('header');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const heroContent = document.querySelector('.hero-content');
 
-            function toggleMenu() {
-                navLinks.classList.toggle('active');
-                menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
-            }
+    function toggleMenu() {
+        navLinks.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+    }
 
-            menuToggle.addEventListener('click', toggleMenu);
+    menuToggle.addEventListener('click', toggleMenu);
 
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
 
-            document.addEventListener('click', function(e) {
-                if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-                    navLinks.classList.remove('active');
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                }
-            });
+    document.addEventListener('click', function(e) {
+        if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+            navLinks.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
 
-    // Smooth scrolling for navigation links
+    // Reveal hero content
+    setTimeout(() => {
+        heroContent.classList.add('show');
+    }, 500);
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
