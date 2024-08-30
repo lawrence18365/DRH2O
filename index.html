@@ -38,21 +38,22 @@
         margin: 0 auto;
         padding: 2rem;
     }
-     header {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-        transition: background-color 0.3s ease;
-        background-color: transparent;
-    }
+    
+ header {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    background-color: transparent; /* Keep this transparent */
+}
 
-    header.scrolled {
-        background-color: var(--white);
-    }
+header.scrolled {
+    background-color: var(--white);
+}
 
 header .container {
     display: flex;
@@ -71,7 +72,7 @@ header .container {
        margin-right: auto; /* This pushes the logo to the left */
 
     }
-   .menu-toggle {
+  .menu-toggle {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,11 +83,9 @@ header .container {
     cursor: pointer;
     background-color: var(--white); /* White background */
     border: none;
-    border-radius: 8px; /* Rounded edges */
-    margin-left: auto; /* Push to the right */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow */
-} 
-
+    border-radius: 8px;
+    margin-left: auto;
+}
 /* Ensure the icon stays blue even when scrolled */
 header.scrolled .menu-toggle {
     background-color: var(--white);
