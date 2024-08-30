@@ -9,602 +9,597 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
-   <style>
-    :root {
-    --primary-color: #40a9f0;
-    --secondary-color: #005a8c;
-    --star-color: #fe9527;
-    --accent-color: #ffa500;
-    --text-color: #333;
-    --bg-color: #f0f8ff;
-    --white: #ffffff;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: var(--text-color);
-    padding-top: 97px;
-}
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-header {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    transition: background-color 0.3s ease;
-    background-color: transparent;
-}
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 0;
-}
-header.scrolled {
-    background-color: white;
-}
-.logo img {
-    height: 90px;
-    width: auto;
-    max-width: none;
-    border-radius: 5px;
-    padding: 0px;
-    background-color: white;
-}
-nav ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-nav ul li {
-    margin-left: 1.5rem;
-}
-nav ul li a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-nav ul li a:hover {
-    color: var(--accent-color);
-}
-.hero {
-    background-image: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/mx00DQbJ7NLY4uno57UO-.webp');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-}
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-.hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100px;
-    background: linear-gradient(to top, var(--bg-color), transparent);
-}
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    transform: translateY(-50px);
-    opacity: 0;
-    transition: all 0.5s ease;
-    position: relative;
-    z-index: 2;
-}
-.hero-content.show {
-    transform: translateY(0);
-    opacity: 1;
-}
-.hero-content h1,
-.hero-content p {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
-.hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-.hero-content p {
-    font-size: 1.4rem;
-    margin-bottom: 2.5rem;
-}
-.btn {
-    background-color: var(--accent-color);
-    color: var(--white);
-    padding: 1rem 2.5rem;
-    font-size: 1.2rem;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-decoration: none;
-    display: inline-block;
-    border: none;
-    cursor: pointer;
-}
-.btn:hover {
-    background-color: #ff8c00;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-.section-heading {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 3rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-.service-card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-}
-.service-icon {
-    font-size: 4rem;
-    color: #00b4d8;
-    margin-bottom: 1.5rem;
-}
-.service-card h3 {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-    color: #333;
-}
-.service-card p {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-    color: #666;
-}
-.service-card ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin: 0;
-}
-.service-card ul li {
-    margin-bottom: 0.75rem;
-    font-size: 1rem;
-    color: #333;
-    position: relative;
-    padding-left: 1.5rem;
-}
-.service-card ul li::before {
-    content: '\2022';
-    color: #00b4d8;
-    font-size: 1.5rem;
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-}
-.about {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    padding: 4rem 0;
-    position: relative;
-}
-.about-content {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-    background-color: var(--white);
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-.about-text {
-    flex: 1;
-    padding: 3rem;
-    text-align: center;
-}
-.about-image {
-    flex: 1;
-    position: relative;
-}
-.about-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.about-text h2 {
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-}
-.about-text p {
-    margin-bottom: 1rem;
-}
-.testimonials {
-    padding: 8rem 0;
-    background-color: var(--white);
-}
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-.testimonial {
-    background-color: var(--bg-color);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-.testimonial:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-.testimonial-content {
-    flex-grow: 1;
-    margin-bottom: 1rem;
-}
-.testimonial-content p {
-    font-style: italic;
-    line-height: 1.6;
-}
-.testimonial-author {
-    display: flex;
-    align-items: center;
-}
-.testimonial-author img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin-right: 1rem;
-}
-.testimonial-author h4 {
-    font-weight: 600;
-    margin: 0;
-    color: var(--primary-color);
-}
-.testimonial-author p {
-    margin: 0;
-    color: var(--text-color);
-    opacity: 0.8;
-}
-.star-rating {
-    color: var(--star-color);
-    font-size: 1.2rem;
-    margin-top: 0.5rem;
-}
-.contact {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    padding: 8rem 0;
-    position: relative;
-}
-.contact::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    left: 0;
-    right: 0;
-    height: 100px;
-    background: linear-gradient(to bottom, var(--white), transparent);
-}
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: var(--white);
-    padding: 3rem;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-.form-button {
-    display: block;
-    margin: 0 auto;
-}
-.form-group {
-    margin-bottom: 1.5rem;
-}
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
-}
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(0, 119, 190, 0.2);
-}
-footer {
-    background-color: var(--text-color);
-    color: var(--white);
-    text-align: center;
-    padding: 2rem 0;
-}
-#contact .section-heading {
-    color: var(--white);
-}
-.hamburger-menu {
-    display: none;
-    cursor: pointer;
-    z-index: 1000;
-}
-.hamburger-icon {
-    width: 30px;
-    height: 20px;
-    position: relative;
-}
-.hamburger-icon span {
-    display: block;
-    position: absolute;
-    height: 3px;
-    width: 100%;
-    background: var(--primary-color);
-    border-radius: 3px;
-    opacity: 1;
-    left: 0;
-    transform: rotate(0deg);
-    transition: .25s ease-in-out;
-}
-.hamburger-icon span:nth-child(1) { top: 0px; }
-.hamburger-icon span:nth-child(2) { top: 8px; }
-.hamburger-icon span:nth-child(3) { top: 16px; }
-.hamburger-menu.open span:nth-child(1) {
-    top: 8px;
-    transform: rotate(135deg);
-}
-.hamburger-menu.open span:nth-child(2) {
-    opacity: 0;
-    left: -60px;
-}
-.hamburger-menu.open span:nth-child(3) {
-    top: 8px;
-    transform: rotate(-135deg);
-}
-#mobile-nav {
-    display: none;
-    position: absolute;
-    top: 97px;
-    right: 0;
-    background-color: var(--white);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 0 0 0 10px;
-    padding: 20px;
-    z-index: 999;
-}
-#mobile-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-#mobile-nav ul li {
-    padding: 10px 0;
-    text-align: right;
-}
-#mobile-nav ul li a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-#mobile-nav ul li a:hover {
-    color: var(--accent-color);
-}
-@media screen and (max-width: 1024px) {
-    .hamburger-menu {
-        display: block;
-    }
-    nav ul {
-        display: none;
-    }
-    #mobile-nav {
-        display: none;
-    }
-    #mobile-nav.active {
-        display: block;
-    }
-}
-@media (max-width: 768px) {
-    body {
-        padding-top: 80px;
-    }
-    .header-content {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .logo img {
-        height: 70px;
-        margin-bottom: 10px;
-    }
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    nav ul li {
-        margin: 5px 10px;
-    }
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    .hero-content p {
-        font-size: 1rem;
-    }
-    .about-content {
-        flex-direction: column;
-    }
-    .about-image::after {
-        display: none;
-    }
-    .service-card {
-        padding: 1.5rem;
-    }
-    .service-icon {
-        font-size: 3rem;
-    }
-    .service-card h3 {
-        font-size: 1.5rem;
-    }
-    .service-card p {
-        font-size: 0.9rem;
-    }
-    .service-card ul li {
-        font-size: 0.9rem;
-    }
-}
-</style>
+    <style>
+        :root {
+            --primary-color: #40a9f0;
+            --secondary-color: #005a8c;
+            --star-color: #fe9527;
+            --accent-color: #ffa500;
+            --text-color: #333;
+            --bg-color: #f0f8ff;
+            --white: #ffffff;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            padding-top: 97px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        header {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+            background-color: transparent;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+        header.scrolled {
+            background-color: white;
+        }
+        .logo img {
+            height: 90px;
+            width: auto;
+            max-width: none;
+            border-radius: 5px;
+            padding: 0px;
+            background-color: white;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        nav ul li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        .hero {
+            background-image: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/mx00DQbJ7NLY4uno57UO-.webp');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, var(--bg-color), transparent);
+        }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            transform: translateY(-50px);
+            opacity: 0;
+            transition: all 0.5s ease;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-content.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .hero-content h1,
+        .hero-content p {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+        }
+        .btn {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #ff8c00;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .section-heading {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        .service-icon {
+            font-size: 4rem;
+            color: #00b4d8;
+            margin-bottom: 1.5rem;
+        }
+        .service-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .service-card p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+        .service-card ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        .service-card ul li {
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            color: #333;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .service-card ul li::before {
+            content: '\2022';
+            color: #00b4d8;
+            font-size: 1.5rem;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .about {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 4rem 0;
+            position: relative;
+        }
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .about-text {
+            flex: 1;
+            padding: 3rem;
+            text-align: center;
+        }
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .about-text h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+        .testimonials {
+            padding: 8rem 0;
+            background-color: var(--white);
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .testimonial {
+            background-color: var(--bg-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .testimonial-content {
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+        .testimonial-content p {
+            font-style: italic;
+            line-height: 1.6;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+        .testimonial-author h4 {
+            font-weight: 600;
+            margin: 0;
+            color: var(--primary-color);
+        }
+        .testimonial-author p {
+            margin: 0;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+        .star-rating {
+            color: var(--star-color);
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+        .contact {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 8rem 0;
+            position: relative;
+        }
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, var(--white), transparent);
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .form-button {
+            display: block;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0, 119, 190, 0.2);
+        }
+        footer {
+            background-color: var(--text-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+        }
+        #contact .section-heading {
+            color: var(--white);
+        }
+        .hamburger-menu {
+            cursor: pointer;
+            z-index: 1000;
+        }
+        .hamburger-icon {
+            width: 30px;
+            height: 20px;
+            position: relative;
+        }
+        .hamburger-icon span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: var(--primary-color);
+            border-radius: 3px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+        .hamburger-icon span:nth-child(1) { top: 0px; }
+        .hamburger-icon span:nth-child(2) { top: 8px; }
+        .hamburger-icon span:nth-child(3) { top: 16px; }
+        .hamburger-menu.open span:nth-child(1) {
+            top: 8px;
+            transform: rotate(135deg);
+        }
+        .hamburger-menu.open span:nth-child(2) {
+            opacity: 0;
+            left: -60px;
+        }
+        .hamburger-menu.open span:nth-child(3) {
+            top: 8px;
+            transform: rotate(-135deg);
+        }
+        #mobile-nav {
+            display: none;
+            position: absolute;
+            top: 97px;
+            right: 0;
+            background-color: var(--white);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 0 0 0 10px;
+            padding: 20px;
+            z-index: 999;
+        }
+        #mobile-nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #mobile-nav ul li {
+            padding: 10px 0;
+            text-align: right;
+        }
+        #mobile-nav ul li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        #mobile-nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        @media screen and (max-width: 1024px) {
+            nav ul {
+                display: none;
+            }
+            #mobile-nav {
+                display: none;
+            }
+            #mobile-nav.active {
+                display: block;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+            .header-content {
+                flex-direction
+}
+            .logo img {
+                height: 70px;
+                margin-bottom: 10px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                margin: 5px 10px;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+            .about-image::after {
+                display: none;
+            }
+            .service-card {
+                padding: 1.5rem;
+            }
+            .service-icon {
+                font-size: 3rem;
+            }
+            .service-card h3 {
+                font-size: 1.5rem;
+            }
+            .service-card p {
+                font-size: 0.9rem;
+            }
+            .service-card ul li {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="fixed-header">
-    <div class="container header-content">
-        <a href="#home" class="logo">
-            <img src="https://i.ibb.co/Z18Fft5/upscale-1.png" alt="DR H₂O - For when your plumbing is under the weather">
-        </a>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="hamburger-menu">
-            <div class="hamburger-icon">
-                <span></span>
-                <span></span>
-                <span></span>
+        <div class="container header-content">
+            <a href="#home" class="logo">
+                <img src="https://i.ibb.co/Z18Fft5/upscale-1.png" alt="DR H₂O - For when your plumbing is under the weather">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger-menu">
+                <div class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
 
-<nav id="mobile-nav">
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
-</body>
+    <nav id="mobile-nav">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
     <section id="home" class="hero">
         <div class="container hero-content">
             <h1>Expert Plumbing Solutions</h1>
             <p>Your trusted plumbing partner in Sydney's Eastern Suburbs</p>
-            <a href="#contact" class="btn">Get a Free Quote</a>
+            <a href="#contact" class="btn">GET A FREE QUOTE</a>
         </div>
     </section>
 
-  <section id="services" class="services">
-    <div class="container">
-        <h2 class="section-heading">Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-exclamation-triangle"></i>
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-heading">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Emergency Plumbing</h3>
+                    <p>
+                        24/7 emergency service for all your urgent plumbing needs. We respond quickly to minimize damage and restore your peace of mind.
+                    </p>
+                    <ul>
+                        <li>Burst pipes</li>
+                        <li>Blocked drains</li>
+                        <li>Water heater failures</li>
+                    </ul>
                 </div>
-                <h3>Emergency Plumbing</h3>
-                <p>
-                    24/7 emergency service for all your urgent plumbing needs. We respond quickly to minimize damage and restore your peace of mind.
-                </p>
-                <ul>
-                    <li>Burst pipes</li>
-                    <li>Blocked drains</li>
-                    <li>Water heater failures</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-water"></i>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3>Blocked Drains</h3>
+                    <p>
+                        Using state-of-the-art technology, including Hi Pressure Jetting and CCTV drain inspections, we identify and clear blockages efficiently.
+                    </p>
+                    <ul>
+                        <li>Hidden pipe leaks</li>
+                        <li>CCTV Drain Inspection</li>
+                        <li>Drain Cleaning and Maintenance</li>
+                    </ul>
                 </div>
-                <h3>Blocked Drains</h3>
-                <p>
-                    Using state-of-the-art technology, including Hi Pressure Jetting and CCTV drain inspections, we identify and clear blockages efficiently.
-                </p>
-                <ul>
-                    <li>Hidden pipe leaks</li>
-                    <li>CCTV Drain Inspection</li>
-                    <li>Drain Cleaning and Maintenance</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-bath"></i>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bath"></i>
+                    </div>
+                    <h3>Bathroom Renovations</h3>
+                    <p>
+                        Transform your bathroom with our expert renovation services. We handle everything from design to installation for a hassle-free experience.
+                    </p>
+                    <ul>
+                        <li>Custom designs</li>
+                        <li>Fixture upgrades</li>
+                        <li>Waterproofing</li>
+                    </ul>
                 </div>
-                <h3>Bathroom Renovations</h3>
-                <p>
-                    Transform your bathroom with our expert renovation services. We handle everything from design to installation for a hassle-free experience.
-                </p>
-                <ul>
-                    <li>Custom designs</li>
-                    <li>Fixture upgrades</li>
-                    <li>Waterproofing</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-burn"></i>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-burn"></i>
+                    </div>
+                    <h3>Gas Fitting</h3>
+                    <p>
+                        Trust our skilled professionals for all your gas fitting needs, from installations to repairs. We prioritize safety and efficiency in every job.
+                    </p>
+                    <ul>
+                        <li>Gas appliance installation</li>
+                        <li>Gas leak detection</li>
+                        <li>Gas line repairs</li>
+                    </ul>
                 </div>
-                <h3>Gas Fitting</h3>
-                <p>
-                    Trust our skilled professionals for all your gas fitting needs, from installations to repairs. We prioritize safety and efficiency in every job.
-                </p>
-                <ul>
-                    <li>Gas appliance installation</li>
-                    <li>Gas leak detection</li>
-                    <li>Gas line repairs</li>
-                </ul>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <section id="about" class="about">
         <div class="container">
@@ -702,7 +697,7 @@ footer {
                     <label for="message">Message</label>
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
-              <button type="submit" class="btn form-button">Send Message</button>
+                <button type="submit" class="btn form-button">Send Message</button>
             </form>
         </div>
     </section>
@@ -714,80 +709,80 @@ footer {
     </footer>
 
     <script>
-       document.addEventListener('DOMContentLoaded', function() {
-    const header = document.querySelector('header');
-    const hamburger = document.querySelector('.hamburger-menu');
-    const mobileNav = document.getElementById('mobile-nav');
-    const heroContent = document.querySelector('.hero-content');
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('header');
+            const hamburger = document.querySelector('.hamburger-menu');
+            const mobileNav = document.getElementById('mobile-nav');
+            const heroContent = document.querySelector('.hero-content');
 
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Service card hover effect
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
+                    card.style.transform = 'translateY(-10px)';
+                    card.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                    card.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.1)';
+                });
+            });
+
+            // Hamburger menu functionality
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('open');
+                mobileNav.classList.toggle('active');
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNav.classList.remove('active');
+                    hamburger.classList.remove('open');
+                });
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (event) => {
+                if (!mobileNav.contains(event.target) && !hamburger.contains(event.target) && mobileNav.classList.contains('active')) {
+                    mobileNav.classList.remove('active');
+                    hamburger.classList.remove('open');
+                }
+            });
+
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.remove('transparent');
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.add('transparent');
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Show hero content on page load
+            window.addEventListener('load', () => {
+                heroContent.classList.add('show');
+            });
+
+            // Form submission
+            document.querySelector('.contact-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message. We will get back to you soon!');
+                this.reset();
             });
         });
-    });
-
-    // Service card hover effect
-    document.querySelectorAll('.service-card').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
-            card.style.transform = 'translateY(-10px)';
-            card.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
-        });
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'translateY(0)';
-            card.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.1)';
-        });
-    });
-
-    // Hamburger menu functionality
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('open');
-        mobileNav.classList.toggle('active');
-    });
-
-    // Close mobile menu when a link is clicked
-    mobileNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileNav.classList.remove('active');
-            hamburger.classList.remove('open');
-        });
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (event) => {
-        if (!mobileNav.contains(event.target) && !hamburger.contains(event.target) && mobileNav.classList.contains('active')) {
-            mobileNav.classList.remove('active');
-            hamburger.classList.remove('open');
-        }
-    });
-
-    // Header scroll effect
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            header.classList.remove('transparent');
-            header.classList.add('scrolled');
-        } else {
-            header.classList.add('transparent');
-            header.classList.remove('scrolled');
-        }
-    });
-
-    // Show hero content on page load
-    window.addEventListener('load', () => {
-        heroContent.classList.add('show');
-    });
-
-    // Form submission
-    document.querySelector('.contact-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Thank you for your message. We will get back to you soon!');
-        this.reset();
-    });
-});
     </script>
 </body>
 </html>
