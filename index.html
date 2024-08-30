@@ -439,9 +439,11 @@ body, html {
     #contact .section-heading {
         color: var(--white);
     }
-.hamburger-menu {
-            display: none;
+/* Updated hamburger menu styles */
+        .hamburger-menu {
+            display: block;
             cursor: pointer;
+            z-index: 1000;
         }
 
         .hamburger-icon {
@@ -463,17 +465,9 @@ body, html {
             transition: .25s ease-in-out;
         }
 
-        .hamburger-icon span:nth-child(1) {
-            top: 0px;
-        }
-
-        .hamburger-icon span:nth-child(2) {
-            top: 8px;
-        }
-
-        .hamburger-icon span:nth-child(3) {
-            top: 16px;
-        }
+        .hamburger-icon span:nth-child(1) { top: 0px; }
+        .hamburger-icon span:nth-child(2) { top: 8px; }
+        .hamburger-icon span:nth-child(3) { top: 16px; }
 
         .hamburger-menu.open span:nth-child(1) {
             top: 8px;
@@ -494,10 +488,12 @@ body, html {
             display: none;
             position: absolute;
             top: 97px;
-            left: 0;
             right: 0;
             background-color: var(--white);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 0 0 0 10px;
+            padding: 20px;
+            z-index: 999;
         }
 
         #mobile-nav ul {
@@ -506,21 +502,23 @@ body, html {
         }
 
         #mobile-nav ul li {
-            padding: 15px;
-            text-align: center;
+            padding: 10px 0;
+            text-align: right;
         }
 
         #mobile-nav ul li a {
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 600;
+            transition: color 0.3s ease;
         }
 
-        @media (max-width: 768px) {
-            .hamburger-menu {
-                display: block;
-            }
+        #mobile-nav ul li a:hover {
+            color: var(--accent-color);
+        }
 
+        /* Remove the media query that hides desktop nav */
+        @media (max-width: 768px) {
             #desktop-nav {
                 display: none;
             }
@@ -532,8 +530,6 @@ body, html {
         <div class="container header-content">
             <a href="#home" class="logo">
                 <img src="https://i.ibb.co/Z18Fft5/upscale-1.png" alt="DR H₂O - For when your plumbing is under the weather">
-            </a>
-            <nav id="desktop-nav">
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
@@ -549,16 +545,6 @@ body, html {
                     <span></span>
                 </div>
             </div>
-        </div>
-        <nav id="mobile-nav">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
     </header>
 
     <section id="home" class="hero">
