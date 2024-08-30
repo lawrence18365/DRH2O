@@ -675,7 +675,49 @@ document.querySelectorAll('.service-card').forEach(card => {
         card.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.1)';
     });
 });
+// Hamburger menu functionality
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+const mobileNav = document.getElementById('mobile-nav');
 
+hamburgerMenu.addEventListener('click', () => {
+    hamburgerMenu.classList.toggle('open');
+    mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
+});
+
+// Close mobile menu when a link is clicked
+const mobileNavLinks = mobileNav.querySelectorAll('a');
+mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileNav.style.display = 'none';
+        hamburgerMenu.classList.remove('open');
+    });
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (event) => {
+    const isClickInsideMenu = mobileNav.contains(event.target);
+    const isClickOnHamburger = hamburgerMenu.contains(event.target);
+    if (!isClickInsideMenu && !isClickOnHamburger && mobileNav.style.display === 'block') {
+        mobileNav.style.display = 'none';
+        hamburgerMenu.classList.remove('open');
+    }
+});
+
+// Adjust mobile nav position on scroll
+window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 768) {
+        const headerHeight = document.querySelector('header').offsetHeight;
+        mobileNav.style.top = `${headerHeight}px`;
+    }
+});
+
+// Ensure mobile nav is hidden when resizing to desktop view
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        mobileNav.style.display = 'none';
+        hamburgerMenu.classList.remove('open');
+    }
+});
         // Show hero content on page load
         window.addEventListener('load', () => {
             document.querySelector('.hero-content').classList.add('show');
