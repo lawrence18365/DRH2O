@@ -221,18 +221,18 @@ col_60 {
 .services-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;  /* Changed from center to flex-start */
     margin-bottom: 2rem;
+    flex-wrap: wrap;  /* Added to allow wrapping on smaller screens */
 }
 
 .section-heading h2 {
     font-size: 2.5rem;
     color: var(--primary-color);
-    margin: 0;
+    margin: 0 0 1rem 0;  /* Added bottom margin */
     text-transform: uppercase;
     font-weight: 800;
     line-height: 1.2;
-}
 
 /* Service highlights section */
 .service-highlights {
@@ -651,7 +651,7 @@ footer {
 <section id="services" class="services">
     <div class="container">
         <div class="services-header">
-           <div class="col_60">
+           <div class="col-60">
             <h2 class="section-heading h2">PROVIDING SAME-DAY PLUMBING SERVICES!</h2>
             </div>
            <div class="col-40">
