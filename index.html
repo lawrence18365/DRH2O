@@ -119,12 +119,9 @@ header .container {
     justify-content: center;
     color: var(--white);
     text-align: left;
-    position: fixed; /* Fix the hero section to the top */
-    width: 100%; /* Ensure it takes the full width */
+    position: relative; /* Changed from fixed to relative */
+    width: 100%;
     overflow: hidden;
-    top: 0; /* Start from the top */
-    left: 0;
-    z-index: 1;
 }
 
 .hero::before {
@@ -135,7 +132,7 @@ header .container {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5); /* Optional: Add overlay */
-    z-index: -1;
+    z-index: 1;
 }
 
 .hero-content {
