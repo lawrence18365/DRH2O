@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
-<style>    
- :root {
+<style>
+:root {
     --primary-color: #40a9f3;
     --secondary-color: #005a8c;
     --accent-color: #ff6600;
@@ -37,7 +37,6 @@ body {
     padding: 0;
     background-color: var(--bg-color);
     color: var(--text-color);
-    padding-top: 97px;
 }
 
 .container {
@@ -54,7 +53,7 @@ header {
     width: 100%;
     z-index: 1000;
     transition: background-color 0.3s ease;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.2); /* Mostly see-through black */
 }
 
 header .container {
@@ -65,7 +64,7 @@ header .container {
 }
 
 .logo img {
-    height: 60px;
+    height: 80px; /* Increased size */
     width: auto;
     max-width: none;
     border-radius: 10px;
@@ -94,7 +93,7 @@ header .container {
 }
 
 .nav-links a {
-    color: var(--primary-color);
+    color: var(--white); /* Changed to white */
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
@@ -107,19 +106,33 @@ header .container {
     border-left: 3px solid var(--white);
 }
 
+/* CTA Button in Header */
+.header-cta {
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.header-cta:hover {
+    background-color: var(--accent-color-hover);
+}
+
 /* Hero Section */
 .hero {
     background-image: url('https://i.postimg.cc/HkvrnvWx/image14-ezgif-com-webp-to-jpg-converter.jpg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    height: 100vh;
+    height: 50vh; /* Reduced to half size */
     display: flex;
     align-items: center;
-    justify-content: center;
     color: var(--white);
     text-align: left;
-    position: relative; /* Changed from fixed to relative */
+    position: relative;
     width: 100%;
     overflow: hidden;
 }
@@ -131,6 +144,7 @@ header .container {
     left: 0;
     right: 0;
     bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
@@ -138,29 +152,24 @@ header .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
-    transform: translateY(-50px);
-    opacity: 0;
-    transition: transform var(--transition-speed) ease, opacity var(--transition-speed) ease;
     position: relative;
     z-index: 2;
-}
-
-.hero-content.show {
-    transform: translateY(0);
-    opacity: 1;
 }
 
 .hero-content h1 {
     font-size: clamp(2rem, 5vw, 3rem);
     margin-bottom: 1rem;
     text-shadow: var(--text-shadow);
+    text-align: left;
 }
 
 .hero-content p {
     font-size: clamp(1rem, 3vw, 1.4rem);
     margin-bottom: 2.5rem;
     text-shadow: var(--text-shadow);
+    text-align: left;
 }
+
 /* Button Styles */
 .btn {
     background-color: var(--primary-color);
@@ -429,12 +438,8 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    body {
-        padding-top: 60px;
-    }
-
     header {
-        height: 60px;
+        background-color: rgba(0, 0, 0, 0.8); /* More opaque for mobile */
     }
 
     .header-content {
@@ -442,7 +447,7 @@ footer {
     }
 
     .logo img {
-        height: 50px;
+        height: 60px;
     }
 
     .menu-toggle {
@@ -456,7 +461,7 @@ footer {
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: var(--white);
+        background-color: rgba(0, 0, 0, 0.8);
         flex-direction: column;
         align-items: flex-start;
         padding: 1rem;
@@ -471,7 +476,7 @@ footer {
     }
 
     .nav-links a {
-        color: var(--primary-color);
+        color: var(--white);
     }
 
     .hero-content {
@@ -527,11 +532,12 @@ footer {
                 <li><a href="./faq.html">FAQ</a></li>
             </ul>
         </nav>
+        <a href="#contact" class="header-cta">Get a Quote</a>
     </div>
 </header>
 
     <section id="home" class="hero">
-        <div class="container hero-content">
+           <div class="hero-content">
             <h1>Expert Plumbing Solutions</h1>
             <p>Your trusted plumbing partner in Sydney's Eastern Suburbs</p>
             <a href="#contact" class="btn">GET A FREE QUOTE</a>
