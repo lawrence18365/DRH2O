@@ -53,7 +53,7 @@ header {
     width: 100%;
     z-index: 1000;
     transition: background-color 0.3s ease;
-    background-color: rgba(0, 0, 0, 0.2); /* Mostly see-through black */
+    background-color: rgba(0, 0, 0, 0.7); /* More opaque for better visibility */
 }
 
 header .container {
@@ -64,7 +64,7 @@ header .container {
 }
 
 .logo img {
-    height: 80px; /* Increased size */
+    height: 60px; /* Slightly reduced size for better proportions */
     width: auto;
     max-width: none;
     border-radius: 10px;
@@ -93,10 +93,11 @@ header .container {
 }
 
 .nav-links a {
-    color: var(--white); /* Changed to white */
+    color: var(--white);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600; /* Increased font weight for better visibility */
     transition: color 0.3s ease;
+    font-size: 1.1rem; /* Slightly larger font size */
 }
 
 .nav-links a:hover {
@@ -104,17 +105,19 @@ header .container {
     opacity: 1;
     background-color: rgba(255, 255, 255, 0.1);
     border-left: 3px solid var(--white);
+    padding: 0.5rem 1rem; /* Added padding for better hover effect */
 }
 
 /* CTA Button in Header */
 .header-cta {
     background-color: var(--accent-color);
     color: var(--white);
-    padding: 0.5rem 1rem;
+    padding: 0.7rem 1.5rem; /* Increased padding for better visibility */
     border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
     transition: background-color 0.3s ease;
+    font-size: 1.1rem; /* Slightly larger font size */
 }
 
 .header-cta:hover {
@@ -127,7 +130,7 @@ header .container {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    height: 50vh; /* Reduced to half size */
+    height: 70vh; /* Increased height for better impact */
     display: flex;
     align-items: center;
     color: var(--white);
@@ -157,14 +160,14 @@ header .container {
 }
 
 .hero-content h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Increased font size */
     margin-bottom: 1rem;
     text-shadow: var(--text-shadow);
     text-align: left;
 }
 
 .hero-content p {
-    font-size: clamp(1rem, 3vw, 1.4rem);
+    font-size: clamp(1.2rem, 3vw, 1.6rem); /* Increased font size */
     margin-bottom: 2.5rem;
     text-shadow: var(--text-shadow);
     text-align: left;
@@ -447,7 +450,7 @@ footer {
     }
 
     .logo img {
-        height: 60px;
+        height: 50px; /* Further reduced for mobile */
     }
 
     .menu-toggle {
