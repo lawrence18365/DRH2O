@@ -47,7 +47,7 @@
         left: 0;
         z-index: 1000;
         transition: background-color 0.3s ease;
-        background-color: rgba(51, 51, 51, 0.9); /* Dark gray with 90% opacity */
+        background-color: transparent;
     }
     header.scrolled {
         background-color: var(--white);
@@ -117,24 +117,6 @@
         background-color: rgba(255, 255, 255, 0.1);
         border-left: 3px solid var(--white);
     }
-    .menu-toggle {
-        display: block;
-        font-size: 24px;
-        color: var(--white);
-        cursor: pointer;
-        background: none;
-        border: none;
-        padding: 0;
-    }
-    .hero::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
     .hero {
         background-image: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/mx00DQbJ7NLY4uno57UO-.webp');
         background-repeat: no-repeat;
@@ -150,11 +132,17 @@
         overflow: hidden;
         margin: 0;
         padding: 0;
+        margin-top: -60px;
+        padding-top: 60px;
     }
-    body, html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
     }
     .hero::after {
         content: '';
@@ -430,11 +418,8 @@
             padding-top: 60px;
         }
         .about-content {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-            flex-direction: column-reverse
-}
+            flex-direction: column-reverse;
+        }
         .about-image {
             margin-bottom: 2rem;
         }
@@ -455,7 +440,7 @@
         .logo img {
             height: 50px;
         }
-        .nav-links {
+.nav-links {
             top: 60px;
             width: 100%;
             right: 0;
@@ -465,18 +450,7 @@
             font-size: 20px;
         }
     }
-    header {
-        background-color: transparent;
-        transition: background-color 0.3s ease;
-    }
-    header.scrolled {
-        background-color: var(--white);
-    }
-    .hero {
-        margin-top: -60px;
-        padding-top: 60px;
-    }
-</style>
+    </style>
 </head>
 <body>
     <header>
@@ -484,42 +458,26 @@
             <a href="#" class="logo">
                 <img src="https://i.ibb.co/Z18Fft5/upscale-1.png" alt="DR H₂O - For when your plumbing is under the weather">
             </a>    
-            <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
             <nav>
                 <ul class="nav-links">
                     <li><a href="./about-us.html">About</a></li>
+                    <li><a href="#services">Services</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="./faq.html">FAQ</a></li>
                 </ul>
             </nav>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
     <section id="home" class="hero">
-        <div class="container hero-content">
+        <div class="hero-content">
             <h1>Expert Plumbing Solutions</h1>
             <p>Your trusted plumbing partner in Sydney's Eastern Suburbs</p>
             <a href="#contact" class="btn">GET A FREE QUOTE</a>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-heading">About Us</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>DR H₂O: Your Local Plumbing Experts</h2>
-                    <p>With over a decade of experience serving Sydney's Eastern Suburbs, DR H₂O has become the go-to plumbing service for all your needs.</p>
-                    <p>Based in Randwick, NSW 2031, our team of fully licensed professionals is committed to providing solutions that last.</p>
-                    <p>We're more than just plumbers – we're your neighbors. When you choose DR H₂O, you're choosing a team that values your time, respects your home, and delivers results that exceed your expectations.</p>
-                </div>
-                <div class="about-image">
-                    <img src="https://i.ibb.co/4gGDpFq/Untitled-design-4.png" alt="DR H₂O Plumber at work">
-                </div>
-            </div>
         </div>
     </section>
 
@@ -528,13 +486,9 @@
             <h2 class="section-heading">Our Services</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-exclamation-triangle"></i>
-                    </div>
-                    <h3>Emergency Plumbing</h3>
-                    <p>
-                        24/7 emergency service for all your urgent plumbing needs. We respond quickly to minimize damage and restore your peace of mind.
-                    </p>
+                    <i class="fas fa-wrench service-icon"></i>
+                    <h3>Emergency Repairs</h3>
+                    <p>24/7 service for urgent plumbing issues</p>
                     <ul>
                         <li>Burst pipes</li>
                         <li>Blocked drains</li>
@@ -542,46 +496,39 @@
                     </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-water"></i>
-                    </div>
-                    <h3>Blocked Drains</h3>
-                    <p>
-                        Using state-of-the-art technology, including Hi Pressure Jetting and CCTV drain inspections, we identify and clear blockages efficiently.
-                    </p>
-                    <ul>
-                        <li>Hidden pipe leaks</li>
-                        <li>CCTV Drain Inspection</li>
-                        <li>Drain Cleaning and Maintenance</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-bath"></i>
-                    </div>
+                    <i class="fas fa-shower service-icon"></i>
                     <h3>Bathroom Renovations</h3>
-                    <p>
-                        Transform your bathroom with our expert renovation services. We handle everything from design to installation for a hassle-free experience.
-                    </p>
+                    <p>Transform your bathroom with our expert services</p>
                     <ul>
-                        <li>Custom designs</li>
-                        <li>Fixture upgrades</li>
-                        <li>Waterproofing</li>
+                        <li>Fixture installations</li>
+                        <li>Tile work</li>
+                        <li>Plumbing upgrades</li>
                     </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-burn"></i>
-                    </div>
-                    <h3>Gas<br>Fitting</h3>
-                    <p>
-                        Trust our skilled professionals for all your gas fitting needs, from installations to repairs. We prioritize safety and efficiency in every job.
-                    </p>
+                    <i class="fas fa-tint service-icon"></i>
+                    <h3>Water Efficiency</h3>
+                    <p>Save water and reduce your bills</p>
                     <ul>
-                        <li>Gas appliance installation</li>
-                        <li>Gas leak detection</li>
-                        <li>Gas line repairs</li>
+                        <li>Leak detection</li>
+                        <li>Water-saving fixture installation</li>
+                        <li>Rainwater tank setup</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Why Choose DR H₂O?</h2>
+                    <p>With over a decade of experience, we deliver top-notch plumbing solutions tailored to your needs. Our team of certified professionals ensures quality workmanship and customer satisfaction.</p>
+                    <a href="#contact" class="btn">Contact Us</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://i.ibb.co/4gGDpFq/Untitled-design-4.png" alt="DR H₂O Plumber at work">
                 </div>
             </div>
         </div>
@@ -593,54 +540,29 @@
             <div class="testimonial-grid">
                 <div class="testimonial">
                     <div class="testimonial-content">
-                        <p>"I can't recommend DR H₂O enough. They're not just skilled at what they do, but also incredibly honest and reliable. This plumber has consistently delivered top-notch service, always going above and beyond. I've been using their services for 7 years."</p>
+                        <p>"DR H₂O saved the day! They responded quickly to our emergency call and fixed our burst pipe efficiently. Highly recommended!"</p>
                     </div>
                     <div class="testimonial-author">
+                        <img src="/api/placeholder/60/60" alt="Sarah J.">
                         <div>
-                            <h4>Martha Nissirios</h4>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
+                            <h4>Sarah J.</h4>
+                            <p>Bondi resident</p>
                         </div>
                     </div>
+                    <div class="star-rating">★★★★★</div>
                 </div>
                 <div class="testimonial">
                     <div class="testimonial-content">
-                        <p>"John and his team service my residential and commercial management portfolio. Their knowledge and experience are second to none. John is someone you can rely on to get the job done right the first time with exceptional results. I highly recommend DR H₂O for all your plumbing needs."</p>
+                        <p>"The team at DR H₂O did an amazing job with our bathroom renovation. Professional, punctual, and a pleasure to work with!"</p>
                     </div>
                     <div class="testimonial-author">
+                        <img src="/api/placeholder/60/60" alt="Mike T.">
                         <div>
-                            <h4>Theodore Geortsis</h4>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
+                            <h4>Mike T.</h4>
+                            <p>Randwick homeowner</p>
                         </div>
                     </div>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"DR H₂O completed the plumbing, gas, and drainage work on our full bathroom and kitchen renovations, including brand new pipework with bathroom moves, shower, bath, and double toilet install, plus laundry and kitchen appliances, new hot water heater, new gas line, and tapware installs! Nothing was ever too hard for John!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div>
-                            <h4>Dean Fox</h4>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="star-rating">★★★★★</div>
                 </div>
             </div>
         </div>
@@ -648,7 +570,7 @@
 
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-heading">Contact Us</h2>
+            <h2 class="section-heading">Get In Touch</h2>
             <form class="contact-form">
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -684,13 +606,6 @@
         const navLinks = document.querySelector('.nav-links');
         const heroContent = document.querySelector('.hero-content');
 
-        function toggleMenu() {
-            navLinks.classList.toggle('active');
-            menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
-        }
-
-        menuToggle.addEventListener('click', toggleMenu);
-
         function updateHeaderStyle() {
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
@@ -700,39 +615,56 @@
         }
 
         window.addEventListener('scroll', updateHeaderStyle);
-        updateHeaderStyle(); // Call this initially to set the correct state
+        updateHeaderStyle();
 
-        // Reveal hero content
-        setTimeout(() => {
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+
+        setTimeout(function() {
             heroContent.classList.add('show');
         }, 500);
 
-        // Form submission handling
-        const form = document.querySelector('form');
-        if (form) {
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const formData = new FormData(form);
-                try {
-                    const response = await fetch(form.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-                    if (response.ok) {
-                        alert('Thank you for your message! We will get back to you shortly.');
-                        form.reset();
-                    } else {
-                        throw new Error('Form submission failed');
-                    }
-                } catch (error) {
-                    alert('Oops! There was a problem submitting your form. Please try again later.');
-                    console.error(error);
-                }
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray('.service-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top bottom-=100",
+                    toggleActions: "play none none reverse"
+                },
+                y: 100,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.2
             });
-        }
+        });
+
+        gsap.from('.about-content', {
+            scrollTrigger: {
+                trigger: '.about-content',
+                start: "top bottom-=100",
+                toggleActions: "play none none reverse"
+            },
+            y: 100,
+            opacity: 0,
+            duration: 1
+        });
+
+        gsap.utils.toArray('.testimonial').forEach((testimonial, i) => {
+            gsap.from(testimonial, {
+                scrollTrigger: {
+                    trigger: testimonial,
+                    start: "top bottom-=100",
+                    toggleActions: "play none none reverse"
+                },
+                y: 100,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.2
+            });
+        });
     });
     </script>
 </body>
