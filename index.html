@@ -131,14 +131,21 @@ header .container {
     background-position: center center;
     background-size: cover;
     height: 100vh;
-    display: flex;
-    justify-content: center; /* This will vertically center the content */
-    align-items: flex-start; /* This keeps the left alignment */    color: var(--white);
-    text-align: left;
     position: relative;
     width: 100%;
     overflow: hidden;
 }
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 5%; /* Adjust this value to move content more or less to the left */
+    transform: translateY(-50%);
+    max-width: 800px;
+    padding: 2rem;
+    z-index: 2;
+}
+
 
 .hero::before {
     content: "";
@@ -149,16 +156,6 @@ header .container {
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.1);
     z-index: 1;
-}
-
-.hero-content {
-    max-width: 800px;
-    /* Removed margin: 0 auto; */
-    padding: 2rem;
-    padding-left: 5%; /* Adjust this value to align with the logo */
-    position: relative;
-    z-index: 2;
-    margin-top: 80px; /* Adjust this value to move the content down */
 }
 
 .hero-content h1 {
