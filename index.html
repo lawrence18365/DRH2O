@@ -62,6 +62,10 @@ header .container {
     align-items: center;
     padding: 1rem;
 }
+.content {
+  padding-top: 60px; /* add padding to the content area to make room for the header */
+  overflow-y: auto; /* add scrolling to the content area */
+}
 
 .logo img {
     height: 60px; /* Slightly reduced size for better proportions */
@@ -539,8 +543,8 @@ footer {
         </nav>
         <a href="#contact" class="header-cta">Get a Quote</a>
     </div>
-</header>
-
+      </header>
+<div class="content">
     <section id="home" class="hero">
            <div class="hero-content">
             <h1>Expert Plumbing Solutions</h1>
@@ -717,6 +721,7 @@ footer {
             <p>© 2023 DR H₂O. All rights reserved. | License No: PL12345</p>
         </div>
     </footer>
+</div>
  <script>
 document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('header');
