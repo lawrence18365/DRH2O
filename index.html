@@ -130,9 +130,9 @@ header .container {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    height: 100vh; /* Increased height for better impact */
+    height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Changed from center to flex-start */
     color: var(--white);
     text-align: left;
     position: relative;
@@ -153,10 +153,10 @@ header .container {
 
 .hero-content {
     max-width: 800px;
-    margin: 0 auto;
+    /* Removed margin: 0 auto; */
     padding: 2rem;
+    padding-left: 5%; /* Adjust this value to align with the logo */
     position: relative;
-    left: 0; /* add this */
     z-index: 2;
 }
 
