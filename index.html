@@ -202,9 +202,11 @@ header .container {
 .col-40 {
   width: 40%;
 }
+
 .col-60 {
     width: 60%;
 }
+
 /* Services section container */
 .services {
     padding: 4rem 0;
@@ -221,15 +223,15 @@ header .container {
 .services-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;  /* Changed from center to flex-start */
+    align-items: flex-start;
     margin-bottom: 2rem;
-    flex-wrap: wrap;  /* Added to allow wrapping on smaller screens */
+    flex-wrap: wrap;
 }
 
 .section-heading h2 {
     font-size: 2.5rem;
     color: var(--primary-color);
-    margin: 0 0 1rem 0;  /* Added bottom margin */
+    margin: 0 0 1rem 0;
     text-transform: uppercase;
     font-weight: 800;
     line-height: 1.2;
@@ -374,6 +376,9 @@ header .container {
         align-items: flex-start;
     }
     .highlight-item {
+        width: 100%;
+    }
+    .col-40, .col-60 {
         width: 100%;
     }
 }
@@ -806,7 +811,7 @@ footer {
 
     <section id="testimonials" class="testimonials">
         <div class="container">
-            <h2 class="section-heading">What Our Customers Say</h2>
+            <h2 class="services-header">What Our Customers Say</h2>
             <div class="testimonial-grid">
                 <div class="testimonial">
                     <div class="testimonial-content">
@@ -865,7 +870,7 @@ footer {
 
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-heading">Contact Us</h2>
+            <h2 class="services-header">Contact Us</h2>
             <form class="contact-form">
                 <div class="form-group">
                     <label for="name">Name</label>
