@@ -199,7 +199,6 @@ header .container {
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
-
 .service-card {
     background-color: var(--white);
     border-radius: 12px;
@@ -210,39 +209,52 @@ header .container {
     position: relative;
     overflow: hidden;
 }
+
 .services-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
 }
+
 .service-highlights {
     display: flex;
-    gap: 10px;
+    gap: 20px; /* Increased gap for better spacing */
+    justify-content: space-between; /* Ensure even spacing between items */
 }
+
 .highlight-item {
     background-color: var(--white);
     color: var(--primary-color);
     text-align: center;
     border-radius: 20px;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 33.33%;
+    width: 100%; /* Allows better scaling */
     padding: 20px 10px;
     font-weight: 600;
-    display: flex;
-    box-shadow: 9px 5px 20px 10px rgba(0, 0, 0, 0.11);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Softened shadow for a cleaner look */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added hover transition */
 }
+
 .highlight-item img {
     width: 60px;
     height: 60px;
     margin-bottom: 15px;
 }
+
 .highlight-item span {
-    font-size: 0.9rem;
+    font-size: 1rem; /* Increased font size for readability */
     color: var(--text-color);
 }
+
+.highlight-item:hover {
+    transform: translateY(-5px); /* Adds a subtle lift effect on hover */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Enhanced hover shadow for depth */
+}
+
 .services-subheading {
     font-size: 1.1rem;
     color: var(--text-color);
