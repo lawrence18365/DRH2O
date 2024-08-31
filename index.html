@@ -315,6 +315,14 @@ col_60 {
     margin-top: 3rem;
 }
 
+//* Service card container */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
 /* Service card styling */
 .service-card {
     background-color: #ffffff;
@@ -325,11 +333,12 @@ col_60 {
     display: flex;
     flex-direction: column;
     height: 100%;
+    justify-content: space-between;
 }
 
 /* Hover effect for service card */
 .service-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
@@ -338,6 +347,7 @@ col_60 {
     font-size: 3rem;
     color: var(--primary-color);
     margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 /* Service card title styling */
@@ -345,6 +355,11 @@ col_60 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: var(--primary-color);
+    text-align: center;
+    height: 3.6rem; /* Approx. 2 lines of text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Service card paragraph styling */
@@ -353,6 +368,12 @@ col_60 {
     margin-bottom: 1.5rem;
     color: var(--text-color);
     flex-grow: 1;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 6rem; /* Approx. 4 lines of text */
 }
 
 /* Service card list styling */
@@ -379,13 +400,21 @@ col_60 {
     font-size: 1.2rem;
     position: absolute;
     left: 0;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-/* Responsive styling for screens smaller than 1024px */
-@media (max-width: 1024px) {
+/* Responsive styling for screens smaller than 1200px */
+@media (max-width: 1200px) {
     .services-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet */
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Responsive styling for screens smaller than 992px */
+@media (max-width: 992px) {
+    .services-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -405,7 +434,14 @@ col_60 {
         margin-bottom: 10px;
     }
     .services-container {
-        grid-template-columns: 1fr; /* 1 column for mobile */
+        grid-template-columns: 1fr;
+    }
+    .service-card h3 {
+        height: auto;
+    }
+    .service-card p {
+        height: auto;
+        -webkit-line-clamp: unset;
     }
 }
 /* About Section */
