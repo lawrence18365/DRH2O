@@ -293,6 +293,7 @@ header .container {
     margin-bottom: 20px;
     line-height: 1.2;
 }
+
 .section-heading h2 {
     text-transform: uppercase;
     margin-top: 0;
@@ -301,8 +302,81 @@ header .container {
     font-weight: 800;
     line-height: 1;
     color: var(--primary-color);
-    margin-bottom: 20px;
-    line-height: 1.2;
+}
+
+/* Service card container */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+/* Service card styling */
+.service-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Hover effect for service card */
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Service icon styling */
+.service-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+/* Service card title styling */
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+/* Service card paragraph styling */
+.service-card p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    flex-grow: 1;
+}
+
+/* Service card list styling */
+.service-card ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+/* Service card list item styling */
+.service-card ul li {
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    text-align: left;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+/* Bullet point for list items */
+.service-card ul li::before {
+    content: '\2022';
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 /* Responsive styling for screens smaller than 1024px */
@@ -331,62 +405,6 @@ header .container {
         grid-template-columns: 1fr; /* 1 column for mobile */
     }
 }
-
-/* Hover effect for service card */
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-}
-
-/* Service icon styling */
-.service-icon {
-    font-size: 4rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-}
-
-/* Service card title styling */
-.service-card h3 {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
-
-/* Service card paragraph styling */
-.service-card p {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-    color: var(--text-color);
-}
-
-/* Service card list styling */
-.service-card ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin: 0;
-}
-
-/* Service card list item styling */
-.service-card ul li {
-    margin-bottom: 0.75rem;
-    font-size: 1rem;
-    color: var(--text-color);
-    text-align: left !important;
-    position: relative;
-    padding-left: 1.5rem;
-}
-
-/* Bullet point for list items */
-.service-card ul li::before {
-    content: '\2022';
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
 /* About Section */
 .about {
     background-color: var(--bg-color);
@@ -689,26 +707,26 @@ footer {
                 </div>
                 <h3>Emergency Plumbing</h3>
                 <p>
-                    24/7 emergency service for all your urgent plumbing needs. We respond quickly to minimize damage and restore your peace of mind.
+                    24/7 emergency service for urgent plumbing needs. We respond quickly to minimize damage and restore your peace of mind.
                 </p>
                 <ul>
-                    <li>Burst pipes</li>
-                    <li>Blocked drains</li>
-                    <li>Water heater failures</li>
+                    <li>Burst pipe repair</li>
+                    <li>Drain blockage removal</li>
+                    <li>Water heater servicing</li>
                 </ul>
             </div>
             <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-water"></i>
                 </div>
-                <h3>Blocked<br>Drains</h3>
+                <h3>Blocked Drains</h3>
                 <p>
-                    Using state-of-the-art technology, including Hi Pressure Jetting and CCTV drain inspections, we identify and clear blockages efficiently.
+                    State-of-the-art technology to identify and clear blockages efficiently. We ensure your drains flow smoothly.
                 </p>
                 <ul>
-                    <li>Hidden pipe leaks</li>
-                    <li>CCTV Drain Inspection</li>
-                    <li>Drain Cleaning and Maintenance</li>
+                    <li>CCTV drain inspection</li>
+                    <li>High-pressure water jetting</li>
+                    <li>Drain maintenance plans</li>
                 </ul>
             </div>
             <div class="service-card">
@@ -717,40 +735,40 @@ footer {
                 </div>
                 <h3>Bathroom Renovations</h3>
                 <p>
-                    Transform your bathroom with our expert renovation services. We handle everything from design to installation for a hassle-free experience.
+                    Transform your bathroom with our expert renovation services. From design to installation, we create your dream space.
                 </p>
                 <ul>
-                    <li>Custom designs</li>
-                    <li>Fixture upgrades</li>
-                    <li>Waterproofing</li>
+                    <li>Custom design consultation</li>
+                    <li>Fixture upgrades and installation</li>
+                    <li>Professional waterproofing</li>
                 </ul>
             </div>
             <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-burn"></i>
                 </div>
-                <h3>Gas<br>Fitting</h3>
+                <h3>Gas Fitting</h3>
                 <p>
-                    Trust our skilled professionals for all your gas fitting needs, from installations to repairs. We prioritize safety and efficiency in every job.
+                    Trust our skilled professionals for all gas fitting needs. We prioritize safety and efficiency in every job.
                 </p>
                 <ul>
                     <li>Gas appliance installation</li>
-                    <li>Gas leak detection</li>
-                    <li>Gas line repairs</li>
+                    <li>Leak detection and repair</li>
+                    <li>Gas line maintenance</li>
                 </ul>
             </div>
             <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-wrench"></i>
                 </div>
-                <h3>Pipe<br>Repairs</h3>
+                <h3>Pipe Repairs</h3>
                 <p>
-                    Fast and reliable pipe repair services to fix leaks, bursts, and other issues. We ensure your plumbing system is functioning properly.
+                    Fast and reliable pipe repair services to fix leaks, bursts, and other issues. We keep your plumbing system in top condition.
                 </p>
                 <ul>
-                    <li>Leak detection</li>
-                    <li>Pipe replacement</li>
-                    <li>Preventative maintenance</li>
+                    <li>Leak detection and repair</li>
+                    <li>Pipe relining services</li>
+                    <li>Preventive maintenance</li>
                 </ul>
             </div>
             <div class="service-card">
@@ -759,12 +777,12 @@ footer {
                 </div>
                 <h3>Toilet Repair & Installation</h3>
                 <p>
-                    Comprehensive toilet repair and installation services to ensure your bathroom is functioning perfectly. We handle everything from leaks to new installations.
+                    Comprehensive toilet services to ensure proper functionality. We handle all aspects of toilet plumbing.
                 </p>
                 <ul>
-                    <li>Toilet leaks</li>
-                    <li>New installations</li>
-                    <li>Flushing issues</li>
+                    <li>Toilet installation and replacement</li>
+                    <li>Cistern and flush mechanism repair</li>
+                    <li>Water-saving upgrades</li>
                 </ul>
             </div>
             <div class="service-card">
@@ -773,26 +791,26 @@ footer {
                 </div>
                 <h3>Shower Repair & Installation</h3>
                 <p>
-                    Expert shower repair and installation services to keep your bathroom in top shape. From leaks to new installations, we've got you covered.
+                    Expert shower services to keep your bathroom in top shape. We handle everything from leaks to new installations.
                 </p>
                 <ul>
-                    <li>Showerhead repairs</li>
-                    <li>New installations</li>
-                    <li>Water pressure issues</li>
+                    <li>Shower head and faucet replacement</li>
+                    <li>Waterproofing and sealing</li>
+                    <li>Custom shower installation</li>
                 </ul>
             </div>
             <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-sink"></i>
                 </div>
-                <h3>Kitchen<br>Plumbing</h3>
+                <h3>Kitchen Plumbing</h3>
                 <p>
-                    Full-service kitchen plumbing solutions, including sink installations, garbage disposals, and pipe repairs. Your kitchen is in safe hands with us.
+                    Full-service kitchen plumbing solutions. We ensure your kitchen functions efficiently and looks great.
                 </p>
                 <ul>
-                    <li>Sink installations</li>
-                    <li>Garbage disposals</li>
-                    <li>Kitchen pipe repairs</li>
+                    <li>Sink and faucet installation</li>
+                    <li>Garbage disposal servicing</li>
+                    <li>Dishwasher plumbing</li>
                 </ul>
             </div>
         </div>
