@@ -442,11 +442,11 @@ h2 {
 }
 
 .testimonial-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 80%
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* Change to 3 columns */
     gap: 2rem;
+    width: 100%;  /* Ensure full width */
+    padding: 0 2rem;  /* Add some horizontal padding */
 }
 .testimonial {
     background-color: var(--bg-color);
