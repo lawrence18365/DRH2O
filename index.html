@@ -124,10 +124,9 @@ header .container {
     justify-content: center;
     color: var(--white);
     text-align: left;
-    position: relative;
+    position: fixed; /* add this */
+    top: 0; /* add this */
     overflow: hidden;
-    margin-top: -60px;
-    padding-top: 60px;
 }
 
 .hero::before {
@@ -157,7 +156,7 @@ header .container {
 
 .hero-content h1 {
     font-size: clamp(2rem, 5vw, 3rem);
-    margin-bottom: 1rem;
+    margin-bottom: 2.5rem;
     text-shadow: var(--text-shadow);
 }
 
@@ -166,7 +165,6 @@ header .container {
     margin-bottom: 2.5rem;
     text-shadow: var(--text-shadow);
 }
-
 /* Button Styles */
 .btn {
     background-color: var(--primary-color);
