@@ -205,23 +205,16 @@ header .container {
 col_60 {
     width: 60%;
 }
-/* Container for the service cards */
-.services-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    gap: 20px; /* Space between the cards */
+/* Services section container */
+.services {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
 }
 
-/* Service card styling */
-.service-card {
-    background-color: var(--white);
-    border-radius: 12px;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 /* Header styling */
@@ -230,52 +223,47 @@ col_60 {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
-    margin-top: 2rem;
+}
+
+.section-heading h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 800;
+    line-height: 1.2;
 }
 
 /* Service highlights section */
 .service-highlights {
     display: flex;
-    padding-left: 40px;
-    width: 100%;
-    gap: 20px; /* Increased gap for better spacing */
-    justify-content: space-between; /* Ensure even spacing between items */
+    gap: 20px;
+    justify-content: flex-end;
 }
 
-/* Highlight item styling */
 .highlight-item {
-    background-color: var(--white);
+    background-color: #ffffff;
     color: var(--primary-color);
     text-align: center;
-    border-radius: 20px;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 100%; /* Allows better scaling */
-    padding: 20px 10px;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Softened shadow for a cleaner look */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added hover transition */
+    width: 150px;
 }
 
-/* Image inside highlight item */
 .highlight-item img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 15px;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
 }
 
-/* Text inside highlight item */
 .highlight-item span {
-    font-size: 1rem; /* Increased font size for readability */
+    font-size: 0.9rem;
     color: var(--text-color);
-}
-
-/* Hover effect for highlight item */
-.highlight-item:hover {
-    transform: translateY(-5px); /* Adds a subtle lift effect on hover */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Enhanced hover shadow for depth */
+    font-weight: 600;
 }
 
 /* Subheading styling */
@@ -289,38 +277,11 @@ col_60 {
     margin-right: auto;
 }
 
-/* Section heading styling */
-.section-heading {
-    font-size: 48px;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    line-height: 1.2;
-}
-
-.section-heading h2 {
-    text-transform: uppercase;
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 63px;
-    font-weight: 800;
-    line-height: 1;
-    color: var(--primary-color);
-}
-
 /* Service card container */
 .services-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    margin-top: 3rem;
-}
-
-//* Service card container */
-.services-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    margin-top: 3rem;
 }
 
 /* Service card styling */
@@ -332,116 +293,88 @@ col_60 {
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    justify-content: space-between;
 }
 
-/* Hover effect for service card */
 .service-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
-/* Service icon styling */
 .service-icon {
     font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-/* Service card title styling */
-.service-card h3 {
-    font-size: 1.5rem;
+    color: #3498db;
     margin-bottom: 1rem;
-    color: var(--primary-color);
     text-align: center;
-    height: 3.6rem; /* Approx. 2 lines of text */
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-/* Service card paragraph styling */
+.service-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #3498db;
+    text-align: center;
+}
+
 .service-card p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-bottom: 1.5rem;
     color: var(--text-color);
-    flex-grow: 1;
     text-align: center;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    height: 6rem; /* Approx. 4 lines of text */
 }
 
-/* Service card list styling */
 .service-card ul {
     list-style-type: none;
     padding-left: 0;
     margin: 0;
+    margin-top: auto;
 }
 
-/* Service card list item styling */
 .service-card ul li {
-    margin-bottom: 0.75rem;
-    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
     color: var(--text-color);
     text-align: left;
     position: relative;
-    padding-left: 1.5rem;
+    padding-left: 1rem;
 }
 
-/* Bullet point for list items */
 .service-card ul li::before {
-    content: '\2022';
-    color: var(--primary-color);
-    font-size: 1.2rem;
+    content: '•';
+    color: #3498db;
     position: absolute;
     left: 0;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
-/* Responsive styling for screens smaller than 1200px */
+/* Responsive styling */
 @media (max-width: 1200px) {
     .services-container {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* Responsive styling for screens smaller than 992px */
 @media (max-width: 992px) {
     .services-container {
         grid-template-columns: repeat(2, 1fr);
     }
-}
-
-/* Responsive styling for screens smaller than 768px */
-@media (max-width: 768px) {
     .services-header {
         flex-direction: column;
         align-items: flex-start;
     }
     .service-highlights {
-        flex-direction: column;
-        width: 100%;
         margin-top: 1rem;
+        justify-content: flex-start;
     }
-    .highlight-item {
-        width: 100%;
-        margin-bottom: 10px;
-    }
+}
+
+@media (max-width: 768px) {
     .services-container {
         grid-template-columns: 1fr;
     }
-    .service-card h3 {
-        height: auto;
+    .service-highlights {
+        flex-direction: column;
+        align-items: flex-start;
     }
-    .service-card p {
-        height: auto;
-        -webkit-line-clamp: unset;
+    .highlight-item {
+        width: 100%;
     }
 }
 /* About Section */
