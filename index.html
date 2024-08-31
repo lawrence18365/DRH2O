@@ -199,6 +199,14 @@ header .container {
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
+/* Container for the service cards */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 20px; /* Space between the cards */
+}
+
+/* Service card styling */
 .service-card {
     background-color: var(--white);
     border-radius: 12px;
@@ -210,21 +218,23 @@ header .container {
     overflow: hidden;
 }
 
+/* Header styling */
 .services-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
     margin-top: 2rem;
-
 }
 
+/* Service highlights section */
 .service-highlights {
     display: flex;
     gap: 20px; /* Increased gap for better spacing */
     justify-content: space-between; /* Ensure even spacing between items */
 }
 
+/* Highlight item styling */
 .highlight-item {
     background-color: var(--white);
     color: var(--primary-color);
@@ -241,22 +251,26 @@ header .container {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added hover transition */
 }
 
+/* Image inside highlight item */
 .highlight-item img {
     width: 60px;
     height: 60px;
     margin-bottom: 15px;
 }
 
+/* Text inside highlight item */
 .highlight-item span {
     font-size: 1rem; /* Increased font size for readability */
     color: var(--text-color);
 }
 
+/* Hover effect for highlight item */
 .highlight-item:hover {
     transform: translateY(-5px); /* Adds a subtle lift effect on hover */
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Enhanced hover shadow for depth */
 }
 
+/* Subheading styling */
 .services-subheading {
     font-size: 1.1rem;
     color: var(--text-color);
@@ -266,6 +280,8 @@ header .container {
     margin-left: auto;
     margin-right: auto;
 }
+
+/* Section heading styling */
 .section-heading {
     font-size: 48px;
     color: var(--primary-color);
@@ -273,6 +289,14 @@ header .container {
     line-height: 1.2;
 }
 
+/* Responsive styling for screens smaller than 1024px */
+@media (max-width: 1024px) {
+    .services-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet */
+    }
+}
+
+/* Responsive styling for screens smaller than 768px */
 @media (max-width: 768px) {
     .services-header {
         flex-direction: column;
@@ -287,39 +311,56 @@ header .container {
         width: 100%;
         margin-bottom: 10px;
     }
+    .services-container {
+        grid-template-columns: 1fr; /* 1 column for mobile */
+    }
 }
+
+/* Hover effect for service card */
 .service-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
+
+/* Service icon styling */
 .service-icon {
     font-size: 4rem;
     color: var(--primary-color);
     margin-bottom: 1.5rem;
 }
+
+/* Service card title styling */
 .service-card h3 {
     font-size: 1.75rem;
     margin-bottom: 1rem;
     color: var(--primary-color);
 }
+
+/* Service card paragraph styling */
 .service-card p {
     font-size: 1rem;
     margin-bottom: 1.5rem;
     color: var(--text-color);
 }
+
+/* Service card list styling */
 .service-card ul {
     list-style-type: none;
     padding-left: 0;
     margin: 0;
 }
+
+/* Service card list item styling */
 .service-card ul li {
     margin-bottom: 0.75rem;
     font-size: 1rem;
     color: var(--text-color);
-    text-align: left!important;
+    text-align: left !important;
     position: relative;
     padding-left: 1.5rem;
 }
+
+/* Bullet point for list items */
 .service-card ul li::before {
     content: '\2022';
     color: var(--primary-color);
@@ -329,6 +370,7 @@ header .container {
     left: 0;
     top: 0;
 }
+
 /* About Section */
 .about {
     background-color: var(--bg-color);
