@@ -221,7 +221,6 @@ h2 {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
     padding: 0 15px;
 }
 .section-title {
@@ -237,7 +236,9 @@ h2 {
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 2rem;
-    flex-wrap: wrap;
+}
+.services-heading {
+    flex: 1;
 }
 
 .section-heading h2 {
@@ -253,7 +254,9 @@ h2 {
     display: flex;
     gap: 20px;
     justify-content: flex-end;
+    margin-top: 2rem;
 }
+
 
 .highlight-item {
     background-color: #ffffff;
@@ -278,6 +281,22 @@ h2 {
     color: var(--text-color);
     font-weight: 600;
 }
+@media (max-width: 768px) {
+    .services-header {
+        flex-direction: column;
+    }
+    .services-description {
+        padding-left: 0;
+        margin-top: 1rem;
+    }
+    .service-highlights {
+        flex-direction: column;
+        align-items: center;
+    }
+    .highlight-item {
+        width: 100%;
+        max-width: 200px;
+    }
 
 /* Subheading styling */
 .services-subheading {
@@ -458,6 +477,7 @@ h2 {
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .testimonial:hover {
@@ -486,18 +506,16 @@ h2 {
     color: var(--primary-color);
 }
 
-.testimonial-author p {
-    margin: 0;
-    color: var(--text-color);
-    opacity: 0.8;
-}
-
 .star-rating {
     color: var(--star-color);
     font-size: 1.2rem;
     margin-top: 0.5rem;
 }
 
+@media (max-width: 768px) {
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
 /* Contact Section */
 .contact {
     background-color: var(--primary-color);
@@ -670,6 +688,9 @@ footer {
         <div class="col-60">
             <div class="section-heading">
                 <h2>PROVIDING SAME-DAY PLUMBING SERVICES!</h2>
+     <p class="services-subheading">
+            We offer 24/7 emergency plumbing services -- even on holidays. So, if you have a plumbing emergency any time day or night, call us. Our expert plumbers will make your emergency their top priority.
+        </p>
             </div>
         </div>
         <div class="col-40">
@@ -691,9 +712,6 @@ footer {
     </div>
 </section>
 <section>
-        <p class="services-subheading">
-            We offer 24/7 emergency plumbing services -- even on holidays. So, if you have a plumbing emergency any time day or night, call us. Our expert plumbers will make your emergency their top priority.
-        </p>
         <div class="services-container">
             <div class="service-card">
                 <div class="service-icon">
