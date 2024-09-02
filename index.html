@@ -439,19 +439,31 @@ h2 {
 
 /* Testimonials Section */
 .testimonials {
-    padding: 8rem 0;
-    background-color: var(--white);
+    padding: 4rem 0;
+    background-color: var(--bg-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: var(--primary-color);
 }
 
 .testimonial-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 80%
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
+
 .testimonial {
-    background-color: var(--bg-color);
+    background-color: var(--white);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -473,11 +485,13 @@ h2 {
 .testimonial-content p {
     font-style: italic;
     line-height: 1.6;
+    color: var(--text-color);
 }
 
 .testimonial-author {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .testimonial-author h4 {
@@ -486,18 +500,17 @@ h2 {
     color: var(--primary-color);
 }
 
-.testimonial-author p {
-    margin: 0;
-    color: var(--text-color);
-    opacity: 0.8;
-}
-
 .star-rating {
     color: var(--star-color);
     font-size: 1.2rem;
     margin-top: 0.5rem;
 }
 
+@media (max-width: 768px) {
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+}
 /* Contact Section */
 .contact {
     background-color: var(--primary-color);
@@ -828,64 +841,57 @@ footer {
     </section>
 
     <section id="testimonials" class="testimonials">
-         <div class="section-title">
-           <h2>What Our Customers Say"</h2>   
-         </div>
-            <div class="testimonial-grid">
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"I can't recommend DR H₂O enough. They're not just skilled at what they do, but also incredibly honest and reliable. This plumber has consistently delivered top-notch service, always going above and beyond. I've been using their services for 7 years."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div>
-                            <h4>Martha Nissirios</h4>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
+    <div class="container">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    <p>"I can't recommend DR H₂O enough. They're not just skilled at what they do, but also incredibly honest and reliable. This plumber has consistently delivered top-notch service, always going above and beyond. I've been using their services for 7 years."</p>
+                </div>
+                <div class="testimonial-author">
+                    <h4>Martha Nissirios</h4>
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
                 </div>
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"John and his team service my residential and commercial management portfolio. Their knowledge and experience are second to none. John is someone you can rely on to get the job done right the first time with exceptional results. I highly recommend DR H₂O for all your plumbing needs."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div>
-                            <h4>Theodore Geortsis</h4>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    <p>"John and his team service my residential and commercial management portfolio. Their knowledge and experience are second to none. John is someone you can rely on to get the job done right the first time with exceptional results. I highly recommend DR H₂O for all your plumbing needs."</p>
+                </div>
+                <div class="testimonial-author">
+                    <h4>Theodore Geortsis</h4>
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
                 </div>
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"DR H₂O completed the plumbing, gas, and drainage work on our full bathroom and kitchen renovations, including brand new pipework with bathroom moves, shower, bath, and double toilet install, plus laundry and kitchen appliances, new hot water heater, new gas line, and tapware installs! Nothing was ever too hard for John!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div>
-                            <h4>Dean Fox</h4>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    <p>"DR H₂O completed the plumbing, gas, and drainage work on our full bathroom and kitchen renovations, including brand new pipework with bathroom moves, shower, bath, and double toilet install, plus laundry and kitchen appliances, new hot water heater, new gas line, and tapware installs! Nothing was ever too hard for John!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <h4>Dean Fox</h4>
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section id="contact" class="contact">
             <h2 class="section-title">Contact Us</h2>
