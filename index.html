@@ -444,56 +444,61 @@ h2 {
 }
 
 /* Testimonials Section */
-.testimonials {
-    padding: 4rem 0;
-    background-color: var(--bg-color);
-}
-
-.testimonials .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2.5rem;
-    color: var(--primary-color);
-}
-
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.testimonial {
-    background-color: var(--white);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.testimonial p {
-    font-style: italic;
-    margin-bottom: 1rem;
-}
-
-.testimonial-author h4 {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.star-rating {
-    color: #ffc107;
-}
-
-@media (max-width: 768px) {
-    .testimonial-grid {
-        grid-template-columns: 1fr;
+ .testimonials {
+        padding: 8rem 0;
+        background-color: var(--white);
     }
-}
+    .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    .testimonial {
+        background-color: var(--bg-color);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+    .testimonial:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    .testimonial-content {
+        flex-grow: 1;
+        margin-bottom: 1rem;
+    }
+    .testimonial-content p {
+        font-style: italic;
+        line-height: 1.6;
+    }
+    .testimonial-author {
+        display: flex;
+        align-items: center;
+    }
+    .testimonial-author img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-right: 1rem;
+    }
+    .testimonial-author h4 {
+        font-weight: 600;
+        margin: 0;
+        color: var(--primary-color);
+    }
+    .testimonial-author p {
+        margin: 0;
+        color: var(--text-color);
+        opacity: 0.8;
+    }
+    .star-rating {
+        color: var(--star-color);
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+    }
 /* Contact Section */
 .contact {
     background-color: var(--primary-color);
