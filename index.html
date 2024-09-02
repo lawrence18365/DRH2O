@@ -48,7 +48,7 @@ body {
 /* Header Styles */
 header {
     position: absolute;
-    top: 0;
+    top: 10vh;
     left: 0;
     width: 100%;
     z-index: 1000;
@@ -150,16 +150,17 @@ header .container {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    height: 100vh;
+    height: 110vh; /* Increased from 100vh to 110vh */
     position: relative;
     width: 100%;
     overflow: hidden;
+    margin-top: -10vh; /* This pulls the hero section up */
 }
 
 .hero-content {
     position: absolute;
     color: var(--white);
-    top: 50%;
+    top: 60%;
     left: 5%; /* Adjust this value to move content more or less to the left */
     transform: translateY(-50%);
     max-width: 1400px;
