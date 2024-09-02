@@ -245,12 +245,14 @@ h2 {
     margin-bottom: 1.5rem;
     padding: 0 15px;
 }
+
 .section-title {
     text-align: center;
     margin-bottom: 2rem;
     font-size: 2.5rem;
     color: var(--primary-color);
 }
+
 .section-title2 {
     text-align: center;
     margin-bottom: 2rem;
@@ -278,7 +280,7 @@ h2 {
 
 .service-highlights {
     display: flex;
-    gap: 30px; /* Increased from 20px */
+    gap: 30px;
     justify-content: flex-end;
 }
 
@@ -286,13 +288,13 @@ h2 {
     background-color: #ffffff;
     color: var(--primary-color);
     text-align: center;
-    border-radius: 12px; /* Increased from 10px */
-    padding: 20px; /* Increased from 15px */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Increased shadow */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 180px; /* Increased from 150px */
+    width: 180px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -302,30 +304,16 @@ h2 {
 }
 
 .highlight-item img {
-    width: 50px; /* Increased from 40px */
-    height: 50px; /* Increased from 40px */
-    margin-bottom: 15px; /* Increased from 10px */
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
 }
 
 .highlight-item span {
-    font-size: 1rem; /* Increased from 0.9rem */
+    font-size: 1rem;
     color: var(--text-color);
     font-weight: 600;
-    line-height: 1.4; /* Added for better readability */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .service-highlights {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .highlight-item {
-        width: 100%;
-        max-width: 250px;
-    }
+    line-height: 1.4;
 }
 
 /* Subheading styling */
@@ -344,8 +332,10 @@ h2 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    padding: 50 20px!important;
-    box-sizing: content-box!important;
+    padding: 0 20px;
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Service card styling */
@@ -439,6 +429,7 @@ h2 {
     }
     .highlight-item {
         width: 100%;
+        max-width: 250px;
     }
     .col-40, .col-60 {
         width: 100%;
