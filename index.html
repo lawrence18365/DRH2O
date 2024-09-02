@@ -449,7 +449,7 @@ h2 {
     background-color: var(--bg-color);
 }
 
-.container {
+.testimonials .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
@@ -459,12 +459,12 @@ h2 {
     text-align: center;
     margin-bottom: 2rem;
     font-size: 2.5rem;
-    color: white;
+    color: var(--primary-color);
 }
 
 .testimonial-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
 
@@ -473,43 +473,20 @@ h2 {
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
 }
 
-.testimonial:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.testimonial-content {
-    flex-grow: 1;
-    margin-bottom: 1rem;
-}
-
-.testimonial-content p {
+.testimonial p {
     font-style: italic;
-    line-height: 1.6;
-    color: var(--text-color);
-}
-
-.testimonial-author {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    margin-bottom: 1rem;
 }
 
 .testimonial-author h4 {
     font-weight: 600;
-    margin: 0;
-    color: var(--primary-color);
+    margin-bottom: 0.5rem;
 }
 
 .star-rating {
-    color: var(--star-color);
-    font-size: 1.2rem;
-    margin-top: 0.5rem;
+    color: #ffc107;
 }
 
 @media (max-width: 768px) {
@@ -846,7 +823,7 @@ footer {
         </div>
     </section>
 
-  <section id="testimonials" class="testimonials">
+<section id="testimonials" class="testimonials">
     <div class="container">
         <h2 class="section-title">What Our Customers Say</h2>
         <div class="testimonial-grid">
