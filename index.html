@@ -3,7 +3,7 @@
 <head>
     <base href="https://www.drh2o.com.au/">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DR H₂O - Premier Plumbing Services in Sydney's Eastern Suburbs</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -682,6 +682,80 @@ footer {
         display: none;
     }
 }
+/* Mobile Optimization Styles */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-card {
+        padding: 1.5rem;
+    }
+    
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .about-text,
+    .about-image {
+        width: 100%;
+        padding: 1.5rem;
+    }
+    
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form {
+        padding: 1.5rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+
+/* Improved Header Responsiveness */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .nav-links {
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 0;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+    
+    .header-cta {
+        margin-top: 1rem;
+    }
+}
 </style>
 </head>
 <body>
@@ -967,7 +1041,7 @@ footer {
         </div>
     </footer>
 </div>
- <script>
+<script>
 document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('header');
     const menuToggle = document.querySelector('.menu-toggle');
@@ -981,6 +1055,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     menuToggle.addEventListener('click', toggleMenu);
 
+    // Close menu when a link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+
     function updateHeaderStyle() {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
@@ -990,7 +1072,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     window.addEventListener('scroll', updateHeaderStyle);
-    updateHeaderStyle(); // Call this initially to set the correct state
+    updateHeaderStyle();
 
     // Reveal hero content
     setTimeout(() => {
@@ -1024,6 +1106,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-    </script>
+</script>
 </body>
 </html>
