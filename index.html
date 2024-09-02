@@ -7,529 +7,592 @@
     <title>DR H₂O - Premier Plumbing Services in Sydney's Eastern Suburbs</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
-    <style>
+      <style>
     :root {
-        --primary-color: #40a9f3;
+        --primary-color: #40a9f0;
         --secondary-color: #005a8c;
-        --accent-color: #ff6600;
-        --accent-color-hover: #ff8c00;
+        --star-color: #fe9527;
+        --accent-color: #ffa500;
         --text-color: #333;
         --bg-color: #f0f8ff;
         --white: #ffffff;
-        --gray: #f4f4f4;
-        --star-color: #fe9527;
-        --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        --transition-speed: 0.3s;
     }
-
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
-
     body {
         font-family: 'Poppins', sans-serif;
         line-height: 1.6;
-        background-color: var(--bg-color);
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
         color: var(--text-color);
+        padding-top: 97px;
     }
-
     .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
+         max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
     }
+    
+ header {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    background-color: transparent; /* Keep this transparent */
+}
 
-    /* Modernized Header Styles */
-    .sticky-header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: rgba(255, 255, 255, 0.95);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        transition: all 0.3s ease;
-    }
+header.scrolled {
+    background-color: var(--white);
+}
 
-    .sticky-header .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem;
-    }
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    .sticky-header .logo img {
-        height: 50px;
+    .logo img {
+    height: 120px;
         width: auto;
-    }
+        max-width: none;
+        border-radius: 10px;
+        padding: -10px;
+        background-color: white;
+       margin-right: auto; /* This pushes the logo to the left */
 
-    .nav-links {
-        display: flex;
-        gap: 1.5rem;
     }
+  .menu-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    color: var(--primary-color)!important;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 1) !important;
+    border: none;
+    border-radius: 8px;
+    margin-left: auto;
+}
+/* Ensure the icon stays blue even when scrolled */
+header.scrolled .menu-toggle {
+    background-color: var(--white);
+}
 
-    .nav-links a {
-        color: var(--primary-color);
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
-    }
+.nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0; /* Changed from right: 20px to align with the right edge */
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start; /* Changed from flex-end to flex-start */
+    border-radius: 5px;
+    width: 200px; /* Added a fixed width for consistency */
+}
+.nav-links.active {
+    display: flex;
+}
 
-    .nav-links a:hover {
-        color: var(--accent-color);
-    }
+.nav-links li {
+    list-style: none;
+    margin: 10px 0;
+    width: 100%; /* Make list items full width */
+}
 
-    .header-cta {
-        background-color: var(--accent-color);
-        color: var(--white);
-        padding: 0.5rem 1rem;
-        border-radius: 25px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: background-color 0.3s ease;
-    }
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease; /* Changed from opacity to all for more effects */
+    display: block; /* Make the entire area clickable */
+    padding: 10px 15px; /* Add some padding for better touch targets */
+    border-left: 3px solid transparent; /* Prepare for hover effect */
+}
 
-    .header-cta:hover {
-        background-color: var(--accent-color-hover);
-    }
+.nav-links a:hover {
+    opacity: 1; /* Keep full opacity on hover */
+    background-color: rgba(255, 255, 255, 0.1); /* Slight highlight on hover */
+    border-left: 3px solid var(--white); /* Left border on hover */
+}
 
-    .menu-toggle {
-        display: none;
-    }
 
-    /* Enhanced Hero Section */
+.menu-toggle {
+    display: block;
+    font-size: 24px;
+    color: var(--white);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
     .hero {
-        position: relative;
+        background-image: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/mx00DQbJ7NLY4uno57UO-.webp');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
         height: 100vh;
-        overflow: hidden;
-    }
-
-    #hero-video {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        transform: translateX(-50%) translateY(-50%);
-        z-index: -1;
-    }
-
-    .hero-content {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: var(--white);
-        z-index: 1;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
     }
-
-    .hero-content h1 {
-        font-size: 4rem;
-        margin-bottom: 1rem;
-        text-shadow: var(--text-shadow);
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
     }
-
+    .hero::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background: linear-gradient(to top, var(--bg-color), transparent);
+    }
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        transform: translateY(-50px);
+        opacity: 0;
+        transition: all 0.5s ease;
+        position: relative;
+        z-index: 2;
+    }
+    .hero-content.show {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    .hero-content h1,
     .hero-content p {
-        font-size: 1.5rem;
-        margin-bottom: 2rem;
-        text-shadow: var(--text-shadow);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     }
-
+    .hero-content h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    .hero-content p {
+        font-size: 1.4rem;
+        margin-bottom: 2.5rem;
+    }
     .btn {
-        display: inline-block;
-        padding: 1rem 2rem;
         background-color: var(--accent-color);
         color: var(--white);
-        text-decoration: none;
-        font-weight: bold;
+        padding: 1rem 2.5rem;
+        font-size: 1.2rem;
         border-radius: 50px;
         transition: all 0.3s ease;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-decoration: none;
+        display: inline-block;
+        border: none;
+        cursor: pointer;
     }
-
     .btn:hover {
-        background-color: var(--accent-color-hover);
+        background-color: #ff8c00;
         transform: translateY(-3px);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
-
-    /* Improved Services Section */
-    .services {
-        padding: 4rem 0;
-        background-color: var(--white);
-    }
-
-    .section-title {
+    .section-heading {
         text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         font-size: 2.5rem;
-        color: var(--primary-color);
-        margin-bottom: 2rem;
+        color: #ff8c00;
+        margin-bottom: 3rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
     }
-
     .services-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2rem;
     }
-
     .service-card {
-        background-color: var(--bg-color);
-        border-radius: 10px;
+        background-color: #ffffff;
+        border-radius: 12px;
         padding: 2rem;
         text-align: center;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .service-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .service-card i {
-        font-size: 3rem;
-        color: var(--accent-color);
-        margin-bottom: 1rem;
-    }
-
-    .service-card h3 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        color: var(--primary-color);
-    }
-
-    .service-card ul {
-        list-style: none;
-        padding: 0;
-        margin-top: 1rem;
-    }
-
-    .service-card li {
-        margin-bottom: 0.5rem;
-    }
-
-    /* Enhanced Testimonials Section */
-    .testimonials {
-        padding: 4rem 0;
-        background-color: var(--bg-color);
-    }
-
-    .testimonial-carousel {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
         position: relative;
-        max-width: 800px;
-        margin: 0 auto;
         overflow: hidden;
     }
-
-    .testimonial-slide {
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+    .service-icon {
+        font-size: 4rem;
+        color: #40a9f0;
+        margin-bottom: 1.5rem;
+    }
+    .service-card h3 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+        color: #40a9f0;
+    }
+    .service-card p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        color: #666;
+    }
+    .service-card ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 0;
+    }
+    .service-card ul li {
+        margin-bottom: 0.75rem;
+        font-size: 1rem;
+        color: #666;
+        text-align: left!important;
+        position: relative;
+        padding-left: 1.5rem;
+    }
+    .service-card ul li::before {
+    content: '\2022';
+    color: #00b4d8;
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: absolute;
+    left: -1.5rem; /* <--- updated */
+    top: 0; /* optional: add this to vertically center the bullet point */
+}
+    .about {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        padding: 4rem 0;
+        position: relative;
+    }
+    .about-content {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
         background-color: var(--white);
         border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+    .about-text {
+        flex: 1;
+        padding: 3rem;
+        text-align: center;
+    }
+    .about-image {
+        flex: 1;
+        position: relative;
+    }
+    .about-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .about-text h2 {
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+    }
+    .about-text p {
+        margin-bottom: 1rem;
+    }
+    .testimonials {
+        padding: 8rem 0;
+        background-color: var(--white);
+    }
+    .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    .testimonial {
+        background-color: var(--bg-color);
         padding: 2rem;
-        margin: 1rem;
+        border-radius: 10px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
     }
-
+    .testimonial:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    .testimonial-content {
+        flex-grow: 1;
+        margin-bottom: 1rem;
+    }
+    .testimonial-content p {
+        font-style: italic;
+        line-height: 1.6;
+    }
     .testimonial-author {
-        margin-top: 1rem;
-        text-align: right;
+        display: flex;
+        align-items: center;
     }
-
+    .testimonial-author img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-right: 1rem;
+    }
+    .testimonial-author h4 {
+        font-weight: 600;
+        margin: 0;
+        color: var(--primary-color);
+    }
+    .testimonial-author p {
+        margin: 0;
+        color: var(--text-color);
+        opacity: 0.8;
+    }
     .star-rating {
         color: var(--star-color);
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
     }
-
-    .carousel-nav {
-        display: flex;
-        justify-content: center;
-        margin-top: 2rem;
-    }
-
-    .carousel-nav button {
-        background-color: var(--primary-color);
-        color: var(--white);
-        border: none;
-        padding: 0.5rem 1rem;
-        margin: 0 0.5rem;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    .carousel-nav button:hover {
-        background-color: var(--accent-color);
-    }
-
-    /* Improved Contact Form */
     .contact {
-        padding: 4rem 0;
         background-color: var(--primary-color);
-        color: var(--white);
+        color: var(--text-color);
+        padding: 8rem 0;
+        position: relative;
     }
-
+    .contact::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background: linear-gradient(to bottom, var(--white), transparent);
+    }
     .contact-form {
         max-width: 600px;
         margin: 0 auto;
         background-color: var(--white);
-        padding: 2rem;
+        padding: 3rem;
         border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
-
+    .form-button {
+        display: block;
+        margin: 0 auto;
+    }
     .form-group {
         margin-bottom: 1.5rem;
     }
-
     .form-group label {
         display: block;
         margin-bottom: 0.5rem;
         color: var(--text-color);
     }
-
     .form-group input,
     .form-group textarea {
         width: 100%;
-        padding: 0.5rem;
+        padding: 0.8rem;
         border: 1px solid #ddd;
         border-radius: 5px;
-        transition: border-color 0.3s ease;
+        transition: all 0.3s ease;
     }
-
     .form-group input:focus,
     .form-group textarea:focus {
         outline: none;
-        border-color: var(--accent-color);
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 2px rgba(0, 119, 190, 0.2);
     }
-
-    .contact-form .btn {
-        width: 100%;
-        padding: 1rem;
-    }
-
-    /* Floating CTA Button */
-    .floating-cta {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 1000;
-    }
-
-    .floating-cta-button {
-        display: flex;
-        align-items: center;
-        background-color: var(--accent-color);
-        color: var(--white);
-        padding: 12px 20px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: bold;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-    }
-
-    .floating-cta-button:hover {
-        background-color: var(--accent-color-hover);
-        transform: translateY(-3px);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-    }
-
-    .floating-cta-button i {
-        margin-right: 8px;
-    }
-
-    /* Scroll-to-Top Button */
-    #scroll-to-top {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
+    footer {
         background-color: var(--primary-color);
         color: var(--white);
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        border: none;
-        cursor: pointer;
-        display: none;
-        justify-content: center;
-        align-items: center;
-        font-size: 20px;
-        z-index: 1000;
-        transition: all 0.3s ease;
+        text-align: center;
+        padding: 2rem 0;
     }
+    #contact .section-heading {
+        color: var(--white);
 
-    #scroll-to-top:hover {
-        background-color: var(--accent-color);
-        transform: translateY(-3px);
     }
-
-    /* Site-wide Animations */
-    .fade-in {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+ @media (max-width: 768px) {
+    body {
+        padding-top: 60px; /* Reduced from 80px */
     }
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+    flex-direction: column-reverse;
+  }
 
-    .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
+  .about-image {
+    margin-bottom: 2rem;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .about-text {
+    padding: 1rem;
+  }
+}
+    header {
+        height: 60px; /* Set a fixed height for the header on mobile */
     }
-
-    .service-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .header-content {
+        padding: 0.5rem 1rem;
     }
-
-    .service-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    .logo img {
+        height: 50px; /* Reduced from 60px */
     }
-
-    @keyframes pulse {
-        0% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1.05);
-        }
-        100% {
-            transform: scale(1);
-        }
+    .nav-links {
+        top: 60px; /* Align with the new header height */
+        width: 100%; /* Full width on mobile */
+        right: 0;
     }
-
-    .cta-button {
-        animation: pulse 2s infinite;
+    .menu-toggle {
+        display: flex;
+        font-size: 20px; /* Slightly smaller icon */
     }
+}
+header {
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .sticky-header {
-            background-color: rgba(255, 255, 255, 0.98);
-        }
+header.scrolled {
+    background-color: var(--white);
+}
 
-        .nav-links {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background-color: var(--white);
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 1rem;
-        }
-
-        .nav-links.active {
-            display: flex;
-        }
-
-        .menu-toggle {
-            display: block;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        .menu-toggle span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: var(--primary-color);
-            margin: 5px 0;
-            transition: all 0.3s ease;
-        }
-
-        .hero-content h1 {
-            font-size: 3rem;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-        }
-
-        .floating-cta-button span {
-            display: none;
-        }
-
-        .floating-cta-button {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            justify-content: center;
-        }
-
-        .floating-cta-button i {
-            margin-right: 0;
-            font-size: 24px;
-        }
-    }
-    </style>
+/* Adjust hero section to start from the top */
+.hero {
+    margin-top: -60px; /* Negative margin to offset the header height */
+    padding-top: 60px; /* Add padding to push content down */
+}
+</style>
 </head>
 <body>
-    <header class="sticky-header">
-        <div class="container">
+      <header>
+    <div class="container">
             <a href="#" class="logo">
                 <img src="https://i.ibb.co/Z18Fft5/upscale-1.png" alt="DR H₂O - For when your plumbing is under the weather">
-            </a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#testimonials">Testimonials
-<li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="./faq.html">FAQ</a></li>
-                </ul>
-            </nav>
-            <a href="#contact" class="header-cta">Get a Quote</a>
-            <button class="menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </header>
+            </a>    
+        <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="./about-us.html">About</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="./faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
     <section id="home" class="hero">
-        <video autoplay muted loop id="hero-video">
-            <source src="path/to/your/video.mp4" type="video/mp4">
-        </video>
-        <div class="hero-content">
-            <h1 class="animate__animated animate__fadeInDown">Expert Plumbing Solutions</h1>
-            <p class="animate__animated animate__fadeInUp">Dr. H20 is a family-owned and operated plumbing business with over 20 years' experience in the trade.</p>
-            <a href="#contact" class="btn animate__animated animate__fadeInUp">GET A FREE QUOTE</a>
+        <div class="container hero-content">
+            <h1>Expert Plumbing Solutions</h1>
+            <p>Your trusted plumbing partner in Sydney's Eastern Suburbs</p>
+            <a href="#contact" class="btn">GET A FREE QUOTE</a>
         </div>
     </section>
 
-    <section id="services" class="services fade-in">
+    <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">Our Services</h2>
+            <h2 class="section-heading">Our Services</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <i class="fas fa-exclamation-triangle"></i>
+                    <div class="service-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
                     <h3>Emergency Plumbing</h3>
-                    <p>24/7 emergency service for urgent plumbing needs.</p>
+                    <p>
+                        24/7 emergency service for all your urgent plumbing needs. We respond quickly to minimize damage and restore your peace of mind.
+                    </p>
                     <ul>
-                        <li>Burst pipe repair</li>
-                        <li>Drain blockage removal</li>
-                        <li>Water heater servicing</li>
+                        <li>Burst pipes</li>
+                        <li>Blocked drains</li>
+                        <li>Water heater failures</li>
                     </ul>
                 </div>
-                <!-- Repeat for other service cards -->
-                <!-- Add all 8 service cards here -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3>Blocked Drains</h3>
+                    <p>
+                        Using state-of-the-art technology, including Hi Pressure Jetting and CCTV drain inspections, we identify and clear blockages efficiently.
+                    </p>
+                    <ul>
+                        <li>Hidden pipe leaks</li>
+                        <li>CCTV Drain Inspection</li>
+                        <li>Drain Cleaning and Maintenance</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bath"></i>
+                    </div>
+                    <h3>Bathroom Renovations</h3>
+                    <p>
+                        Transform your bathroom with our expert renovation services. We handle everything from design to installation for a hassle-free experience.
+                    </p>
+                    <ul>
+                        <li>Custom designs</li>
+                        <li>Fixture upgrades</li>
+                        <li>Waterproofing</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-burn"></i>
+                    </div>
+                    <h3>Gas<br>Fitting</h3>
+                    <p>
+                        Trust our skilled professionals for all your gas fitting needs, from installations to repairs. We prioritize safety and efficiency in every job.
+                    </p>
+                    <ul>
+                        <li>Gas appliance installation</li>
+                        <li>Gas leak detection</li>
+                        <li>Gas line repairs</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="about fade-in">
+    <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About Us</h2>
+            <h2 class="section-heading">About Us</h2>
             <div class="about-content">
                 <div class="about-text">
                     <h2>DR H₂O: Your Local Plumbing Experts</h2>
@@ -544,30 +607,69 @@
         </div>
     </section>
 
-    <section id="testimonials" class="testimonials fade-in">
+    <section id="testimonials" class="testimonials">
         <div class="container">
-            <h2 class="section-title">What Our Customers Say</h2>
-            <div class="testimonial-carousel">
-                <div class="testimonial-slide">
-                    <p>"I can't recommend DR H₂O enough. They're not just skilled at what they do, but also incredibly honest and reliable. This plumber has consistently delivered top-notch service, always going above and beyond. I've been using their services for 7 years."</p>
+            <h2 class="section-heading">What Our Customers Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"I can't recommend DR H₂O enough. They're not just skilled at what they do, but also incredibly honest and reliable. This plumber has consistently delivered top-notch service, always going above and beyond. I've been using their services for 7 years."</p>
+                    </div>
                     <div class="testimonial-author">
-                        <h4>Martha Nissirios</h4>
-                        <div class="star-rating">★★★★★</div>
+                        <div>
+                            <h4>Martha Nissirios</h4>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- Repeat for other testimonials -->
-            </div>
-            <div class="carousel-nav">
-                <button class="prev" aria-label="Previous testimonial">&lt;</button>
-                <button class="next" aria-label="Next testimonial">&gt;</button>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"John and his team service my residential and commercial management portfolio. Their knowledge and experience are second to none. John is someone you can rely on to get the job done right the first time with exceptional results. I highly recommend DR H₂O for all your plumbing needs."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div>
+                            <h4>Theodore Geortsis</h4>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"DR H₂O completed the plumbing, gas, and drainage work on our full bathroom and kitchen renovations, including brand new pipework with bathroom moves, shower, bath, and double toilet install, plus laundry and kitchen appliances, new hot water heater, new gas line, and tapware installs! Nothing was ever too hard for John!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div>
+                            <h4>Dean Fox</h4>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact fade-in">
+    <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <form id="contact-form" class="contact-form">
+            <h2 class="section-heading">Contact Us</h2>
+            <form class="contact-form">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
@@ -584,7 +686,7 @@
                     <label for="message">Message</label>
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
-                <button type="submit" class="btn">Send Message</button>
+                <button type="submit" class="btn form-button">Send Message</button>
             </form>
         </div>
     </section>
@@ -594,141 +696,63 @@
             <p>© 2023 DR H₂O. All rights reserved. | License No: PL12345</p>
         </div>
     </footer>
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('header');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const heroContent = document.querySelector('.hero-content');
 
-    <div class="floating-cta">
-        <a href="#contact" class="floating-cta-button">
-            <i class="fas fa-phone"></i>
-            <span>Get a Quote</span>
-        </a>
-    </div>
+    function toggleMenu() {
+        navLinks.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+    }
 
-    <button id="scroll-to-top" aria-label="Scroll to top">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+    menuToggle.addEventListener('click', toggleMenu);
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const header = document.querySelector('.sticky-header');
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        const scrollToTopButton = document.getElementById('scroll-to-top');
+    function updateHeaderStyle() {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    }
 
-        // Toggle menu
-        menuToggle.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
-        });
+    window.addEventListener('scroll', updateHeaderStyle);
+    updateHeaderStyle(); // Call this initially to set the correct state
 
-        // Scroll to top button
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                scrollToTopButton.style.display = 'flex';
-            } else {
-                scrollToTopButton.style.display = 'none';
-            }
-        });
+    // Reveal hero content
+    setTimeout(() => {
+        heroContent.classList.add('show');
+    }, 500);
 
-        scrollToTopButton.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+    // Form submission handling
+    const form = document.querySelector('form');
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
                 });
-            });
-        });
-
-        // Fade-in animation
-        const fadeElements = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                if (response.ok) {
+                    alert('Thank you for your message! We will get back to you shortly.');
+                    form.reset();
+                } else {
+                    throw new Error('Form submission failed');
                 }
-            });
-        }, { threshold: 0.1 });
-
-        fadeElements.forEach(element => {
-            observer.observe(element);
-        });
-
-        // Testimonial carousel
-        tns({
-            container: '.testimonial-carousel',
-            items: 1,
-            slideBy: 'page',
-            autoplay: true,
-            autoplayButtonOutput: false,
-            controlsContainer: '.carousel-nav'
-        });
-
-        // Form validation
-        const form = document.getElementById('contact-form');
-        const constraints = {
-            name: {
-                presence: { allowEmpty: false }
-            },
-            email: {
-                presence: { allowEmpty: false },
-                email: true
-            },
-            phone: {
-                presence: { allowEmpty: false },
-                format: {
-                    pattern: /^[\d\s()+-]+$/,
-                    message: "Please enter a valid phone number"
-                }
-            },
-            message: {
-                presence: { allowEmpty: false }
-            }
-        };
-
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const formValues = {
-                name: form.elements.name.value,
-                email: form.elements.email.value,
-                phone: form.elements.phone.value,
-                message: form.elements.message.value
-            };
-
-            const errors = validate(formValues, constraints);
-            
-            if (errors) {
-                Object.keys(errors).forEach(function(field) {
-                    const input = form.elements[field];
-                    input.classList.add('error');
-                    const errorMessage = document.createElement('div');
-                    errorMessage.classList.add('error-message');
-                    errorMessage.textContent = errors[field][0];
-                    input.parentNode.appendChild(errorMessage);
-                });
-            } else {
-                // Form is valid, you can submit it here
-                alert('Form submitted successfully!');
-                form.reset();
+            } catch (error) {
+                alert('Oops! There was a problem submitting your form. Please try again later.');
+                console.error(error);
             }
         });
-
-        // Remove error styling and messages when user starts typing
-        form.addEventListener('input', function(event) {
-            if (event.target.classList.contains('error')) {
-                event.target.classList.remove('error');
-                const errorMessage = event.target.parentNode.querySelector('.error-message');
-                if (errorMessage) {
-                    errorMessage.remove();
-                }
-            }
-        });
-    });
+    }
+});
     </script>
 </body>
 </html>
