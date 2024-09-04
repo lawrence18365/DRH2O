@@ -312,6 +312,85 @@ h2 {
     line-height: 1.4;
 }
 
+/* Services section styles */
+.services {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.services-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.services-text {
+    width: 60%;
+    padding-right: 2rem;
+}
+
+.section-heading h2 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.services-subheading {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.service-highlights {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.highlight-item {
+    background-color: #ffffff;
+    color: var(--primary-color);
+    text-align: center;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-item img {
+    width: 60px;
+    height: 60px;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.highlight-item span {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    font-weight: 600;
+    line-height: 1.4;
+}
+
 /* Service card container */
 .services-grid {
     background-color: #ffffff;
@@ -379,8 +458,16 @@ h2 {
     .services-container {
         grid-template-columns: repeat(2, 1fr);
     }
+    .services-content {
+        flex-direction: column;
+    }
+    .services-text,
     .service-highlights {
-        flex-wrap: wrap;
+        width: 100%;
+    }
+    .services-text {
+        padding-right: 0;
+        margin-bottom: 2rem;
     }
     .highlight-item {
         width: calc(50% - 1rem);
@@ -744,25 +831,27 @@ footer {
     </section>
 <section id="services" class="services">
     <div class="container">
-        <div class="section-heading">
-            <h2>PROVIDING SAME-DAY<br>PLUMBING SERVICES!</h2>
-            <p class="services-subheading">
-                We offer 24/7 emergency plumbing services -- even on holidays.<br>So, if you have a plumbing emergency any time day or night,<br>call us. Our expert plumbers will make your emergency their top priority.
-            </p>           
-        <div class="service-highlights">
-            <div class="highlight-item">
-                <img src="https://cdn-icons-png.flaticon.com/512/1067/1067555.png" alt="Satisfaction Guaranteed">
-                <span>Satisfaction Always Guaranteed</span>
+        <div class="services-content">
+            <div class="services-text">
+                <h2>PROVIDING SAME-DAY<br>PLUMBING SERVICES!</h2>
+                <p class="services-subheading">
+                    We offer 24/7 emergency plumbing services -- even on holidays.<br>So, if you have a plumbing emergency any time day or night,<br>call us. Our expert plumbers will make your emergency their top priority.
+                </p>
             </div>
-            <div class="highlight-item">
-                <img src="https://cdn-icons-png.flaticon.com/512/2784/2784459.png" alt="24/7 Emergency service">
-                <span>24/7 Emergency service</span>
+            <div class="service-highlights">
+                <div class="highlight-item">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1067/1067555.png" alt="Satisfaction Guaranteed">
+                    <span>Satisfaction Always Guaranteed</span>
+                </div>
+                <div class="highlight-item">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2784/2784459.png" alt="24/7 Emergency service">
+                    <span>24/7 Emergency service</span>
+                </div>
+                <div class="highlight-item">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2910/2910756.png" alt="Licensed and Insured">
+                    <span>Licensed and Insured</span>
+                </div>
             </div>
-            <div class="highlight-item">
-                <img src="https://cdn-icons-png.flaticon.com/512/2910/2910756.png" alt="Licensed and Insured">
-                <span>Licensed and Insured</span>
-            </div>
-        </div>
         </div>
     </div>
 </section>
