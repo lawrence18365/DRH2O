@@ -273,10 +273,11 @@ h2 {
 }
 
 .service-highlights {
+    width: 40%;
     display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 3rem;
+    flex-direction: row; /* Change this line from 'column' to 'row' */
+    justify-content: space-between; /* Add this line to space out the items */
+    align-items: center; /* Add this to vertically center the items */
 }
 
 .highlight-item {
@@ -289,7 +290,8 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: calc(33.333% - 2rem);
+    width: 30%; /* Add this to give each item equal width with some space between */
+    margin-bottom: 0; /* Remove bottom margin as they're now side by side */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
