@@ -668,10 +668,32 @@ footer {
     padding: 2rem 0;
 }
 .site-footer {
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: #005a8c;
+    color: #ffffff;
     padding: 4rem 0 0;
     font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.footer-wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 110px;
+}
+
+.footer-wave .shape-fill {
+    fill: #f0f8ff;
 }
 
 .footer-content {
@@ -679,6 +701,9 @@ footer {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 2rem;
+    padding: 0 5%;
+    position: relative;
+    z-index: 1;
 }
 
 .footer-section {
@@ -686,8 +711,13 @@ footer {
     min-width: 250px;
 }
 
+.footer-logo {
+    width: 150px;
+    margin-bottom: 1rem;
+}
+
 .footer-section h3 {
-    color: var(--accent-color);
+    color: #fe962a;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
     font-weight: 600;
@@ -707,7 +737,7 @@ footer {
 
 .contact-info i {
     margin-right: 0.75rem;
-    color: var(--accent-color);
+    color: #fe962a;
     font-size: 1.1rem;
 }
 
@@ -727,7 +757,7 @@ footer {
 }
 
 .footer-section ul li a:hover {
-    color: var(--accent-color);
+    color: #fe962a;
     padding-left: 5px;
 }
 
@@ -738,13 +768,20 @@ footer {
 }
 
 .social-icons a {
-    color: var(--white);
-    font-size: 1.5rem;
-    transition: color 0.3s ease, transform 0.3s ease;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
-    color: var(--accent-color);
+    background-color: #fe962a;
     transform: translateY(-3px);
 }
 
@@ -752,28 +789,27 @@ footer {
     background-color: rgba(255, 255, 255, 0.1);
     padding: 1rem;
     border-radius: 8px;
-}
-
-.footer-logo {
-    max-width: 100px;
-    margin-bottom: 0.75rem;
+    margin-top: 1rem;
 }
 
 .certifications p {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     margin-bottom: 0.25rem;
 }
 
 .footer-bottom {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.2);
     padding: 1rem 0;
     margin-top: 3rem;
-    font-size: 0.85rem;
     text-align: center;
 }
 
+.footer-bottom p {
+    font-size: 0.85rem;
+}
+
 .footer-bottom a {
-    color: var(--accent-color);
+    color: #fe962a;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -1178,61 +1214,62 @@ footer {
         </div>
     </section>
 <footer class="site-footer">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-section about">
-                <h3>About DR H₂O</h3>
-                <p>Your trusted plumbing expert in Sydney's Eastern Suburbs. With over 20 years of experience, we provide top-notch plumbing services for all your needs.</p>
-                <div class="contact-info">
-                    <p><i class="fas fa-map-marker-alt"></i> Randwick, NSW 2031</p>
-                    <p><i class="fas fa-phone"></i> 0423 079 958</p>
-                    <p><i class="fas fa-envelope"></i> info@drh2o.com.au</p>
-                </div>
+    <div class="footer-wave">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
+    <div class="footer-content">
+        <div class="footer-section about">
+            <img src="https://i.ibb.co/Z18Fft5/upscale-1.png" alt="DR H₂O Logo" class="footer-logo">
+            <p>Your trusted plumbing expert in Sydney's Eastern Suburbs. With over 20 years of experience, we deliver top-notch plumbing solutions for all your needs.</p>
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> Randwick, NSW 2031</p>
+                <p><i class="fas fa-phone"></i> 0423 079 958</p>
+                <p><i class="fas fa-envelope"></i> info@drh2o.com.au</p>
             </div>
-            <div class="footer-section links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="./faq.html">FAQ</a></li>
-                </ul>
+        </div>
+        <div class="footer-section links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="./faq.html">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-section services">
+            <h3>Our Services</h3>
+            <ul>
+                <li>Emergency Plumbing</li>
+                <li>Blocked Drains</li>
+                <li>Bathroom Renovations</li>
+                <li>Gas Fitting</li>
+                <li>Pipe Repairs</li>
+                <li>Leak Detection</li>
+            </ul>
+        </div>
+        <div class="footer-section social">
+            <h3>Connect With Us</h3>
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
             </div>
-            <div class="footer-section services">
-                <h3>Our Services</h3>
-                <ul>
-                    <li>Emergency Plumbing</li>
-                    <li>Blocked Drains</li>
-                    <li>Bathroom Renovations</li>
-                    <li>Gas Fitting</li>
-                    <li>Pipe Repairs</li>
-                    <li>Leak Detection</li>
-                </ul>
-            </div>
-            <div class="footer-section social">
-                <h3>Connect With Us</h3>
-                <div class="social-icons">
-                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                </div>
-                <div class="certifications">
-                    <img src="https://i.ibb.co/Z18Fft5/upscale-1.png" alt="DR H₂O Logo" class="footer-logo">
-                    <p>Licensed and Insured</p>
-                    <p>License No: PL12345</p>
-                </div>
+            <div class="certifications">
+                <p><strong>Licensed and Insured</strong></p>
+                <p>License No: PL12345</p>
             </div>
         </div>
     </div>
     <div class="footer-bottom">
-        <div class="container">
-            <p>&copy; 2023 DR H₂O. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-        </div>
+        <p>&copy; 2023 DR H₂O. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
     </div>
 </footer>
+
 </div>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
