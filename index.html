@@ -548,8 +548,9 @@ h2 {
 }
 
 /* Testimonials Section */
- .testimonials {
-    background-color: #f8f9fa;
+ /* Testimonials Section */
+.testimonials {
+    background-color: var(--bg-color);
     padding: 4rem 0;
 }
 
@@ -560,7 +561,7 @@ h2 {
 }
 
 .testimonial {
-    background-color: #ffffff;
+    background-color: var(--white);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -592,14 +593,18 @@ h2 {
 /* Contact Section */
 .contact {
     background-color: var(--primary-color);
-    color: #ffffff;
+    color: var(--white);
     padding: 4rem 0;
+}
+
+.contact .section-title {
+    color: var(--white);
 }
 
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
-    background-color: #ffffff;
+    background-color: var(--white);
     padding: 3rem;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -633,7 +638,7 @@ h2 {
 
 .btn-submit {
     background-color: var(--accent-color);
-    color: #ffffff;
+    color: var(--white);
     padding: 1rem 2rem;
     font-size: 1.1rem;
     border: none;
@@ -649,7 +654,7 @@ h2 {
 /* Footer */
 .site-footer {
     background-color: var(--secondary-color);
-    color: #ffffff;
+    color: var(--white);
     padding: 3rem 0 0;
 }
 
@@ -668,7 +673,7 @@ h2 {
 .footer-logo {
     width: 120px;
     margin-bottom: 1rem;
-    background-color: #ffffff;
+    background-color: var(--white);
     padding: 5px;
     border-radius: 5px;
 }
@@ -706,7 +711,7 @@ h2 {
 }
 
 .footer-section ul li a {
-    color: #ffffff;
+    color: var(--white);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -1035,6 +1040,7 @@ h2 {
         </div>
     </section>
 
+<!-- Testimonials Section -->
 <section id="testimonials" class="testimonials">
     <div class="container">
         <h2 class="section-title">What Our Customers Say</h2>
