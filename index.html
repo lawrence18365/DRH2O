@@ -305,39 +305,37 @@ h2 {
     align-items: center; /* Add this to vertically center the items */
 }
 
-.highlight-item {
-    background-color: #ffffff;
-    color: var(--primary-color);
-    text-align: center;
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 30%; /* Add this to give each item equal width with some space between */
-    margin-bottom: 0; /* Remove bottom margin as they're now side by side */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+ .highlight-item {
+            background-color: #ffffff;
+            color: var(--primary-color);
+            text-align: center;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 30%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.highlight-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+        .highlight-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
 
-.highlight-item img {
-    width: 60px;
-    height: 60px;
-    filter: hue-rotate(120deg) brightness(1.5); /* adjust to your desired color */
-    margin-bottom: 1rem;
-}
+        .highlight-item i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
 
-.highlight-item span {
-    font-size: 1.1rem;
-    color: var(--text-color);
-    font-weight: 600;
-    line-height: 1.4;
-}
+        .highlight-item span {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            font-weight: 600;
+            line-height: 1.4;
+        }
 
 /* Services section styles */
 .services {
