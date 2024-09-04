@@ -667,7 +667,7 @@ footer {
     padding: 2rem 0;
 }
 .site-footer {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     color: var(--white);
     padding: 4rem 0 0;
     font-family: 'Poppins', sans-serif;
@@ -688,6 +688,9 @@ footer {
 .footer-logo {
     width: 150px;
     margin-bottom: 1rem;
+    background-color: var(--white);
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .footer-section h3 {
@@ -695,16 +698,28 @@ footer {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
     font-weight: 600;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--accent-color);
 }
 
 .footer-section p, .footer-section li {
     font-size: 0.95rem;
     line-height: 1.6;
     color: var(--white);
+    margin-bottom: 0.5rem;
 }
 
 .contact-info p {
-    margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
 }
@@ -727,11 +742,12 @@ footer {
 .footer-section ul li a {
     color: var(--white);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, padding-left 0.3s ease;
 }
 
 .footer-section ul li a:hover {
     color: var(--accent-color);
+    padding-left: 5px;
 }
 
 .social-icons {
@@ -742,12 +758,20 @@ footer {
 
 .social-icons a {
     color: var(--white);
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
-    color: var(--accent-color);
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
 }
 
 .certifications {
@@ -758,15 +782,17 @@ footer {
 }
 
 .footer-bottom {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.2);
     padding: 1rem 0;
     margin-top: 3rem;
     font-size: 0.85rem;
+    text-align: center;
 }
 
 .footer-bottom a {
     color: var(--accent-color);
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .footer-bottom a:hover {
@@ -780,6 +806,14 @@ footer {
 
     .footer-section {
         margin-bottom: 2rem;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .certifications {
+        text-align: center;
     }
 }
 /* Responsive Design */
@@ -1161,51 +1195,49 @@ footer {
         </div>
     </section>
 <footer class="site-footer">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-section about">
-                <img src="https://i.ibb.co/Z18Fft5/upscale-1.png" alt="DR H₂O Logo" class="footer-logo">
-                <p>Your trusted plumbing expert in Sydney's Eastern Suburbs. With over 20 years of experience, we deliver top-notch plumbing solutions for all your needs.</p>
-                <div class="contact-info">
-                    <p><i class="fas fa-map-marker-alt"></i> Randwick, NSW 2031</p>
-                    <p><i class="fas fa-phone"></i> 0423 079 958</p>
-                    <p><i class="fas fa-envelope"></i> info@drh2o.com.au</p>
-                </div>
+    <div class="footer-content container">
+        <div class="footer-section about">
+            <img src="https://i.ibb.co/Z18Fft5/upscale-1.png" alt="DR H₂O Logo" class="footer-logo">
+            <p>Your trusted plumbing expert in Sydney's Eastern Suburbs. With over 20 years of experience, we deliver top-notch plumbing solutions for all your needs.</p>
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> Randwick, NSW 2031</p>
+                <p><i class="fas fa-phone"></i> 0423 079 958</p>
+                <p><i class="fas fa-envelope"></i> info@drh2o.com.au</p>
             </div>
-            <div class="footer-section links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="./faq.html">FAQ</a></li>
-                </ul>
+        </div>
+        <div class="footer-section links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="./faq.html">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-section services">
+            <h3>Our Services</h3>
+            <ul>
+                <li>Emergency Plumbing</li>
+                <li>Blocked Drains</li>
+                <li>Bathroom Renovations</li>
+                <li>Gas Fitting</li>
+                <li>Pipe Repairs</li>
+                <li>Leak Detection</li>
+            </ul>
+        </div>
+        <div class="footer-section social">
+            <h3>Connect With Us</h3>
+            <div class="social-icons">
+                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
             </div>
-            <div class="footer-section services">
-                <h3>Our Services</h3>
-                <ul>
-                    <li>Emergency Plumbing</li>
-                    <li>Blocked Drains</li>
-                    <li>Bathroom Renovations</li>
-                    <li>Gas Fitting</li>
-                    <li>Pipe Repairs</li>
-                    <li>Leak Detection</li>
-                </ul>
-            </div>
-            <div class="footer-section social">
-                <h3>Connect With Us</h3>
-                <div class="social-icons">
-                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                </div>
-                <div class="certifications">
-                    <p><strong>Licensed and Insured</strong></p>
-                    <p>License No: PL12345</p>
-                </div>
+            <div class="certifications">
+                <p><strong>Licensed and Insured</strong></p>
+                <p>License No: PL12345</p>
             </div>
         </div>
     </div>
