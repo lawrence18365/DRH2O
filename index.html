@@ -214,6 +214,24 @@ header .container {
     border: none;
     cursor: pointer;
 }
+.form-btn {
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    transition: all var(--transition-speed) ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 auto;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .btn:hover,
 .btn:focus {
@@ -256,15 +274,25 @@ h2 {
     font-weight: 800;
     line-height: 1.2;
 }
+.section-title2 {
+    font-size: 4rem;
+    color: white;
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
 
 .section-heading h2 {
-    font-size: 3rem;
+    font-size: 4rem;
     color: var(--primary-color);
     margin: 0 0 1rem 0;
     text-transform: uppercase;
     font-weight: 800;
     text-align: center;
     line-height: 1.2;
+    margin-bottom: 2rem;
 }
 .section-heading h3 {
     font-size: 4rem;
@@ -1041,7 +1069,7 @@ footer {
                     <label for="message">Message</label>
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
-                <button type="submit" class="btn form-button">Send Message</button>
+                <button type="submit" class="form-btn form-button">Send Message</button>
             </form>
         </div>
     </section>
