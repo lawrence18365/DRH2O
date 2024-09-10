@@ -1239,7 +1239,7 @@ header .container {
     </footer>
 </div>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+ document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('header');
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -1297,7 +1297,9 @@ header .container {
     let touchEndX = 0;
 
     function updateSlider() {
-        testimonialSlider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        if (testimonialSlider) {
+            testimonialSlider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
     }
 
     function nextSlide() {
@@ -1327,20 +1329,28 @@ header .container {
         }
     }
 
-    nextButton.addEventListener('click', nextSlide);
-    prevButton.addEventListener('click', prevSlide);
+    if (nextButton) {
+        nextButton.addEventListener('click', nextSlide);
+    }
+    if (prevButton) {
+        prevButton.addEventListener('click', prevSlide);
+    }
 
-    testimonialSlider.addEventListener('touchstart', handleTouchStart, false);
-    testimonialSlider.addEventListener('touchmove', handleTouchMove, false);
-    testimonialSlider.addEventListener('touchend', handleTouchEnd, false);
+    if (testimonialSlider) {
+        testimonialSlider.addEventListener('touchstart', handleTouchStart, false);
+        testimonialSlider.addEventListener('touchmove', handleTouchMove, false);
+        testimonialSlider.addEventListener('touchend', handleTouchEnd, false);
+    }
 
     let autoScrollInterval = setInterval(nextSlide, 5000);
 
-    testimonialSlider.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
-    testimonialSlider.addEventListener('mouseleave', () => autoScrollInterval = setInterval(nextSlide, 5000));
+    if (testimonialSlider) {
+        testimonialSlider.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+        testimonialSlider.addEventListener('mouseleave', () => autoScrollInterval = setInterval(nextSlide, 5000));
 
-    testimonialSlider.addEventListener('touchstart', () => clearInterval(autoScrollInterval));
-    testimonialSlider.addEventListener('touchend', () => autoScrollInterval = setInterval(nextSlide, 5000));
+        testimonialSlider.addEventListener('touchstart', () => clearInterval(autoScrollInterval));
+        testimonialSlider.addEventListener('touchend', () => autoScrollInterval = setInterval(nextSlide, 5000));
+    }
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') prevSlide();
@@ -1349,10 +1359,12 @@ header .container {
 
     // Ensure buttons are clickable on mobile
     [prevButton, nextButton].forEach(button => {
-        button.addEventListener('touchend', (e) => {
-            e.preventDefault();
-            button.click();
-        });
+        if (button) {
+            button.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                button.click();
+            });
+        }
     });
 
     // Form submission
