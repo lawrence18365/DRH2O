@@ -1242,7 +1242,6 @@ header .container {
 document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('header');
     const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
     const heroContent = document.querySelector('.hero-content');
     const highlightItems = document.querySelectorAll('.highlight-item');
     const form = document.querySelector('form');
@@ -1250,21 +1249,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const testimonialSlides = document.querySelectorAll('.testimonial-slide');
     const prevButton = document.querySelector('.prev-testimonial');
     const nextButton = document.querySelector('.next-testimonial');
-
-    // Menu functionality
-    function toggleMenu() {
-        navLinks.classList.toggle('active');
-        menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
-    }
-
-    menuToggle.addEventListener('click', toggleMenu);
-
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            menuToggle.setAttribute('aria-expanded', 'false');
-        });
-    });
 
     // Header scroll effect
     function updateHeaderStyle() {
@@ -1285,9 +1269,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 observer.unobserve(entry.target);
             }
         });
-    }, {
-        threshold: 0.1
-    });
+    }, { threshold: 0.1 });
 
     highlightItems.forEach(item => observer.observe(item));
 
@@ -1347,7 +1329,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (testimonialSlider) {
         testimonialSlider.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
         testimonialSlider.addEventListener('mouseleave', () => autoScrollInterval = setInterval(nextSlide, 5000));
-
         testimonialSlider.addEventListener('touchstart', () => clearInterval(autoScrollInterval));
         testimonialSlider.addEventListener('touchend', () => autoScrollInterval = setInterval(nextSlide, 5000));
     }
@@ -1395,7 +1376,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error(error);
             } finally {
                 submitButton.disabled = false;
-                submitButton.textContent = 'Send Message';
+                submitButton.textContent = 'FREE QUOTE';
             }
         });
     }
