@@ -1239,7 +1239,7 @@ header .container {
     </footer>
 </div>
 <script>
- document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('header');
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -1422,6 +1422,9 @@ header .container {
         const scrollPosition = window.pageYOffset;
         aboutBackground.style.transform = `translateY(${scrollPosition * 0.5}px)`;
     });
+
+    // Initialize the slider
+    updateSlider();
 });
 </script>
 </body>
